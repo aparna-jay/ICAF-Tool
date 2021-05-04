@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { request } = require("express");
 let Reviewer = require("../models/Reviewer");
 
 // add data to reviewers table
@@ -18,6 +19,81 @@ router.route("/add").post((req , res)=>{
         Password
     })
 
-    newReviewer.save().then()
+    newReviewer.save().then(()=>{
+       res.json("added to database") 
+    }).catch((err)=>{
+        console.log(err);
+    })
 
 })
+
+//search
+
+router.route("/").get((req , res)=>{
+    Reviewer.find().then((Reviewer)=>{
+        res.json(Reviewer)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+
+
+//update
+    
+router.route("/update/:idofre").put(async(req ,res)=>{
+    let id = req.params.idofre;
+
+    const {
+        Name,
+        Designation,
+        Email,
+        Phone,
+        Password  
+    }= req.body;
+
+    const updateReviewer = {
+        Name,
+        Designation,
+        Email,
+        Phone,
+        Password 
+    } 
+
+
+     const update = await Reviewer.findByIdAndUpdate(id , updateReviewer).then(()=>{
+        res.status(200).send({status:"Updated"})
+     }).catch((err)=>{
+         console.log(err);
+         res.status(500).send({
+             status:"error with updating data"
+         })
+     })
+
+    })
+
+
+//delete
+router.route("/delete/:idofre").delete(async(req,res)=>{
+    let id = req.params.idofre;
+    await  Reviewer.findByIdAndDelete(id).then(()=>{
+        res.status(200).send({status:"deleted"});
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+
+//find one
+router.route("/get/:id").get((req,res)=>{
+    let id = req.params.id;
+    Reviewer.findById(id).then(()=>{
+        res.status(200).send({status:"User fetched"})
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+
+
+module.exports = router;

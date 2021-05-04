@@ -14,7 +14,7 @@ const Reviewerschema = new schema({
         required : true
     },
      Phone : {
-        type : Number,
+        type : String,
         required : true
     },
      Password : {
@@ -24,7 +24,7 @@ const Reviewerschema = new schema({
 })
 
 // table and path
-const reviewer = mongoose.model("reviewers",Reviewerschema);
+const Reviewer = mongoose.model("reviewers",Reviewerschema);
 
 
 //must export this file.
