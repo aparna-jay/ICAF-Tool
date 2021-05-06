@@ -41,6 +41,10 @@ const editorRouter = require("./routes/Table_Editor.js");
 //create a access for rotes Conference.js file
 const ConferenceRouter = require("./routes/Table_Conference.js");
 
+//create a access for rotes KeyNoteSpeakers.js file
+const KeyNoteSpeakersRouter = require("./routes/Table_KeyNoteSpeakers.js");
+
+
 //use Table_Editor.js
 //http://localhost:8030/editor (Editor.js file loaded.)
 app.use("/editor", editorRouter);
@@ -48,6 +52,11 @@ app.use("/editor", editorRouter);
 //use Table_Confeence.js
 //http://localhost:8030/conference (Editor.js file loaded.)
 app.use("/conference", ConferenceRouter);
+
+//use Table_Confeence.js
+//http://localhost:8030/KeyNoteSpeakers (Editor.js file loaded.)
+app.use("/KeyNoteSpeakers", KeyNoteSpeakersRouter);
+
 
 
 //run the app using port
