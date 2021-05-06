@@ -38,9 +38,17 @@ connection.once("open", () =>{
 //create a access for rotes Editor.js file
 const editorRouter = require("./routes/Table_Editor.js");
 
-//use students.js
+//create a access for rotes Conference.js file
+const ConferenceRouter = require("./routes/Table_Conference.js");
+
+//use Table_Editor.js
 //http://localhost:8030/editor (Editor.js file loaded.)
 app.use("/editor", editorRouter);
+
+//use Table_Confeence.js
+//http://localhost:8030/conference (Editor.js file loaded.)
+app.use("/conference", ConferenceRouter);
+
 
 //run the app using port
 app.listen(PORT, () =>{
