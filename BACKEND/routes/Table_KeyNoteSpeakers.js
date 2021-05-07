@@ -104,7 +104,7 @@ router.route("/delete/:id").delete(async(req,res)=> {
 
 router.route("/get/:id").get(async(req,res)=> {
     
-    //fetch conferenceId
+    //fetch KeyNoteSpeakersId
     let KeyNoteSpeakersId = req.params.id;
 
     const user = await KeyNoteSpeakers.findById(KeyNoteSpeakersId).then((keyNoteSpeakers)=> {

@@ -42,7 +42,7 @@ router.route("/add").post((req,res) => {
 //Fetch data
 //call backend URL
 router.route("/").get((req,res)=> {
-    //get data from calling Editor module
+    //get data from calling Conference module
     Conference.find().then((Table_Conference)=> {
 
         //send a response using json format to frontend
@@ -74,7 +74,7 @@ router.route("/update/:id").put(async(req,res)=> {
 
     }
 
-    //pass editorId,updateStudent
+    //pass conferenceId,updateConference
     const update = await Conference.findByIdAndUpdate(conferenceId, updateConference)
     .then(()=> {
 
