@@ -40,7 +40,7 @@ router.route("/").get((req,res)=>{
     })
 })
 
-//update payment details
+//update payment 
 //http://localhost:8090/payment/update/:id
 //Put Request
 router.route("/update/:id").put(async (req,res)=>{
