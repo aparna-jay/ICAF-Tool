@@ -3,7 +3,8 @@ const schema = mongoose.Schema;
 
 const Adminschema = new schema({
     Name :{
-        type : String
+        type : String,
+        required: true
     },
     Email : {
         type : String,
