@@ -1,3 +1,4 @@
+
 const express = require ("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-Parser");
@@ -7,8 +8,8 @@ const app = express();
 
 require("dotenv").config();
 
+const PORT = process.env.PORT || 8070;
 
-const port = process.env.port || 8090;
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -34,6 +35,11 @@ app.use("/user",userRouter);
 const paymentRouter = require("./routes/payments.js");
 app.use("/payment",paymentRouter);
 
-app.listen(port,()=>{
-    console.log(`server is running on port ${port}`);
+const connection = mongoose.connection;
+connection.once("open", () => {
+    console.log("Mongodb connection success!");
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is up and running on port ${PORT}`);
 })
