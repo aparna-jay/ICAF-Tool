@@ -5,7 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 
-const PORT = process.env.PORT || 8070;
+
 
 //declare a constant variable
 const app = express();
@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 //database link
 const URL = process.env.MONGODB_URL;
 
+const PORT = process.env.PORT || 8070;
 //create mongo configurations
 
 mongoose.connect(URL, {
@@ -43,24 +44,12 @@ app.use("/user",userRouter);
 const paymentRouter = require("./routes/payments.js");
 app.use("/payment",paymentRouter);
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-    console.log("Mongodb connection success!");
-});
+
 
 const ReviewerRouter = require("./routes/Reviewers.js");
 app.use("/Reviewer",ReviewerRouter);
 
-app.listen(PORT, () => {
-    console.log(`Server is up and running on port ${PORT}`);
 
-//connection
-const connection = mongoose.connection;
-//open this event("open") once (arrow function)
-connection.once("open", () =>{
-    console.log("Mongodb Connection Success!!") //console msg
-
-}) 
 
 //create a access for rotes Editor.js file
 const editorRouter = require("./routes/Table_Editor.js");
