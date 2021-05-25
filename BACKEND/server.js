@@ -3,16 +3,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const app = express();
-
-
 
 //declare a constant variable
 const app = express();
 //require  for read variables(MONGODB_URL)
 require("dotenv").config();
-
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -44,12 +39,8 @@ app.use("/user",userRouter);
 const paymentRouter = require("./routes/payments.js");
 app.use("/payment",paymentRouter);
 
-
-
 const ReviewerRouter = require("./routes/Reviewers.js");
 app.use("/Reviewer",ReviewerRouter);
-
-
 
 //create a access for rotes Editor.js file
 const editorRouter = require("./routes/Table_Editor.js");
@@ -73,11 +64,8 @@ app.use("/conference", ConferenceRouter);
 //http://localhost:8030/KeyNoteSpeakers (Editor.js file loaded.)
 app.use("/KeyNoteSpeakers", KeyNoteSpeakersRouter);
 
-
-
 //run the app using port
 app.listen(PORT, () =>{
     console.log(`Server is up and running on port number: ${PORT}`);
-    
 
 })

@@ -88,7 +88,7 @@ router.route("/update/:id").put(async(req,res)=> {
         console.log(err);  //display error msg in console
         //send response status for frontend
         //500 = internal error!
-        res.status(500).send({status: "Error with updating data", error: err.message});
+        res.status(500).send({status: "Error with updating Conference data", error: err.message});
     })
     
 })
@@ -102,7 +102,7 @@ router.route("/delete/:id").delete(async(req,res)=> {
         res.status(200).send({status: "Conference details deleted Successfully!"});
     }).catch((err) =>{
         console.log(err);
-        res.status(500).send({status: "Error with delete editor function", error: err.message});
+        res.status(500).send({status: "Error with delete Conference function", error: err.message});
 
     })
 })

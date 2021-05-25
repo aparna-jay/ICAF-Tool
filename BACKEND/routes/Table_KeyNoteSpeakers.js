@@ -81,7 +81,7 @@ router.route("/update/:id").put(async(req,res)=> {
         console.log(err);  //display error msg in console
         //send response status for frontend
         //500 = internal error!
-        res.status(500).send({status: "Error with updating data", error: err.message});
+        res.status(500).send({status: "Error with updating KeyNote Speakers data", error: err.message});
     })
     
 })
@@ -108,10 +108,10 @@ router.route("/get/:id").get(async(req,res)=> {
     let KeyNoteSpeakersId = req.params.id;
 
     const user = await KeyNoteSpeakers.findById(KeyNoteSpeakersId).then((keyNoteSpeakers)=> {
-        res.status(200).send({staus: "Conference Details Fetched", keyNoteSpeakers})
+        res.status(200).send({staus: "KeyNote Speakers Details Fetched", keyNoteSpeakers})
     }).catch((err) => {
         console.log(err);
-        res.staus(500).send({msg:"Error with get Conference Details!!", error: err.message});
+        res.staus(500).send({msg:"Error with get KeyNote Speakers Details!!", error: err.message});
     })
 })
 

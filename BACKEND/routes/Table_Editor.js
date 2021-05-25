@@ -82,7 +82,7 @@ router.route("/update/:id").put(async(req,res)=> {
         console.log(err);  //display error msg in console
         //send response status for frontend
         //500 = internal error!
-        res.status(500).send({status: "Error with updating data", error: err.message});
+        res.status(500).send({status: "Error with updating Editors' data", error: err.message});
     })
     
 })
@@ -109,10 +109,10 @@ router.route("/get/:id").get(async(req,res)=> {
     let editorId = req.params.id;
 
     const user = await Editor.findById(editorId).then((editor)=> {
-        res.status(200).send({staus: "User Fetched", editor})
+        res.status(200).send({staus: "Editor Fetched", editor})
     }).catch((err) => {
         console.log(err);
-        res.staus(500).send({msg:"Error with get user", error: err.message});
+        res.staus(500).send({msg:"Error with get Editor", error: err.message});
     })
 })
 
