@@ -64,6 +64,10 @@ app.use("/conference", ConferenceRouter);
 //http://localhost:8030/KeyNoteSpeakers (Editor.js file loaded.)
 app.use("/KeyNoteSpeakers", KeyNoteSpeakersRouter);
 
+//Admin
+const adminRouter = require("./routes/admins.js");
+app.use("/admin",adminRouter);
+
 //run the app using port
 app.listen(PORT, () =>{
     console.log(`Server is up and running on port number: ${PORT}`);
