@@ -1,6 +1,6 @@
 import React from 'react';
 import "App.css";
-import img from "./img.jpg"
+import img from "./img.jpg";
 
 const App =()=> (
   <div>
