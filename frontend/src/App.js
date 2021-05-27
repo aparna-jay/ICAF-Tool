@@ -5,6 +5,7 @@ import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
+import Keynotes from "./component/Keynotes/Keynotes";
 
 export default class App extends Component{
     render() {
@@ -15,6 +16,7 @@ export default class App extends Component{
                     <MainNav/>
                     <Route path="/admin" component={AdminHome}/>
                     <Route path="/adminProfile" component={AdminProfile}/>
+                    <Route path="/keynotes" component={Keynotes}/>
                     </div>
                 </Router>
             </div>
