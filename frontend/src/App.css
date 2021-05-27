@@ -2,3 +2,12 @@
     color: cornflowerblue;
 }
 
+.adminUser{
+    background-color: #ffdf7e;
+}
+.adminEditor{
+    background-color: #ffb67e;
+}
+.adminReviewer{
+    background-color: #fd7350;
+}
