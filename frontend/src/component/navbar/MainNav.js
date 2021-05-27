@@ -13,7 +13,7 @@ export default class MainNav extends Component {
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Keynote</a>
+                            <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Workshops</a>
