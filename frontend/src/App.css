@@ -2,6 +2,16 @@
     color: cornflowerblue;
 }
 
+.nav-item{
+    margin-right: 45px;
+}
+form{
+    margin-left: 380px;
+    margin-top: 10px;
+}
+#btn{
+    margin-left: 46px;
+}
 .adminUser{
     background-color: #ffdf7e;
 }

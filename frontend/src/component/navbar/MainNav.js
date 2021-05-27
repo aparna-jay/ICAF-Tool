@@ -22,6 +22,12 @@ export default class MainNav extends Component {
                             <a className="nav-link active" aria-current="page" href="#">for authors</a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="#">Contact Us</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="#">Login</a>
+                        </li>
+                        <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
                     </li>
                     </ul>
