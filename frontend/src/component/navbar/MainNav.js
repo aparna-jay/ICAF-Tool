@@ -13,7 +13,7 @@ export default class MainNav extends Component {
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Keynotes</a>
+                            <a className="nav-link active" aria-current="page" href="#">Keynote</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Workshops</a>
@@ -27,10 +27,13 @@ export default class MainNav extends Component {
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Login</a>
                         </li>
+                        <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
+                    </li>
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" id="btn" type="submit">Search</button>
+                            <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </div>
