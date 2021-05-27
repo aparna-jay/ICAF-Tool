@@ -12,3 +12,12 @@ form{
 #btn{
     margin-left: 46px;
 }
+.adminUser{
+    background-color: #ffdf7e;
+}
+.adminEditor{
+    background-color: #ffb67e;
+}
+.adminReviewer{
+    background-color: #fd7350;
+}

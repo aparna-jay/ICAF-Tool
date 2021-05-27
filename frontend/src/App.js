@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
 import "bootstrap.min.css";
-// import img from "./img.jpg"
 import MainNav from "./component/navbar/MainNav";
-import Reviewerhome from "./component/Reviewerhome";
+import AdminHome from "./component/admin/AdminHome";
+import AdminProfile from "./component/admin/AdminProfile";
 
-const App =()=> (
-  <div>
+export default class App extends Component{
+    render() {
+        return (
 
-      <MainNav></MainNav>
-      <h1 className="heading">sadsdgdfg</h1>
-      {/*<img src={img} alt="" />*/}
-      <Reviewerhome></Reviewerhome>
-  </div>
-);
+            <div>
+                <Router>
+                    <div className="App">
+                    <MainNav/>
+                    <Route path="/admin" component={AdminHome}/>
+                    <Route path="/adminProfile" component={AdminProfile}/>
+                    </div>
+                </Router>
+            </div>
+        );
+    }
+}
 
-export default App;
