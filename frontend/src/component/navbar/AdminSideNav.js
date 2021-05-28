@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React  from "react"
 import '../../styles/Admin/sidebar.css'
 
 const AdminSideNav = () => {
@@ -17,6 +17,9 @@ const AdminSideNav = () => {
                             </li>
                             <li>
                                 <a href="/adminProfile">Profile</a>
+                            </li>
+                            <li>
+                                <a href="/adminRegister">Register</a>
                             </li>
                         </ul>
                     </nav>
