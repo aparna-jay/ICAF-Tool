@@ -54,7 +54,7 @@ const KeyNoteSpeakersRouter = require("./routes/Table_KeyNoteSpeakers.js");
 
 //use Table_Editor.js
 //http://localhost:8030/editor (Editor.js file loaded.)
-app.use("/editor", editorRouter);
+app.use("/Keynotes", editorRouter);
 
 //use Table_Confeence.js
 //http://localhost:8030/conference (Editor.js file loaded.)
