@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
 import "bootstrap.min.css";
@@ -23,7 +23,8 @@ const App = () => {
                     <Route path="/admin" component={AdminHome}/>
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
-                    <Reviewerhome></Reviewerhome>
+                    <Route path="/adminRegister" component={AdminRegister}/>
+
                 </Router>
             </div>
         );
