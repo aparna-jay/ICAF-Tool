@@ -5,13 +5,23 @@
 .nav-item{
     margin-right: 45px;
 }
+#author{
+   width: 100px;
+}
+#contact{
+    width: 100px;
+}
+#search{
+    width: 200px;
+}
 form{
-    margin-left: 380px;
+    margin-left: 280px;
     margin-top: 10px;
 }
 #btn{
-    margin-left: 46px;
+    margin-left: 42px;
 }
+
 .adminUser{
     background-color: #ffdf7e;
 }

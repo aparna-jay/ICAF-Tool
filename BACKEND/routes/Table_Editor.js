@@ -96,7 +96,7 @@ router.route("/delete/:id").delete(async(req,res)=> {
         res.status(200).send({status: "Editor deleted Successfully!"});
     }).catch((err) =>{
         console.log(err);
-        res.status(500).send({status: "Error with delete editor function", error: err.message});
+        res.status(500).send({status: "Error with delete Keynotes function", error: err.message});
 
     })
 })
