@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
 import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
+import Reviewerhome from "./component/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
 
@@ -22,7 +23,7 @@ const App = () => {
                     <Route path="/admin" component={AdminHome}/>
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
-                    <Route path="/adminRegister" component={AdminRegister}/>
+                    <Reviewerhome></Reviewerhome>
                 </Router>
             </div>
         );

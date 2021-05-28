@@ -58,7 +58,7 @@ const AdminProfile = () => {
                                                     </div>
                                                 </div>
                                                 <div className="row">
-                                                    <div className="col-md-12"><a className="btn btn-info"
+                                                    <div className="col-md-12"><a className="btn btn-success"
                                                                                   role="button" href="editProfile.html"><i
                                                         className="fas fa-pencil-alt"></i>&nbsp;Edit</a></div>
                                                 </div>
