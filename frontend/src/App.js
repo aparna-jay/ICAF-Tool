@@ -7,20 +7,23 @@ import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
 import Keynotes from "./component/Keynotes/Keynotes";
 
-export default class App extends Component{
-    render() {
+const App = () => {
+   const [text, setText] = useState("Hello world");
+
         return (
+
             <div>
                 <Router>
-                    <div className="App">
-                    <MainNav/>
+                <div className="App" />
+                <MainNav text={text} setText={setText}>
+                </MainNav>
+
                     <Route path="/admin" component={AdminHome}/>
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
-                    </div>
                 </Router>
             </div>
         );
-    }
 }
+ export default App;
 

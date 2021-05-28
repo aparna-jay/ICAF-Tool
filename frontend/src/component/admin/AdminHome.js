@@ -2,9 +2,8 @@ import React, {Component} from "react"
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
 
-export default class AdminHome extends Component {
+const AdminHome = () => {
 
-    render() {
         return (
             <div >
                 <section>
@@ -210,5 +209,7 @@ export default class AdminHome extends Component {
                 </section>
             </div>
         );
-    }
+
 }
+
+export default AdminHome;

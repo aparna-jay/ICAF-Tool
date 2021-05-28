@@ -1,9 +1,9 @@
 import React, {Component} from "react"
 import '../../styles/Admin/sidebar.css'
 
-export default class AdminSideNav extends Component {
+const AdminSideNav = () => {
 
-    render() {
+
         return (
             <div>
                     <nav id="sidebar">
@@ -23,5 +23,6 @@ export default class AdminSideNav extends Component {
             </div>
 
     );
+
     }
-    }
+export default AdminSideNav;
