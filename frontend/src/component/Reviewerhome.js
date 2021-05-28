@@ -1,10 +1,7 @@
-import React,{Component}from "react";
+import React from "react";
 
- export default class Reviewerhome extends Component{
-    // constructor() {
-    //     super();
-    // }
-    render(){
+const Reviewerhome = ()=>{
+
         return(
            <div className={"container "}>
                <div className={"container bg-danger"}>
@@ -55,5 +52,6 @@ import React,{Component}from "react";
 
            </div>
         );
-    }
+
 }
+export default Reviewerhome;

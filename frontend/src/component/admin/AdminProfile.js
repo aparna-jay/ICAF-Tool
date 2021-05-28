@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import img from "../../img.jpg"
+// import img from "../../img.jpg"
 import AdminSideNav from "../navbar/AdminSideNav";
 
 export default class AdminProfile extends Component {
@@ -28,8 +28,9 @@ export default class AdminProfile extends Component {
                         </div>
                         <div className="row justify-content-center" >
                             <div className="col-sm-6 col-lg-4" >
-                                <div className="card clean-card text-center"><img className="card-img-top w-100 d-block"
-                                                                                  src={img} />
+                                <div className="card clean-card text-center">
+                                    {/*<img className="card-img-top w-100 d-block"*/}
+                                    {/*                                              src={img} />*/}
                                     <div className="card-body info">
                                         <div className="row" >
                                             <div className="col-md-12" >
