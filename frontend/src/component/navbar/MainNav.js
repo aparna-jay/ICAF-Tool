@@ -1,8 +1,9 @@
-import React, {Component} from "react"
-export default class MainNav extends Component {
+import React from "react"
 
-    render() {
+const MainNav = ({text}, {setText}) =>{
+
         return (
+
    <div >
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,11 +36,12 @@ export default class MainNav extends Component {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
+<h1>{text}</h1>
                 </div>
             </div>
         </nav>
 </div>
         );
-    }
-}
 
+}
+export default  MainNav;

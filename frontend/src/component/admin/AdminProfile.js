@@ -2,9 +2,9 @@ import React, {Component} from "react"
 import img from "../../img.jpg"
 import AdminSideNav from "../navbar/AdminSideNav";
 
-export default class AdminProfile extends Component {
 
-    render() {
+const AdminProfile = () => {
+
         return (
             <div >
 
@@ -74,5 +74,6 @@ export default class AdminProfile extends Component {
                 </div>
             </div>
         );
-    }
+
 }
+export default AdminProfile;
