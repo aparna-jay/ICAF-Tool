@@ -5,25 +5,25 @@ import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
+import Reviewerhome from "./component/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 
-const App = () => {
-   const [text, setText] = useState("Hello world");
-
+export default class App extends Component{
+    render() {
         return (
 
             <div>
                 <Router>
-                <div className="App" />
-                <MainNav text={text} setText={setText}>
-                </MainNav>
-
+                    <div className="App">
+                    <MainNav/>
                     <Route path="/admin" component={AdminHome}/>
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
+                    <Reviewerhome></Reviewerhome>
+                    </div>
                 </Router>
             </div>
         );
+    }
 }
- export default App;
 
