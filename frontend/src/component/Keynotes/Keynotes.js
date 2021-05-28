@@ -1,11 +1,11 @@
-import React, {Component} from "react"
+import React from "react"
 import '../../styles/Keynotes/Keynotes.css'
 import James from "../../James.jpg"
 import Jane from "../../Jane.jpg"
 import Adam from "../../Adam.jpg"
 
-export default class Keynotes extends Component{
-    render() {
+const Keynotes = () =>{
+
         return(
             <div>
                 <div className="keynotes">
@@ -72,5 +72,6 @@ export default class Keynotes extends Component{
 
             </div>
         );
-    }
 }
+
+export default Keynotes;
