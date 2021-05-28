@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React from "react"
 import img from "../../img.jpg"
 import AdminSideNav from "../navbar/AdminSideNav";
 
@@ -58,7 +58,7 @@ const AdminProfile = () => {
                                                     </div>
                                                 </div>
                                                 <div className="row">
-                                                    <div className="col-md-12"><a className="btn btn-success"
+                                                    <div className="col-md-12"><a className="btn btn-info"
                                                                                   role="button" href="editProfile.html"><i
                                                         className="fas fa-pencil-alt"></i>&nbsp;Edit</a></div>
                                                 </div>
