@@ -1,8 +1,26 @@
-import React, {Component} from "react"
+import React, {useState, useEffect} from "react"
+import axios from "axios";
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
 
 const AdminHome = () => {
+
+    const [Reviewers , setReviewers] = useState([]);
+    const [Users , setUsers] = useState([]);
+    const [Editors, setEditors] = useState([]);
+
+    useEffect(() =>{
+        axios.get('http://localhost:8070/Reviewer/').then((response)=>{
+            setReviewers(response.data);
+        });
+        axios.get('http://localhost:8070/user/').then((response)=>{
+            setUsers(response.data);
+        });
+        axios.get('http://localhost:8070/KeyNoteSpeakers/').then((response)=>{
+            setEditors(response.data);
+        });
+    }, [])
+
 
         return (
             <div >
@@ -44,7 +62,7 @@ const AdminHome = () => {
                                                     <div className="panel-body">
 
 
-                                                        <table
+                                                            <table
                                                             className="table table-striped table-bordered table-list">
                                                             <thead>
                                                             <tr>
@@ -54,6 +72,8 @@ const AdminHome = () => {
                                                                 <th>Email</th>
                                                             </tr>
                                                             </thead>
+                                                                {
+                                                                    Reviewers.map(reviewer=>(
                                                             <tbody>
                                                             <tr>
                                                                 <td align="center">
@@ -62,11 +82,12 @@ const AdminHome = () => {
                                                                     <a className="btn btn-danger"><em
                                                                         className="fa fa-trash"></em></a>
                                                                 </td>
-                                                                <td className="hidden-xs">1</td>
-                                                                <td>John Doe</td>
-                                                                <td>johndoe@example.com</td>
+                                                                <td className="hidden-xs">{reviewer.Name}</td>
+                                                                <td>{reviewer.Name}</td>
+                                                                <td>{reviewer.Email}</td>
                                                             </tr>
                                                             </tbody>
+                                                                ))}
                                                         </table>
 
                                                     </div>
@@ -113,11 +134,14 @@ const AdminHome = () => {
                                                                 <thead>
                                                                 <tr>
                                                                     <th><em className="fa fa-cog"></em></th>
-                                                                    <th className="hidden-xs">ID</th>
-                                                                    <th>Name</th>
-                                                                    <th>Email</th>
+                                                                    <th className="hidden-xs">Name</th>
+                                                                    <th>Organization</th>
+                                                                    <th>Designation</th>
                                                                 </tr>
                                                                 </thead>
+                                                                {
+                                                                    Editors.map(editor=>(
+
                                                                 <tbody>
                                                                 <tr>
                                                                     <td align="center">
@@ -126,11 +150,12 @@ const AdminHome = () => {
                                                                         <a className="btn btn-danger"><em
                                                                             className="fa fa-trash"></em></a>
                                                                     </td>
-                                                                    <td className="hidden-xs">1</td>
-                                                                    <td>John Doe</td>
-                                                                    <td>johndoe@example.com</td>
+                                                                    <td className="hidden-xs">{editor.Name}</td>
+                                                                    <td>{editor.Organization}</td>
+                                                                    <td>{editor.Designation}</td>
                                                                 </tr>
                                                                 </tbody>
+                                                                        ))}
                                                             </table>
                                                             <br />
 
@@ -171,6 +196,7 @@ const AdminHome = () => {
                                                             <div className="panel-body">
 
 
+
                                                                 <table
                                                                     className="table table-striped table-bordered table-list">
                                                                     <thead>
@@ -181,6 +207,8 @@ const AdminHome = () => {
                                                                         <th>Email</th>
                                                                     </tr>
                                                                     </thead>
+                                                                    {
+                                                                        Users.map(user=>(
                                                                     <tbody>
                                                                     <tr>
                                                                         <td align="center">
@@ -189,12 +217,14 @@ const AdminHome = () => {
                                                                             <a className="btn btn-danger"><em
                                                                                 className="fa fa-trash"></em></a>
                                                                         </td>
-                                                                        <td className="hidden-xs">1</td>
-                                                                        <td>John Doe</td>
-                                                                        <td>johndoe@example.com</td>
+                                                                        <td className="hidden-xs">{user.Name}</td>
+                                                                        <td>{user.Name}</td>
+                                                                        <td>{user.Email}</td>
                                                                     </tr>
                                                                     </tbody>
+                                                                        ))}
                                                                 </table>
+
                                                                 <br />
 
                                                             </div>
