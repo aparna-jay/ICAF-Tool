@@ -5,11 +5,11 @@ const { request } = require("express");
 let Editor = require("../models/Editor");
 
 //Insert data
-//http://localhost:8030/editor/add
+//http://localhost:8070/editor/add
 //arrow function
 router.route("/add").post((req,res) => {
 
-    //request data from frontent throught function body
+    //request data from frontend throughout function body
     const Name = req.body.Name;
     const Designation = req.body.Designation; 
     const Email = req.body.Email;
@@ -26,7 +26,7 @@ router.route("/add").post((req,res) => {
         Password
     })
 
-    //insert data to the database throught the model
+    //insert data to the database throughout the model
     newEditor.save().then(() => {  //js promise
         //send a response using json format to the frontend
         res.json("Editor Added!!")
@@ -109,12 +109,12 @@ router.route("/get/:id").get(async(req,res)=> {
     let editorId = req.params.id;
 
     const user = await Editor.findById(editorId).then((editor)=> {
-        res.status(200).send({staus: "Editor Fetched", editor})
+        res.status(200).send({status: "Editor Fetched", editor})//staus
     }).catch((err) => {
         console.log(err);
-        res.staus(500).send({msg:"Error with get Editor", error: err.message});
+        res.status(500).send({msg:"Error with get Editor", error: err.message});
     })
 })
 
-//export the moduls
+//export the modules
 module.exports = router;
