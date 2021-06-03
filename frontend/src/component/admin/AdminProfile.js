@@ -3,8 +3,8 @@ import img from "../../img.jpg"
 import AdminSideNav from "../navbar/AdminSideNav";
 
 
-const AdminProfile = () => {
-
+const AdminProfile = (adminId) => {
+console.log(adminId)
         return (
             <div >
 

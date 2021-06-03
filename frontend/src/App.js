@@ -8,10 +8,12 @@ import AdminProfile from "./component/admin/AdminProfile";
 import Reviewerhome from "./component/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
+import getAdmin from "./component/admin/getAdmin";
 
 const App = () => {
    const [text, setText] = useState("Hello world");
-
+   const [adminId, setAdminId] = useState ('Hiii');
+ //  console.log(adminId);
         return (
 
             <div>
@@ -20,10 +22,11 @@ const App = () => {
                 <MainNav text={text} setText={setText}>
                 </MainNav>
 
-                    <Route path="/admin" component={AdminHome}/>
-                    <Route path="/adminProfile" component={AdminProfile}/>
+                    <Route path="/admin" render={props => <AdminHome setAdminId={setAdminId} />} />
+                    <Route path="/adminProfile" render={props => <AdminProfile AdminId={adminId} /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
+                    <Route path="/test" component={getAdmin}></Route>
 
                 </Router>
             </div>
