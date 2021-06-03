@@ -8,6 +8,10 @@ import AdminProfile from "./component/admin/AdminProfile";
 import Reviewerhome from "./component/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
+import ReviewerRegister from "./component/ReviewerRegister";
+import ReviewerUpdate from "./component/ReviewerUpdate";
+
+import EditorProfile from "./component/Editor/EditorProfile";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
 import 'regenerator-runtime/runtime'
@@ -28,6 +32,10 @@ const App = () => {
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
+                    <Route path="/reviewer" component={Reviewerhome}/>
+                    <Route path="/ReviewerRegister" component={ReviewerRegister}/>
+                    <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
+                    <Route path="/Editor" component={EditorProfile}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>
                     <Route path="/Workshop" component={WorkshopReg}/>

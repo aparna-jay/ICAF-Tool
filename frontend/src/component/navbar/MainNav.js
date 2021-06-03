@@ -30,7 +30,14 @@ const MainNav = ({text}, {setText}) =>{
                         </li>
                         <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
-                    </li>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/reviewer">reviewer</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/Editor">Editor</a>
+                        </li>
+
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/user">User</a>
                         </li>

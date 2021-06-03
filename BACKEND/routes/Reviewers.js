@@ -87,13 +87,39 @@ router.route("/delete/:idofre").delete(async(req,res)=>{
 //find one
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
-    Reviewer.findById(id).then(()=>{
-        res.status(200).send({status:"User fetched"})
+    const R = Reviewer.findById(id).then((reviewer)=>{
+        res.json(reviewer)
     }).catch((err)=>{
         console.log(err);
     })
 })
 
+
+// router.route("/updateOne/:idofre").put(async(req ,res)=>{
+//     let id = req.params.idofre;
+//
+//     const {
+//         Name,
+//     }= req.body;
+//
+//     const updateReviewer = {
+//         Name,
+//     }
+//
+//
+//     const update = await Reviewer.findOneAndUpdate(
+//         { _id : id },
+//          { Name : updateReviewer }
+//          ).then(()=>{
+//         res.status(200).send({status:"Updated"})
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.status(500).send({
+//             status:"error with updating data"
+//         })
+//     })
+//
+// })
 
 
 module.exports = router;
