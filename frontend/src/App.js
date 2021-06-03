@@ -8,6 +8,10 @@ import AdminProfile from "./component/admin/AdminProfile";
 import Reviewerhome from "./component/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
+import UserMainReg from "./component/User/UserMainReg";
+import ResearcherReg from "./component/User/ResearcherReg";
+import 'regenerator-runtime/runtime'
+import WorkshopReg from "./component/User/WorkshopReg";
 
 const App = () => {
    const [text, setText] = useState("Hello world");
@@ -24,6 +28,9 @@ const App = () => {
                     <Route path="/adminProfile" component={AdminProfile}/>
                     <Route path="/keynotes" component={Keynotes}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
+                    <Route path="/user" component={UserMainReg}/>
+                    <Route path="/Researcher" component={ResearcherReg}/>
+                    <Route path="/Workshop" component={WorkshopReg}/>
 
                 </Router>
             </div>

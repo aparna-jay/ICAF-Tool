@@ -31,6 +31,11 @@ const MainNav = ({text}, {setText}) =>{
                         <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
                     </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/user">User</a>
+                        </li>
+
+
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />
