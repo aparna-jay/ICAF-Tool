@@ -32,6 +32,9 @@ const MainNav = ({text}, {setText}) =>{
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/reviewer">reviewer</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/Editor">Editor</a>
                         </li>
                     </ul>
