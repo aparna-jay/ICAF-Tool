@@ -53,15 +53,15 @@ const KeyNoteSpeakersRouter = require("./routes/Table_KeyNoteSpeakers.js");
 
 
 //use Table_Editor.js
-//http://localhost:8030/editor (Editor.js file loaded.)
-app.use("/Keynotes", editorRouter);
+//http://localhost:8070/editor (Editor.js file loaded.)
+app.use("/editor", editorRouter);
 
-//use Table_Confeence.js
-//http://localhost:8030/conference (Editor.js file loaded.)
+//use Table_Conference.js
+//http://localhost:8070/conference (conference.js file loaded.)
 app.use("/conference", ConferenceRouter);
 
-//use Table_Confeence.js
-//http://localhost:8030/KeyNoteSpeakers (Editor.js file loaded.)
+//use Table_Conference.js
+//http://localhost:8070/KeyNoteSpeakers (Editor.js file loaded.)
 app.use("/KeyNoteSpeakers", KeyNoteSpeakersRouter);
 
 //Admin

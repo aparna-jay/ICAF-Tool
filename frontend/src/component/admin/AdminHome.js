@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import axios from "axios";
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
+import ReviewerRegister from "../ReviewerRegister";
 
 const AdminHome = ({setAdminId}) => {
     const [Reviewers , setReviewers] = useState([]);
@@ -76,9 +77,9 @@ const AdminHome = ({setAdminId}) => {
 
                                                             </div>
                                                             <div className="col col-xs-6 text-right">
-                                                                <button type="button"
-                                                                        className="btn btn-sm btn-primary btn-create">Add
-                                                                </button>
+                                                                <a type="button"
+                                                                        className="btn btn-sm btn-primary btn-create" href="/ReviewerRegister">Add
+                                                                </a>
                                                             </div>
 
                                                         </div>
