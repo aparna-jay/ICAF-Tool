@@ -1,4 +1,4 @@
-//assigne it to variable & import mongoose variable
+//assign it to variable & import mongoose variable
 const mongoose = require('mongoose');
 
 //create a schema (database document template)

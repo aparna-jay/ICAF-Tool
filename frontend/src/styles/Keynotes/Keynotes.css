@@ -69,7 +69,8 @@
 }
 
 .team-boxed .item img {
-    max-width: 160px;
+   width: 100%;
+    height: 261px;
 }
 
 .team-boxed .social {
@@ -87,3 +88,4 @@
 .team-boxed .social a:hover {
     opacity: 1;
 }
+
