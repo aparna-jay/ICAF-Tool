@@ -12,10 +12,12 @@ import ReviewerRegister from "./component/ReviewerRegister";
 import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
+import getAdmin from "./component/admin/getAdmin";
 
 const App = () => {
    const [text, setText] = useState("Hello world");
-
+   const [adminId, setAdminId] = useState ('Hiii');
+ //  console.log(adminId);
         return (
 
             <div>
@@ -24,10 +26,11 @@ const App = () => {
                 <MainNav text={text} setText={setText}>
                 </MainNav>
 
-                    <Route path="/admin" component={AdminHome}/>
-                    <Route path="/adminProfile" component={AdminProfile}/>
+                    <Route path="/admin" render={props => <AdminHome setAdminId={setAdminId} />} />
+                    <Route path="/adminProfile" render={props => <AdminProfile AdminId={adminId} /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
+                    <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" component={Reviewerhome}/>
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
