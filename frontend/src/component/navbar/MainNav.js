@@ -1,6 +1,6 @@
 import React from "react"
 
-const MainNav = ({text}, {setText}) =>{
+const MainNav = () =>{
 
         return (
 
@@ -42,7 +42,6 @@ const MainNav = ({text}, {setText}) =>{
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />
                             <button className="btn btn-outline-success" type="submit" id="btn">Search</button>
                     </form>
-<h1>{text}</h1>
                 </div>
             </div>
         </nav>
