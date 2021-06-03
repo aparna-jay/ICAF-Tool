@@ -1,12 +1,12 @@
 import React  from "react"
-import '../../styles/Admin/sidebar.css'
+import "../../styles/Admin/sidebar.css"
 
 const AdminSideNav = () => {
 
 
         return (
             <div>
-                    <nav id="sidebar">
+                    <nav id="sidebar" >
                         <div className="sidebar-header">
                             <h3>Admin Panel</h3>
                         </div>

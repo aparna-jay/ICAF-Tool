@@ -5,7 +5,7 @@ const EditorSideNav =() =>{
     return (
         <div>
 
-            <div id="sidebar" className="active">
+            <div id="sidebarEd" className="activeEd active">
 
                 <ul>
                     <h4>Editor Profile</h4>
@@ -15,7 +15,7 @@ const EditorSideNav =() =>{
                     <li><a href="#">Lorem 3</a></li>
                     <li><a href="#">Lorem 4</a></li>
 
-                    <p className="text-center social-links">
+                    <p className="text-centerEd social-linksEd">
                         <i className="fa fa-facebook"></i>
                         <i className="fa fa-instagram"></i>
                         <i className="fa fa-twitter"></i>
