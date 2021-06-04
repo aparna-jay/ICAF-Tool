@@ -17,7 +17,8 @@ const UserMainReg=()=>{
 
                     <a class="btn btn-primary hero-button plat" role="button" href="/Researcher" >&nbsp; &nbsp; &nbsp;Sign-Up As Researcher&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a><br/><br/>
                     <a class="btn btn-primary hero-button plat" role="button" href="#" >&nbsp; &nbsp; &nbsp; &nbsp;Sign-Up As&nbsp; Attendee&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</a><br/><br/>
-                     <a class="btn btn-primary hero-button plat" role="button" href="/Workshop" >Sign-Up As Workshop Presenter</a>
+                     <a class="btn btn-primary hero-button plat" role="button" href="/Workshop" >Sign-Up As Workshop Presenter</a><br/><br/>
+                         <a className="btn btn-primary hero-button plat" role="button" href="/Payment">Payments</a>
 
          </div>
              </div>

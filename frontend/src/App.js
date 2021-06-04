@@ -20,6 +20,7 @@ import getAdmin from "./component/admin/getAdmin";
 import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
+import Payment from "./component/user/Payment"
 
 const App = () => {
    const [text, setText] = useState("Hello world");
@@ -48,7 +49,7 @@ const App = () => {
                     <Route path="/ManageAdmins"render={props => <ManageAdmins setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
-
+                    <Route path="/Payment" component={Payment}/>
                 </Router>
             </div>
         );
