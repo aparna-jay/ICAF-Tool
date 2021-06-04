@@ -10,16 +10,10 @@ const EditorSideNav =() =>{
                 <ul>
                     <h4>Editor Profile</h4>
                     <li><a className="here" href="#"></a></li>
-                    <li><a href="#">Lorem 1</a></li>
-                    <li><a href="#">Lorem 2</a></li>
-                    <li><a href="#">Lorem 3</a></li>
-                    <li><a href="#">Lorem 4</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Dashboard</a></li>
 
-                    <p className="text-center social-links">
-                        <i className="fa fa-facebook"></i>
-                        <i className="fa fa-instagram"></i>
-                        <i className="fa fa-twitter"></i>
-                        <i className="fa fa-linkedin"></i></p>
                 </ul>
             </div>
 
