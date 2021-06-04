@@ -12,6 +12,10 @@ import ReviewerRegister from "./component/ReviewerRegister";
 import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
+import UserMainReg from "./component/User/UserMainReg";
+import ResearcherReg from "./component/User/ResearcherReg";
+import 'regenerator-runtime/runtime'
+import WorkshopReg from "./component/User/WorkshopReg";
 import getAdmin from "./component/admin/getAdmin";
 import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
@@ -38,6 +42,9 @@ const App = () => {
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
                     <Route path="/Editor" component={EditorProfile}/>
+                    <Route path="/user" component={UserMainReg}/>
+                    <Route path="/Researcher" component={ResearcherReg}/>
+                    <Route path="/Workshop" component={WorkshopReg}/>
                     <Route path="/ManageAdmins"render={props => <ManageAdmins setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>

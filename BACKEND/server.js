@@ -31,9 +31,21 @@ connectio.once("open",()=>{
     console.log("mongoDB connection successful !!!");
 })
 
-//User
-const userRouter = require("./routes/users.js");
-app.use("/user",userRouter);
+// // Route
+// const userrRouter = require("./routes/user.js");
+// app.use("/user",userrRouter);
+
+//Researcher
+const researcherRouter = require("./routes/researchers.js");
+app.use("/researcher",researcherRouter);
+
+//Workshop
+const workshopRouter = require("./routes/workshops.js");
+app.use("/workshop",workshopRouter);
+
+//Attendee
+const attendeeRouter = require("./routes/attendees.js");
+app.use("/attendee",attendeeRouter);
 
 //Payment
 const paymentRouter = require("./routes/payments.js");
