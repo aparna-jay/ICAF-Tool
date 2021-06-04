@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const attendeeSchema = new Schema({
     Name : {
         type : String,
         required: true
@@ -19,19 +19,14 @@ const userSchema = new Schema({
         type : String,
         required: true
     },
-    UserType : {
-        type : String,
+    Amount : {
+        type : Number,
         required: true
     },
-    Document : {
-        type : String,
-        required: true
-    },
-
 })
 
 //table and path
-const User = mongoose.model("User",userSchema);
+const Attendee = mongoose.model("Attendee",attendeeSchema);
 
 
-module.exports = User;
+module.exports = Attendee;

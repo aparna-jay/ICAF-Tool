@@ -1,6 +1,6 @@
 import React from "react"
 
-const MainNav = ({text}, {setText}) =>{
+const MainNav = () =>{
 
         return (
 
@@ -32,14 +32,22 @@ const MainNav = ({text}, {setText}) =>{
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/reviewer">reviewer</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/Editor">Editor</a>
                         </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/user">User</a>
+                        </li>
+
+
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />
                             <button className="btn btn-outline-success" type="submit" id="btn">Search</button>
                     </form>
-<h1>{text}</h1>
                 </div>
             </div>
         </nav>

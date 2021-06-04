@@ -1,62 +1,59 @@
 const router = require("express").Router();
 const { request } = require("express");
-let User = require("../models/User");
+let Attendee = require("../models/Attendee");
 
-//add data to user table
-//./User/add
+//add data to attendee table
+//./attendee/add
 //Post request
-//http://localhost:8090/user/add
+//http://localhost:8090/attendee/add
 router.route("/add").post((req,res)=>{
     const Name = req.body.Name;
     const Email = req.body.Email;
     const Phone = Number(req.body.Phone);
     const Password = req.body.Password;
-    const UserType = req.body.UserType;
-    const Document = req.body.Document;
+    const Amount = Number(req.body.Amount);
 
-    const newUser = new User({
+    const newAttendee = new Attendee({
         Name,
         Email,
         Phone,
         Password,
-        UserType,
-        Document
+        Amount,
     })
 
-    newUser.save().then(()=>{
-        res.json("User Added")
+    newAttendee.save().then(()=>{
+        res.json("Attendee Added")
     }).catch((err)=>{
         console.log(err);
     })
 })
 
-//search user
-//http://localhost:8090/user/
+//search attendee
+//http://localhost:8090/attendee/
 //Get Request
 router.route("/").get((req,res)=>{
-    User.find().then((users)=>{
-        res.json(users)
+    Attendee.find().then((attendees)=>{
+        res.json(attendees)
     }).catch((err)=>{
         console.log(err)
     })
 })
 
 //update
-//http://localhost:8090/user/update/:id
+//http://localhost:8090/attendee/update/:id
 //Put Request
 router.route("/update/:id").put(async (req,res)=>{
     let userId = req.params.id;
-    const {Name,Email,Phone,Password,UserType,Document} = req.body;
+    const {Name,Email,Phone,Password,Amount} = req.body;
     const updateUser = {
         Name,
         Email,
         Phone,
         Password,
-        UserType,
-        Document
+        Amount
     }
 
-    const update = await User.findByIdAndUpdate(userId,updateUser).then(()=>{
+    const update = await Attendee.findByIdAndUpdate(userId,updateUser).then(()=>{
         res.status(200).send({status: "User Updated"})
     }).catch((err)=>{
         console.log(err);
@@ -65,22 +62,22 @@ router.route("/update/:id").put(async (req,res)=>{
 })
 
 //delete user
-//http://localhost:8090/user/delete/:id
+//http://localhost:8090/attendee/delete/:id
 //Delete Request
 router.route("/delete/:id").delete(async (req, res)=>{
     let userId = req.params.id;
 
-    await User.findByIdAndDelete(userId).then(()=>{
+    await Attendee.findByIdAndDelete(userId).then(()=>{
         res.status(200).send({status: "User deleted"});
     }).catch((err)=>{
         console.log(err);
     })
 })
 
-//find one of the user
+//find one of the attendee
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
-    User.findById(id).then((user)=>{
+    Attendee.findById(id).then((user)=>{
         res.status(200).send({status:"User fetched", user})
     }).catch((err)=>{
         console.log(err);

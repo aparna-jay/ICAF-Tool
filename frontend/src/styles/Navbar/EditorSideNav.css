@@ -2,14 +2,17 @@ img{
     width: 100px;
     height: 400px;
 }
-#sidebar li {
+#sidebarEd li {
     list-style-type: none;
     color: rgba(255,255,255,0.22);
     border-bottom-style: solid;
     padding: 10px 10px 10px 0px;
 }
+#sidebarEd li:hover {
+    background-color: white;
+}
 
-#sidebar {
+#sidebarEd {
 
     right: -500px;
     background: #084127;
@@ -25,36 +28,37 @@ img{
     padding-top: 0px !important;
 }
 
-#sidebar.active {
+#sidebarEd.activeEd {
     left: 0px;
     height: 100%;
 }
 
-#sidebar ul {
+#sidebarEd ul {
     padding-top: 20%;
 }
 
-a {
-    text-decoration: none;
-}
-
-a:link {
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-a:active {
+#sidebarEd a {
     text-decoration: none;
     color: white;
 }
 
-a:visited {
+
+#sidebarEd a:hover {
+    text-decoration: none;
+    color:black;
+
+}
+
+#sidebarEd a:active {
+    text-decoration: none;
+    color: white;
+}
+
+#sidebarEd a:visited {
     text-decoration: none;
 }
 
-#sidebar a {
+#sidebarEd a {
     color: white;
 }
 
@@ -62,7 +66,7 @@ a:visited {
     font-size: 18pt;
 }
 
-.social-links {
+.social-linksEd {
     letter-spacing: 15px;
     padding-top: 15%;
     color: white;
@@ -90,7 +94,7 @@ a:visited {
     bottom: 0;
 }
 
-a {
+#sidebarEd a {
     color: white;
 }
 
@@ -118,19 +122,20 @@ a {
     color: #4c68d7;
 }
 
-#sidebar li {
+#sidebarEd li {
     list-style-type: none;
     color: rgba(255,255,255,0.22);
     border-bottom-style: solid;
     padding: 10px 10px 10px 0px;
 }
 
-#sidebar {
+#sidebarEd {
     position: fixed;
     right: -500px;
     background: #084127;
     width: 35vh;
     /*text-align: center;*/
+    color:white;
     z-index: 10000;
     font-size: 14pt;
     font-family: 'Ubuntu';
@@ -141,33 +146,33 @@ a {
     padding-top: 0px !important;
 }
 
-#sidebar.active {
+#sidebarEd.activeEd {
     right: 0px;
     height: 100%;
 }
 
-#sidebar ul {
+#sidebarEd ul {
     padding-top: 20%;
 }
 
-a {
+#sidebarEd a {
     text-decoration: none;
 }
 
-a:hover {
+#sidebarEd a:hover {
     text-decoration: none;
 }
 
-a:active {
+#sidebarEd a:active {
     text-decoration: none;
     color: white;
 }
 
-a:visited {
+#sidebarEd a:visited {
     text-decoration: none;
 }
 
-#sidebar a {
+#sidebarEd a {
     color: white;
 }
 
@@ -175,7 +180,7 @@ a:visited {
     font-size: 18pt;
 }
 
-.social-links {
+.social-linksEd {
     letter-spacing: 15px;
     padding-top: 15%;
     color: white;
@@ -185,6 +190,3 @@ a:visited {
     padding-top: 20%;
     color: #c4d8e2 !important;
 }
-
-
-

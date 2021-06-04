@@ -75,7 +75,7 @@ router.route("/delete/:id").delete(async (req, res)=>{
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
     Admin.findById(id).then((admin)=>{
-        res.status(200).send({status:"Admin fetched", admin})
+        res.json(admin)
     }).catch((err)=>{
         console.log(err);
     })

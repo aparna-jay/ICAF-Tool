@@ -1,245 +1,70 @@
-import React, {useState, useEffect} from "react"
-import axios from "axios";
+import React from "react"
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
+import img from "../../img.jpg";
 
 const AdminHome = () => {
+    return (
+        <div>
+            <section>
+                <div className="row">
+                    <div className="col-md-6 col-xl-4" >
+                        <AdminSideNav />
+                    </div>
+                    <div className="col-md-6 col-xl-3" >
+                        <center><h1>Welcome Admin</h1></center>
+                        <br />
+                    <main className="page">
+                        <section className="clean-block about-us">
+                            <div className="row justify-content-center">
 
-    const [Reviewers , setReviewers] = useState([]);
-    const [Users , setUsers] = useState([]);
-    const [Editors, setEditors] = useState([]);
-
-    useEffect(() =>{
-        axios.get('http://localhost:8070/Reviewer/').then((response)=>{
-            setReviewers(response.data);
-        });
-        axios.get('http://localhost:8070/user/').then((response)=>{
-            setUsers(response.data);
-        });
-        axios.get('http://localhost:8070/KeyNoteSpeakers/').then((response)=>{
-            setEditors(response.data);
-        });
-    }, [])
-
-
-        return (
-            <div >
-                <section>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6 col-xl-3" >
-                                  <AdminSideNav />
-                            </div>
-                            <div className="col-md-6 col-xl-9">
-                                <link
-                                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-                                    rel='stylesheet' type='text/css' />
-
-                                    <div className="container adminReviewer">
-                                        <br />
+                                <div className="card clean-card text-center">
+                                    <img className="card-img-top w-100 d-block" src={img}/>
+                                    <div className="card-body info">
                                         <div className="row">
-
-                                            <p></p>
-
-
-                                            <div className="col-md-10 col-md-offset-1">
-
-                                                <div className="panel panel-default panel-table">
-                                                    <div className="panel-heading">
-                                                        <div className="row">
-                                                            <div className="col col-xs-6">
-                                                                <h3 className="panel-title">Reviewers</h3>
-
-                                                            </div>
-                                                            <div className="col col-xs-6 text-right">
-                                                                <button type="button"
-                                                                        className="btn btn-sm btn-primary btn-create">Add
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
+                                            <div className="col-md-12">
+                                                <div className="row">
+                                                    <div className="col">
+                                                        <p className="labels"><strong>Name</strong></p>
                                                     </div>
-                                                    <div className="panel-body">
-
-
-                                                            <table
-                                                            className="table table-striped table-bordered table-list">
-                                                            <thead>
-                                                            <tr>
-                                                                <th><em className="fa fa-cog"></em></th>
-                                                                <th className="hidden-xs">ID</th>
-                                                                <th>Name</th>
-                                                                <th>Email</th>
-                                                            </tr>
-                                                            </thead>
-                                                                {
-                                                                    Reviewers.map(reviewer=>(
-                                                            <tbody>
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <a className="btn btn-default"><em
-                                                                        className="fa fa-pencil"></em></a>
-                                                                    <a className="btn btn-danger"><em
-                                                                        className="fa fa-trash"></em></a>
-                                                                </td>
-                                                                <td className="hidden-xs">{reviewer.Name}</td>
-                                                                <td>{reviewer.Name}</td>
-                                                                <td>{reviewer.Email}</td>
-                                                            </tr>
-                                                            </tbody>
-                                                                ))}
-                                                        </table>
-
+                                                    <div className="col">
+                                                        <input className="labels" ></input>
                                                     </div>
-                                                    <br />
-
                                                 </div>
-
+                                                <div className="row">
+                                                    <div className="col">
+                                                        <p className="labels"><strong>Email</strong></p>
+                                                    </div>
+                                                    <div className="col">
+                                                        <p className="labels"></p>
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col">
+                                                        <p className="labels"><strong>Phone</strong></p>
+                                                    </div>
+                                                    <div className="col">
+                                                        <p className="labels"></p>
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col-md-12">
+                                                        <a className="btn btn-success" role="button" href="#">
+                                                            <i className="fas fa-pencil-alt"></i>&nbsp;Update</a></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                <br/> <br/>
-
-                                    <link
-                                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-                                        rel='stylesheet' type='text/css' />
-
-                                        <div className="container adminEditor">
-                                            <br />
-                                            <div className="row">
-
-                                                <p></p>
-
-
-                                                <div className="col-md-10 col-md-offset-1">
-
-                                                    <div className="panel panel-default panel-table">
-                                                        <div className="panel-heading">
-                                                            <div className="row">
-                                                                <div className="col col-xs-6">
-                                                                    <h3 className="panel-title">Editors</h3>
-                                                                </div>
-                                                                <div className="col col-xs-6 text-right">
-                                                                    <button type="button"
-                                                                            className="btn btn-sm btn-primary btn-create">Add
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="panel-body">
-
-
-                                                            <table
-                                                                className="table table-striped table-bordered table-list">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th><em className="fa fa-cog"></em></th>
-                                                                    <th className="hidden-xs">Name</th>
-                                                                    <th>Organization</th>
-                                                                    <th>Designation</th>
-                                                                </tr>
-                                                                </thead>
-                                                                {
-                                                                    Editors.map(editor=>(
-
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td align="center">
-                                                                        <a className="btn btn-default"><em
-                                                                            className="fa fa-pencil"></em></a>
-                                                                        <a className="btn btn-danger"><em
-                                                                            className="fa fa-trash"></em></a>
-                                                                    </td>
-                                                                    <td className="hidden-xs">{editor.Name}</td>
-                                                                    <td>{editor.Organization}</td>
-                                                                    <td>{editor.Designation}</td>
-                                                                </tr>
-                                                                </tbody>
-                                                                        ))}
-                                                            </table>
-                                                            <br />
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                <br/> <br/>
-                                <link
-                                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-                                            rel='stylesheet' type='text/css' />
-
-                                            <div className="container adminUser">
-                                                <br />
-                                                <div className="row">
-
-                                                    <p></p>
-
-
-                                                    <div className="col-md-10 col-md-offset-1">
-
-                                                        <div className="panel panel-default panel-table">
-                                                            <div className="panel-heading">
-                                                                <div className="row">
-                                                                    <div className="col col-xs-6">
-                                                                        <h3 className="panel-title">Users</h3>
-                                                                    </div>
-
-                                                                    <div className="col col-xs-6 text-right">
-                                                                        <button type="button"
-                                                                                className="btn btn-sm btn-primary btn-create">Add
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="panel-body">
-
-
-
-                                                                <table
-                                                                    className="table table-striped table-bordered table-list">
-                                                                    <thead>
-                                                                    <tr>
-                                                                        <th><em className="fa fa-cog"></em></th>
-                                                                        <th className="hidden-xs">ID</th>
-                                                                        <th>Name</th>
-                                                                        <th>Email</th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    {
-                                                                        Users.map(user=>(
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td align="center">
-                                                                            <a className="btn btn-default"><em
-                                                                                className="fa fa-pencil"></em></a>
-                                                                            <a className="btn btn-danger"><em
-                                                                                className="fa fa-trash"></em></a>
-                                                                        </td>
-                                                                        <td className="hidden-xs">{user.Name}</td>
-                                                                        <td>{user.Name}</td>
-                                                                        <td>{user.Email}</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                        ))}
-                                                                </table>
-
-                                                                <br />
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
+                                </div>
                             </div>
-                        </div>
+
+                        </section>
+                    </main>
                     </div>
-                </section>
-            </div>
-        );
-
+                </div>
+            </section>
+            <br /> <br />
+        </div>
+    );
 }
-
 export default AdminHome;
