@@ -3,6 +3,7 @@ const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 const Researcher = require("../models/Researcher");
 
+
 router.post("/", upload.single("image"), async (req, res) => {
     try {
         // Upload image to cloudinary
@@ -62,7 +63,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
         const data = {
             name: req.body.name || researcher.name,
             Email: req.body.Email || researcher.Email,
-            Phone: req.Phone.Phone || researcher.Phone,
+            Phone: req.body.Phone || researcher.Phone,
             Password: req.body.Password || researcher.Password,
             Status: req.body.Status || researcher.Status,
             avatar: result?.secure_url || researcher.avatar,

@@ -10,7 +10,6 @@ const Reviewerhome = ()=>{
     useEffect(()=>{
         function getReviwers(){
             axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
-
                 SetReviwers(res.data);
                 // setName(res.data.name);
                 console.log(res.data);
@@ -23,29 +22,31 @@ const Reviewerhome = ()=>{
 
 
         return(
-
-            <div>
-
+            <div className={"container"}>
                 <div className={"container "}>
-
                     <form className={"container bg-danger"}>
                         <br />
-
                         <div className="row g-2">
                             <div className="col-md">
                                 <div className="form-floating">
                                     <label htmlFor="floatingInputGrid">Full Name</label>
-                                    <input type="email" className="form-control" id="floatingInputGrid"
-                                           placeholder="" value= {Reviewers.Name} />
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="floatingInputGrid"
+                                        placeholder=""
+                                        value= {Reviewers.Name} />
                                 </div>
                             </div>
-
                             <div className="col-md">
                                 <div className="form-floating">
                                     <label htmlFor="floatingInputGrid">Email address</label>
-                                    <input type="email" className="form-control" id="floatingInputGrid"
-                                           placeholder=""  value= {Reviewers.Email}/>
-
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="floatingInputGrid"
+                                        placeholder=""
+                                        value= {Reviewers.Email}/>
                                 </div>
                             </div>
                         </div>
@@ -53,33 +54,36 @@ const Reviewerhome = ()=>{
                             <div className="col-md">
                                 <div className="form-floating">
                                     <label htmlFor="floatingInputGrid">Phone Number</label>
-                                    <input type="email" className="form-control" id="floatingInputGrid"
-                                           placeholder=""  value= {Reviewers.Phone}/>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="floatingInputGrid"
+                                        placeholder=""
+                                        value= {Reviewers.Phone}/>
                                 </div>
                             </div>
                             <div className="col-md">
                                 <div className="form-floating">
                                     <label htmlFor="floatingInputGrid">Designation</label>
-                                    <input type="email" className="form-control" id="floatingInputGrid"
-                                           placeholder="" value= {Reviewers.Designation} />
-
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="floatingInputGrid"
+                                        placeholder=""
+                                        value= {Reviewers.Designation} />
                                 </div>
                             </div>
                         </div>
                         <br />
-
                         <a href={"/ReviewerUpdate"} type="button" className="btn btn-primary btn-lg ">Update Profile</a>
                         <br /><br />
-
                     </form>
                     <br />
                     <div>
-                        <button type="button" className="btn btn-primary btn-lg "> View review paper</button>
+                        <a type="button" className="btn btn-primary btn-lg " href={"/allResearchPapers"} > View review paper</a>
                         <button type="button" className="btn btn-primary btn-lg "> View Work Shop</button>
                     </div>
                 </div>
-
-
             </div>
         );
 }
