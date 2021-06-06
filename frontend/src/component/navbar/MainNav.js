@@ -4,7 +4,7 @@ const MainNav = () =>{
 
         return (
 
-   <div >
+   <div className="container">
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -15,6 +15,9 @@ const MainNav = () =>{
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="Conference">Conference</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Workshops</a>
