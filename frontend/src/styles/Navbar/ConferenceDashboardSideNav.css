@@ -1,3 +1,4 @@
+
 img{
     width: 100px;
     height: 400px;
@@ -12,30 +13,11 @@ img{
     background-color: white;
 }
 
-#sidebarEd {
-
-    right: -500px;
-    background: #084127;
-    width: 35vh;
-    /*text-align: center;*/
-    z-index: 10000;
-    font-size: 14pt;
-
-    transition: all 400ms linear;
-    -webkit-transition: all 400ms linear;
-    -moz-transition: all 400ms linear;
-    -o-transition: all 400ms linear;
-    padding-top: 0px !important;
-}
-
 #sidebarEd.activeEd {
     left: 0px;
     height: 100%;
 }
 
-#sidebarEd ul {
-    padding-top: 20%;
-}
 
 #sidebarEd a {
     text-decoration: none;
@@ -79,7 +61,6 @@ img{
 
 #page-down {
     font-size: 20pt;
-    position: fixed;
     margin: 30px;
     height: 64px;
     width: 64px;
@@ -98,30 +79,6 @@ img{
     color: white;
 }
 
-.fa.fa-facebook:hover {
-    color: #3b5998;
-}
-
-.fa.fa-twitter:hover {
-    color: #55acee;
-}
-
-.fa.fa-instagram:hover {
-    color: #4c68d7;
-}
-
-.fa.fa-facebook:hover {
-    color: #3b5998;
-}
-
-.fa.fa-twitter:hover {
-    color: #55acee;
-}
-
-.fa.fa-instagram:hover {
-    color: #4c68d7;
-}
-
 #sidebarEd li {
     list-style-type: none;
     color: rgba(255,255,255,0.22);
@@ -130,9 +87,9 @@ img{
 }
 
 #sidebarEd {
-    position: fixed;
+    margin-top: 40px;
     right: -500px;
-    background: #084127;
+    background: #1e2833;
     width: 35vh;
     /*text-align: center;*/
     color:white;
@@ -151,9 +108,6 @@ img{
     height: 100%;
 }
 
-#sidebarEd ul {
-    padding-top: 20%;
-}
 
 #sidebarEd a {
     text-decoration: none;
@@ -189,4 +143,10 @@ img{
 .contact-info {
     padding-top: 20%;
     color: #c4d8e2 !important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #214a80;
+    border-color: #214a80;
 }
