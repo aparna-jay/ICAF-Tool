@@ -21,7 +21,6 @@ import getAdmin from "./component/admin/getAdmin";
 import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
-import LoginHome from "./component/Login/LoginHome";
 import AdminLogin from "./component/Login/AdminLogin";
 import Payment from "./component/user/Payment"
 import Conference from "./component/Conference/Conference";
@@ -43,11 +42,10 @@ const App = () => {
                 <MainNav text={text} setText={setText}>
                 </MainNav>
 
-                    <Route path="/admin" render={props => <AdminHome/>} />
-                    <Route path="/adminProfile" render={props => <AdminProfile/> }/>
+                    <Route path="/admin" render={props => <AdminHome loggedUser={loggedUser}/>} />
+                    <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
-                    <Route path="/login" component={LoginHome}/>
-                    <Route path="/adminLogin" render={props => <AdminLogin loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}/>
+                    <Route path="/login" render={props => <AdminLogin loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}/>
                     <Route path="/Conference" component={Conference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
