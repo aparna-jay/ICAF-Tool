@@ -116,5 +116,25 @@ router.route("/get/:id").get(async(req,res)=> {
     })
 })
 
+router.route("/login").post((req, res) => {
+    const Password = req.body.Password;
+    Editor.findOne({ Email: req.body.Email }).then(editor => {
+        // Check if admin exists
+        if (!editor) {
+            return res.status(404).json({Email: "Email not found"});
+        } else {
+            // Check password
+            if (Password === editor.Password) {
+                res.json(editor)
+            } else {
+                return res
+                    .status(400)
+                    .json({Password: "Password incorrect"});
+            }
+        }
+    });
+});
+
+
 //export the modules
 module.exports = router;

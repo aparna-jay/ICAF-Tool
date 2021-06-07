@@ -3,16 +3,17 @@ import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
 import img from "../../img.jpg";
 
-const AdminHome = () => {
+const AdminHome = (loggedUser) => {
+    console.log(loggedUser)
     return (
         <div>
             <section>
-                <div className="row">
+                <div className="row ">
                     <div className="col-md-6 col-xl-4" >
                         <AdminSideNav />
                     </div>
                     <div className="col-md-6 col-xl-3" >
-                        <center><h1>Welcome Admin</h1></center>
+                        <center><h1>Welcome {loggedUser.Name}</h1></center>
                         <br />
                     <main className="page">
                         <section className="clean-block about-us">
