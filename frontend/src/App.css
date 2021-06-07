@@ -3,7 +3,12 @@
 }
 
 .nav-item{
-    margin-right: 45px;
+    margin-right: 35px;
+}
+.navbar{
+    width: 168%;
+    margin-left: -204px;
+    padding: 1px 10px;
 }
 #author{
    width: 100px;

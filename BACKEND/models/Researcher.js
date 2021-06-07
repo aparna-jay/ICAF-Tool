@@ -5,28 +5,27 @@ const Schema = mongoose.Schema;
 const researcherSchema = new Schema({
     Name : {
         type : String,
-        // required: true
+        required: true
     },
     Email: {
         type: String,
-        // required: true
+         required: true
     },
     Phone : {
         type : String,
-        // required: true
+         required: true
     },
     Password : {
         type : String,
-        // required: true
-    },
-    avatar: {
-        type: String,
-    },
-    cloudinary_id: {
-        type: String,
+         required: true
     },
     Status : {
         type : String,
+        required: true
+    },
+    avatar: {
+        type: String,
+        required: true
     },
 })
 
