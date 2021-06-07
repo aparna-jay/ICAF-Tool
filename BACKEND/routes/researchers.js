@@ -1,88 +1,90 @@
 const router = require("express").Router();
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
-const Researcher = require("../models/Researcher");
+const { request } = require("express");
+let Researcher = require("../models/Researcher");
 
-router.post("/", upload.single("image"), async (req, res) => {
-    try {
-        // Upload image to cloudinary
-        const result = await cloudinary.uploader.upload(req.file.path);
+//add data to user table
+//./Researcher/add
+//Post request
+//http://localhost:8070/researcher/add
+router.route("/add").post((req,res)=>{
+    const Name = req.body.Name;
+    const Email = req.body.Email;
+    const Phone = req.body.Phone;
+    const Password = req.body.Password;
+    const Status = req.body.Status;
+    const avatar = req.body.avatar;
 
-        // Create new user
-        let researcher = new Researcher({
-            name: req.body.name,
-            Email: req.body.Email,
-            Phone: req.body.Phone,
-            Password: req.body.Password,
-            Status: req.body.Status,
-            avatar: result.secure_url,
-            cloudinary_id: result.public_id,
-        });
-        // Save user
-        await researcher.save();
-        res.json(researcher);
-    } catch (err) {
+    const newResearcher = new Researcher({
+        Name,
+        Email,
+        Phone,
+        Password,
+        Status,
+        avatar
+    })
+
+    newResearcher.save().then(()=>{
+        res.json("Researcher Added")
+    }).catch((err)=>{
         console.log(err);
-    }
-});
+    })
+})
 
-router.get("/", async (req, res) => {
-    try {
-        let researcher = await Researcher.find();
-        res.json(researcher);
-    } catch (err) {
-        console.log(err);
-    }
-});
+//search Researcher
+//http://localhost:8090/researcher/
+//Get Request
+router.route("/").get((req,res)=>{
+    Researcher.find().then((researchers)=>{
+        res.json(researchers)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 
-router.delete("/:id", async (req, res) => {
-    try {
-        // Find user by id
-        let researcher = await Researcher.findById(req.params.id);
-        // Delete image from cloudinary
-        await cloudinary.uploader.destroy(researcher.cloudinary_id);
-        // Delete user from db
-        await researcher.remove();
-        res.json(researcher);
-    } catch (err) {
-        console.log(err);
+//update
+//http://localhost:8090/researcher/update/:id
+//Put Request
+router.route("/update/:id").put(async (req,res)=>{
+    let userId = req.params.id;
+    const {Name,Email,Phone,Password,Status,avatar} = req.body;
+    const updateUser = {
+        Name,
+        Email,
+        Phone,
+        Password,
+        Status,
+        avatar
     }
-});
 
-router.put("/:id", upload.single("image"), async (req, res) => {
-    try {
-        let researcher = await Researcher.findById(req.params.id);
-        // Delete image from cloudinary
-        await cloudinary.uploader.destroy(researcher.cloudinary_id);
-        // Upload image to cloudinary
-        let result;
-        if (req.file) {
-            result = await cloudinary.uploader.upload(req.file.path);
-        }
-        const data = {
-            name: req.body.name || researcher.name,
-            Email: req.body.Email || researcher.Email,
-            Phone: req.Phone.Phone || researcher.Phone,
-            Password: req.body.Password || researcher.Password,
-            Status: req.body.Status || researcher.Status,
-            avatar: result?.secure_url || researcher.avatar,
-            cloudinary_id: result?.public_id || researcher.cloudinary_id,
-        };
-        researcher = await Researcher.findByIdAndUpdate(req.params.id, data, { new: true });
-        res.json(researcher);
-    } catch (err) {
+    const update = await Researcher.findByIdAndUpdate(userId,updateUser).then(()=>{
+        res.status(200).send({status: "User Updated"})
+    }).catch((err)=>{
         console.log(err);
-    }
-});
+        res.status(500).send({status: "Error with updating data"});
+    })
+})
 
-router.get("/:id", async (req, res) => {
-    try {
-        // Find user by id
-        let researcher = await Researcher.findById(req.params.id);
-        res.json(researcher);
-    } catch (err) {
+//delete researcher
+//http://localhost:8090/researcher/delete/:id
+//Delete Request
+router.route("/delete/:id").delete(async (req, res)=>{
+    let userId = req.params.id;
+
+    await Researcher.findByIdAndDelete(userId).then(()=>{
+        res.status(200).send({status: "Researcher deleted"});
+    }).catch((err)=>{
         console.log(err);
-    }
-});
+    })
+})
+
+//find one of the user
+router.route("/get/:id").get((req,res)=>{
+    let id = req.params.id;
+    Researcher.findById(id).then((user)=>{
+        res.status(200).send({status:"Researcher fetched", user})
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
 
 module.exports = router;
