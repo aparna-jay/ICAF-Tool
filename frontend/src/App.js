@@ -22,6 +22,7 @@ import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
 import Payment from "./component/user/Payment"
 import Conference from "./component/Conference/Conference";
+import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
 import AttendeeReg from "./component/User/AttendeeReg";
 
