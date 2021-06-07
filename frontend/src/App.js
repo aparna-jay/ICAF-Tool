@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
+import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
@@ -10,7 +11,6 @@ import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
 import ReviewerRegister from "./component/ReviewerRegister";
 import ReviewerUpdate from "./component/ReviewerUpdate";
-
 import EditorProfile from "./component/Editor/EditorProfile";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
@@ -21,11 +21,13 @@ import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
 import Payment from "./component/user/Payment"
+import AttendeeReg from "./component/User/AttendeeReg";
 
 const App = () => {
    const [text, setText] = useState("Hello world");
    const[adminId, setAdminId] = useState('60b0ea663a50a542d8e0fae0');
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
+    const [selectedImg, setSelectedImg] = useState(null);
         return (
 
             <div>
@@ -50,6 +52,10 @@ const App = () => {
                     <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/Payment" component={Payment}/>
+                    <Route path="/Attendee" component={AttendeeReg}/>
+
+
+
                 </Router>
             </div>
         );
