@@ -3,8 +3,6 @@ import axios from "axios";
 import '../../styles/Admin/adminRegister.css'
 import AdminSideNav from "../navbar/AdminSideNav";
 const AdminRegister = () => {
-
-
     const[Name , setName] = useState("");
     const[Email, setEmail]= useState("");
     const[Phone, setPhone]= useState("");

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/Editor/EditorProfile.css'
 import img from '../../armaan.jpg'
-import EditorSideNav from "../navbar/EditorSideNav";
+import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 
 const EditorProfile = () =>{
     return(
@@ -10,7 +10,7 @@ const EditorProfile = () =>{
                 <div>
                     <div >
                         <div>
-                            <EditorSideNav/>
+                            <ConferenceDashboardSideNav/>
                         </div>
                 <section></section>
                 <main className="page">
