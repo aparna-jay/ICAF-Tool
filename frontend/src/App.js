@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
-import "../src/styles/Researcher/index.css"
+// import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
