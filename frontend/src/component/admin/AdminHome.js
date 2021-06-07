@@ -7,7 +7,7 @@ const AdminHome = () => {
     return (
         <div>
             <section>
-                <div className="row">
+                <div className="row ">
                     <div className="col-md-6 col-xl-4" >
                         <AdminSideNav />
                     </div>

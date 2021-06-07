@@ -16,11 +16,14 @@ import getAdmin from "./component/admin/getAdmin";
 import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
+import LoginHome from "./component/Login/LoginHome";
+import AdminLogin from "./component/Login/AdminLogin";
 
 const App = () => {
    const [text, setText] = useState("Hello world");
    const[adminId, setAdminId] = useState('60b0ea663a50a542d8e0fae0');
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
+   const[loggedUser, setLoggedUser]  = useState([])
         return (
 
             <div>
@@ -32,6 +35,8 @@ const App = () => {
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/adminProfile" render={props => <AdminProfile/> }/>
                     <Route path="/keynotes" component={Keynotes}/>
+                    <Route path="/login" component={LoginHome}/>
+                    <Route path="/adminLogin" render={props => <AdminLogin loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" component={Reviewerhome}/>

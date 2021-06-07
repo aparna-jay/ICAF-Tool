@@ -26,7 +26,7 @@ const MainNav = () =>{
                             <a className="nav-link active" aria-current="page" href="#" id="contact">Contact Us</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Login</a>
+                            <a className="nav-link active" aria-current="page" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/admin">Admin</a>

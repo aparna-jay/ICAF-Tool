@@ -81,4 +81,24 @@ router.route("/get/:id").get((req,res)=>{
     })
 })
 
+router.route("/login").post((req, res) => {
+    const Password = req.body.Password;
+    Admin.findOne({ Email: req.body.Email }).then(admin => {
+        // Check if admin exists
+        if (!admin) {
+            return res.status(404).json({Email: "Email not found"});
+        } else {
+            // Check password
+            if (Password === admin.Password) {
+                res.json(admin)
+            } else {
+                return res
+                    .status(400)
+                    .json({Password: "Password incorrect"});
+            }
+        }
+    });
+});
+
+
 module.exports = router;
