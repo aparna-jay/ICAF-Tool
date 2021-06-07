@@ -1,7 +1,7 @@
 import React from 'react'
-import "../../styles/Navbar/EditorSideNav.css"
+import "../../styles/Navbar/ConferenceDashboardSideNav.css"
 
-const EditorSideNav =() =>{
+const ConferenceDashboardSideNav =() =>{
     return (
         <div>
 
@@ -10,10 +10,11 @@ const EditorSideNav =() =>{
                 <ul>
                     <h4>Editor Profile</h4>
                     <li><a className="here" href="#"></a></li>
-                    <li><a href="#">Lorem 1</a></li>
-                    <li><a href="#">Lorem 2</a></li>
-                    <li><a href="#">Lorem 3</a></li>
-                    <li><a href="#">Lorem 4</a></li>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="Conference">Conference</a></li>
+                    <li><a href="Keynotes">Keynotes</a></li>
+                    <li><a href="Editor">Editor</a></li>
+                    <li><a href="Profile">Profile</a></li>
 
                     <p className="text-centerEd social-linksEd">
                         <i className="fa fa-facebook"></i>
@@ -27,4 +28,4 @@ const EditorSideNav =() =>{
         </div>
     );
 }
-export default EditorSideNav;
+export default ConferenceDashboardSideNav;

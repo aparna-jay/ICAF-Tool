@@ -97,3 +97,9 @@
     padding: 1.25rem;
 }
 
+.col-sm-6 {
+
+    max-width: 50%;
+    margin-right: -208px;
+    margin-top: -716px;
+}

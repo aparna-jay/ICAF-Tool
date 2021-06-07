@@ -21,6 +21,8 @@ import ManageAdmins from "./component/admin/ManageAdmins";
 import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
 import Payment from "./component/user/Payment"
+import Conference from "./component/Conference/Conference";
+import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
 import AttendeeReg from "./component/User/AttendeeReg";
 
 const App = () => {
@@ -39,6 +41,7 @@ const App = () => {
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/adminProfile" render={props => <AdminProfile/> }/>
                     <Route path="/keynotes" component={Keynotes}/>
+                    <Route path="/Conference" component={Conference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" component={Reviewerhome}/>
