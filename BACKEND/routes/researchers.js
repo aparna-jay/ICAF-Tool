@@ -31,7 +31,7 @@ router.route("/add").post((req,res)=>{
 })
 
 //search Researcher
-//http://localhost:8090/researcher/
+//http://localhost:8070/researcher/
 //Get Request
 router.route("/").get((req,res)=>{
     Researcher.find().then((researchers)=>{
@@ -80,12 +80,26 @@ router.route("/delete/:id").delete(async (req, res)=>{
 //find one of the user
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
-    Researcher.findById(id).then((user)=>{
-        res.status(200).send({status:"Researcher fetched", user})
+    Researcher.findById(id).then((researchers)=>{
+        // res.status(200).send({status:"Researcher fetched", user})
+        res.json(researchers);
     }).catch((err)=>{
         console.log(err);
     })
 })
+
+
+router.route("/updateOne/:id").put(async (req, res) => {
+    let researchers = await Researcher.findById(req.params.id);
+    const data = {
+
+        Status: req.body.Status || researchers.Status,
+        avatar: req.body.avatar || researchers.avatar,
+
+    };
+    researchers = await Researcher.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(researchers);
+});
 
 router.route("/login").post((req, res) => {
     const Password = req.body.Password;

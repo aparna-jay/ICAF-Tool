@@ -23,6 +23,9 @@ import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
 import AdminLogin from "./component/Login/AdminLogin";
 import Payment from "./component/user/Payment"
+import ReserchPapersHome from "./component/ViewPapers/ReserchPapersHome";
+import EditRPaper from "./component/ViewPapers/EditRPaper";
+
 import Conference from "./component/Conference/Conference";
 import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
@@ -60,6 +63,9 @@ const App = () => {
                     <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/Payment" component={Payment}/>
+                    <Route path="/allResearchPapers" component={ReserchPapersHome}/>
+                    <Route path="/editRP/:id" component={EditRPaper}/>
+
                     <Route path="/Attendee" component={AttendeeReg}/>
 
 

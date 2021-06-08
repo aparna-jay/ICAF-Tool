@@ -18,17 +18,14 @@ router.route("/add").post((req , res)=>{
         Phone,
         Password
     })
-
     newReviewer.save().then(()=>{
        res.json("added to database") 
     }).catch((err)=>{
         console.log(err);
     })
-
 })
 
 //search
-
 router.route("/").get((req , res)=>{
     Reviewer.find().then((Reviewer)=>{
         res.json(Reviewer)
@@ -40,10 +37,8 @@ router.route("/").get((req , res)=>{
 
 
 //update
-    
 router.route("/update/:idofre").put(async(req ,res)=>{
     let id = req.params.idofre;
-
     const {
         Name,
         Designation,
@@ -51,16 +46,13 @@ router.route("/update/:idofre").put(async(req ,res)=>{
         Phone,
         Password  
     }= req.body;
-
     const updateReviewer = {
         Name,
         Designation,
         Email,
         Phone,
         Password 
-    } 
-
-
+    }
      const update = await Reviewer.findByIdAndUpdate(id , updateReviewer).then(()=>{
         res.status(200).send({status:"Updated"})
      }).catch((err)=>{
@@ -69,7 +61,6 @@ router.route("/update/:idofre").put(async(req ,res)=>{
              status:"error with updating data"
          })
      })
-
     })
 
 
@@ -95,31 +86,18 @@ router.route("/get/:id").get((req,res)=>{
 })
 
 
-// router.route("/updateOne/:idofre").put(async(req ,res)=>{
-//     let id = req.params.idofre;
-//
-//     const {
-//         Name,
-//     }= req.body;
-//
-//     const updateReviewer = {
-//         Name,
-//     }
-//
-//
-//     const update = await Reviewer.findOneAndUpdate(
-//         { _id : id },
-//          { Name : updateReviewer }
-//          ).then(()=>{
-//         res.status(200).send({status:"Updated"})
-//     }).catch((err)=>{
-//         console.log(err);
-//         res.status(500).send({
-//             status:"error with updating data"
-//         })
-//     })
-//
-// })
+router.route("/updateOne/:id").put(async (req, res) => {
+    let reviewer = await Reviewer.findById(req.params.id);
+        const data = {
+            Name: req.body.Name || reviewer.Name,
+            Designation: req.body.Designation || reviewer.Designation,
+            Email: req.body.Email || reviewer.Email,
+            Phone: req.body.Phone || reviewer.Phone,
+            Password: req.body.Password || reviewer.Password,
+        };
+    reviewer = await Reviewer.findByIdAndUpdate(req.params.id, data, { new: true });
+        res.json(reviewer);
+});
 
 router.route("/login").post((req, res) => {
     const Password = req.body.Password;
