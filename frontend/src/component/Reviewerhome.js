@@ -1,8 +1,9 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 
-const Reviewerhome = ()=>{
- const id = "60b1cd482605f1120c24915b"
+const Reviewerhome = ({loggedUser})=>{
+    console.log(loggedUser);
+ const id = loggedUser;
     const [Reviewers , SetReviwers] = useState( []);
 
 
@@ -14,11 +15,10 @@ const Reviewerhome = ()=>{
                 // setName(res.data.name);
                 console.log(res.data);
             }).catch((err)=>{
-               alert(err.message);
             })
         }
         getReviwers();
-    },[]);
+    },[loggedUser]);
 
 
         return(
