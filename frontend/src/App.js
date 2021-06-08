@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
-import "../src/styles/Researcher/index.css"
+// import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
@@ -23,10 +23,21 @@ import ManageReviewers from "./component/admin/ManageReviewers";
 import ManageEditors from "./component/admin/ManageEditors";
 import AdminLogin from "./component/Login/AdminLogin";
 import Payment from "./component/user/Payment"
+import ReserchPapersHome from "./component/ViewPapers/ReserchPapersHome";
+import EditRPaper from "./component/ViewPapers/EditRPaper";
+
 import Conference from "./component/Conference/Conference";
 import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
 import AttendeeReg from "./component/User/AttendeeReg";
+import ResearcherPro from "./component/User/ResearcherPro";
+import ResearcherUpdate from "./component/User/ResearcherUpdate";
+import ResearcherStatus from "./component/User/ResearcherStatus";
+import WorkshopPro from "./component/User/WorkshopPro";
+import AttendeePro from "./component/User/AttendeePro";
+import AttendeeUpdate from "./component/User/AttendeeUpdate";
+import WorkshopUpdate from "./component/User/WorkshopUpdate";
+
 
 const App = () => {
    const [text, setText] = useState("Hello world");
@@ -60,9 +71,17 @@ const App = () => {
                     <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/Payment" component={Payment}/>
+                    <Route path="/allResearchPapers" component={ReserchPapersHome}/>
+                    <Route path="/editRP/:id" component={EditRPaper}/>
+
                     <Route path="/Attendee" component={AttendeeReg}/>
-
-
+                    <Route path="/UserProfile" component={ResearcherPro}/>
+                    <Route path="/ResearcherUpdate" component={ResearcherUpdate}/>
+                    <Route path="/ResearcherStatus" component={ResearcherStatus}/>
+                    <Route path="/WorkshopProfile" component={WorkshopPro}/>
+                    <Route path="/AttendeeProfile" component={AttendeePro}/>
+                    <Route path="/AttendeeUpdate" component={AttendeeUpdate}/>
+                    <Route path="/WorkshopUpdate" component={WorkshopUpdate}/>
 
                 </Router>
             </div>

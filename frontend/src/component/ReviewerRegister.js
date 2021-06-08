@@ -43,28 +43,47 @@ const ReviewerRegister = ()=>{
             <form className ="bg-danger">
                 <br />
                 <div className="col-md-auto">
-                    <h1 class="text-light bg-dark">Reviewer Registry Form</h1>
+                    <h1 className="text-light bg-dark">Reviewer Registry Form</h1>
                     <br />
                     <label htmlFor="exampleInputName" className="form-label">Ful name</label>
-                    <input type="text" className="form-control" id="exampleInputFullname" onChange={nameSetter} />
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="exampleInputFullname"
+                        onChange={nameSetter} />
                 </div>
                 <div className="col-md-auto">
                     <label htmlFor="exampleInputDesignation" className="form-label">Designation</label>
-                    <input type="text" className="form-control" onChange={DesignationSetter} />
+                    <input
+                        type="text"
+                        className="form-control"
+                        onChange={DesignationSetter} />
                 </div>
                 <div className="col-md-auto">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={emailSetter}/>
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        onChange={emailSetter}/>
                 </div>
                 <div className="col-md-auto">
                     <label htmlFor="exampleInputPhone" className="form-label">Phone</label>
-                    <input type="number" className="form-control" id="exampleInputPhone"onChange={phoneSetter} />
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="exampleInputPhone"
+                        onChange={phoneSetter} />
                 </div>
                 <div className="col-md-auto">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" onChange={passwordSetter}/>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="exampleInputPassword1"
+                        onChange={passwordSetter}/>
                 </div>
-
                 <br />
                 <button type="submit" className="btn btn-primary btn-lg" onClick={onSubmit}>Submit</button>
                 <br /><br />

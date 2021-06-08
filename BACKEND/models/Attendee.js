@@ -12,7 +12,7 @@ const attendeeSchema = new Schema({
         required: true
     },
     Phone : {
-        type : Number,
+        type : String,
         required: true
     },
     Password : {

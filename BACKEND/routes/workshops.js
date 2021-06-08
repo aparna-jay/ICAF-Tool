@@ -1,89 +1,103 @@
-// const router = require("express").Router();
-// const cloudinary = require("../utils/cloudinary");
-// const upload = require("../utils/multer");
-// const Workshop = require("../models/Workshop");
-//
-// router.post("/", upload.single("image"), async (req, res) => {
-//     try {
-//         // Upload image to cloudinary
-//         const result = await cloudinary.uploader.upload(req.file.path);
-//
-//         // Create new user
-//         let workshop = new Workshop({
-//             name: req.body.name,
-//             Email: req.body.Email,
-//             Phone: req.body.Phone,
-//             Password: req.body.Password,
-//             Status: req.body.Status,
-//             avatar: result.secure_url,
-//             cloudinary_id: result.public_id,
-//         });
-//         // Save user
-//         await workshop.save();
-//         res.json(workshop);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-//
-//
-// router.get("/", async (req, res) => {
-//     try {
-//         let workshop = await Workshop.find();
-//         res.json(workshop);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-//
-// router.delete("/:id", async (req, res) => {
-//     try {
-//         // Find user by id
-//         let workshop = await Workshop.findById(req.params.id);
-//         // Delete image from cloudinary
-//         await cloudinary.uploader.destroy(workshop.cloudinary_id);
-//         // Delete user from db
-//         await workshop.remove();
-//         res.json(workshop);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-//
-// router.put("/:id", upload.single("image"), async (req, res) => {
-//     try {
-//         let workshop = await Workshop.findById(req.params.id);
-//         // Delete image from cloudinary
-//         await cloudinary.uploader.destroy(workshop.cloudinary_id);
-//         // Upload image to cloudinary
-//         let result;
-//         if (req.file) {
-//             result = await cloudinary.uploader.upload(req.file.path);
-//         }
-//         const data = {
-//             name: req.body.name || workshop.name,
-//             Email: req.body.Email || workshop.Email,
-//             Phone: req.body.Phone || workshop.Phone,
-//             Password: req.body.Password || workshop.Password,
-//             Status: req.body.Status || workshop.Status,
-//             avatar: result?.secure_url || workshop.avatar,
-//             cloudinary_id: result?.public_id || workshop.cloudinary_id,
-//         };
-//         workshop = await Workshop.findByIdAndUpdate(req.params.id, data, { new: true });
-//         res.json(workshop);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-//
-// router.get("/:id", async (req, res) => {
-//     try {
-//         // Find user by id
-//         let workshop = await Workshop.findById(req.params.id);
-//         res.json(workshop);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-//
-// module.exports = router;
+const router = require("express").Router();
+const { request } = require("express");
+let Workshop = require("../models/Workshop");
+
+//add data to user table
+//./Researcher/add
+//Post request
+//http://localhost:8070/workshop/add
+router.route("/add").post((req,res)=>{
+    const Name = req.body.Name;
+    const Email = req.body.Email;
+    const Phone = req.body.Phone;
+    const Password = req.body.Password;
+    const Status = req.body.Status;
+    const avatar = req.body.avatar;
+
+    const newWorkshop = new Workshop({
+        Name,
+        Email,
+        Phone,
+        Password,
+        Status,
+        avatar
+    })
+
+    newWorkshop.save().then(()=>{
+        res.json("Workshop Added")
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+//search Researcher
+//http://localhost:8090/workshop/
+//Get Request
+router.route("/").get((req,res)=>{
+    Workshop.find().then((workshops)=>{
+        res.json(workshops)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+//update
+//http://localhost:8090/workshop/update/:id
+//Put Request
+router.route("/update/:id").put(async (req,res)=>{
+    let userId = req.params.id;
+    const {Name,Email,Phone,Password,Status,avatar} = req.body;
+    const updateUser = {
+        Name,
+        Email,
+        Phone,
+        Password,
+        Status,
+        avatar
+    }
+
+    const update = await Workshop.findByIdAndUpdate(userId,updateUser).then(()=>{
+        res.status(200).send({status: "User Updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status: "Error with updating data"});
+    })
+})
+
+//delete researcher
+//http://localhost:8090/workshop/delete/:id
+//Delete Request
+router.route("/delete/:id").delete(async (req, res)=>{
+    let userId = req.params.id;
+
+    await Workshop.findByIdAndDelete(userId).then(()=>{
+        res.status(200).send({status: "Workshop deleted"});
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+//find one of the user
+router.route("/get/:id").get((req,res)=>{
+    let id = req.params.id;
+    Workshop.findById(id).then((user)=>{
+        res.json(user)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+//Updateone
+router.route("/updateOne/:id").put(async (req, res) => {
+    let workshop = await Workshop.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || workshop.Name,
+        Email: req.body.Email || workshop.Email,
+        Phone: req.body.Phone || workshop.Phone,
+        Password: req.body.Password || workshop.Password,
+    };
+    workshop = await Workshop.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(workshop);
+});
+
+module.exports = router;
