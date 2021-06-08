@@ -9,7 +9,7 @@ const ReserchPapersHome = ()=>{
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const res = await fetch(`http://localhost:8070/researcher`);
+            const res = await fetch(`http://localhost:8070/researcher/`);
             const data = await res.json();
             setUsers(data);
 
@@ -19,7 +19,7 @@ const ReserchPapersHome = ()=>{
     console.log(users)
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8070/researcher/${id}`, {
+            const res = await fetch(`http://localhost:8070/researcher/delete/${id}`, {
                 method: "DELETE",
             });
             if (res.ok) {
@@ -34,7 +34,7 @@ const ReserchPapersHome = ()=>{
         <div className="">
             {users?.map((user) => (
                 <div className="blog-card" key={user._id}>
-                    <label> File uploaded by {user.Name}</label>
+                    <label className="form-control btn-success"> File uploaded by {user.Name}</label>
                     <embed  src={user.avatar} alt="pdf" width={"100%"} height={150} /><br /><br />
                     <a href={user.avatar} className={"btn btn-danger btn-sm"}>download pdf form here</a>
                     <div className="p-2">

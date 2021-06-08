@@ -29,7 +29,7 @@ const Reviewerhome = ()=>{
                         <div className="row g-2">
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label htmlFor="floatingInputGrid">Full Name</label>
+                                    <label  className="form-control btn-danger" >Full Name</label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -40,7 +40,7 @@ const Reviewerhome = ()=>{
                             </div>
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label htmlFor="floatingInputGrid">Email address</label>
+                                    <label className="form-control btn-danger">Email address</label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -53,7 +53,7 @@ const Reviewerhome = ()=>{
                         <div className="row g-2">
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label htmlFor="floatingInputGrid">Phone Number</label>
+                                    <label className="form-control btn-danger">Phone Number</label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -64,7 +64,7 @@ const Reviewerhome = ()=>{
                             </div>
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label htmlFor="floatingInputGrid">Designation</label>
+                                    <label className="form-control btn-danger">Designation</label>
                                     <input
                                         type="email"
                                         className="form-control"
