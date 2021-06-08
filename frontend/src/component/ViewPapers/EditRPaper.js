@@ -34,7 +34,7 @@ const EditRPaper = ({ match }) => {
         const newResearcher= {
             Status: status,
         };
-        history.push('/reviewer')
+        history.push('/allResearchPapers')
         axios.put(`http://localhost:8070/researcher/updateOneStatus/${match.params.id}`, newResearcher).then(() =>{
             alert("Updated successfully!!!");
         }).catch((err) =>{

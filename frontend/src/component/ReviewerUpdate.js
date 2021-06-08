@@ -55,10 +55,10 @@ const ReviewerUpdate = ()=>{
             Password:Password,
             Designation:Designation
         };
-
+        his.push('/reviewer');
         axios.put('http://localhost:8070/Reviewer/updateOne/'+ id , newReviewer).then(() =>{
+
             alert("Updated successfully!!!");
-            his.push('/reviewer')
         }).catch((err) =>{
             alert(err);
         })

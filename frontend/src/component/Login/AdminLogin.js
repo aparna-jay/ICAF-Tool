@@ -39,7 +39,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/Reviewer/login', newReviewer).then((res) => {
                 history.push('/reviewer');
-                setLoggedUser(res.data);
+                setLoggedUser(res.data._id);
                 console.log(loggedUser);
             }).catch((err) => {
                 alert(err);
@@ -52,7 +52,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/editor/login', newEditor).then((res) => {
                 history.push('/Editor');
-                setLoggedUser(res.data);
+                setLoggedUser(res.data._id);
                 console.log(loggedUser);
             }).catch((err) => {
                 alert(err);
@@ -64,7 +64,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/attendee/login', newAttendee).then((res) => {
                 history.push('/Attendee');
-                setLoggedUser(res.data);
+                setLoggedUser(res.data._id);
                 console.log(loggedUser);
             }).catch((err) => {
                 alert(err);
@@ -76,7 +76,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/researcher/login', newResearcher).then((res) => {
                 history.push('/Researcher');
-                setLoggedUser(res.data);
+                setLoggedUser(res.data._id);
                 console.log(loggedUser);
             }).catch((err) => {
                 alert(err);
