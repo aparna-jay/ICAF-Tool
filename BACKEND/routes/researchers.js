@@ -119,6 +119,15 @@ router.route("/login").post((req, res) => {
     });
 });
 
+router.route("/updateOneStatus/:id").put(async (req, res) => {
+    let researchers = await Researcher.findById(req.params.id);
+    const data = {
+        Status: req.body.Status || researchers.Status,
+        avatar: req.body.avatar || researchers.avatar,
+    };researchers = await Researcher.findByIdAndUpdate(req.params.id, data, {
+         new: true });res.json(researchers);});
+
+
 
 
 module.exports = router;
