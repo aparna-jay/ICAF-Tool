@@ -7,6 +7,7 @@ const ResearcherStatus = ()=>{
 
     const id = "60be68d8d0d3003a943e0707"
     const [Researcher , SetResearcher] = useState( []);
+    const [state, setState] = useState(true);
 
 
     //get all Researcher
@@ -17,6 +18,12 @@ const ResearcherStatus = ()=>{
                 SetResearcher(res.data);
                 // setName(res.data.name);
                 console.log(res.data);
+                console.log(res.data.Status);
+                if(res.data.Status == "Approved"){
+                    setState(false);
+                    console.log(state);
+                }
+                // setStatus(res.data.Status);
             }).catch((err)=>{
                 alert(err.message);
             })
@@ -43,17 +50,19 @@ const ResearcherStatus = ()=>{
 
                         <div className="form-group mb-3">
                             <label className="form-label">Name</label>
-                            <input className="form-control" type="Name" autoComplete="off" required="" name="Name" value={Researcher.Status}/>
+                            <input className="form-control" type="Status" autoComplete="off" required="" name="Status" value={Researcher.Status}/>
+
                         </div>
                         <div className="row">
                             <div className="col-md-12 text-center content-right">
-                                <a className="btn btn-success form-btn" href="/Payment" type="submit">Payment</a>
+                                <button className="btn btn-success form-btn" disabled={state} href="/Payment" type="submit">Payment</button>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </form>
+            {/*<button onClick={setStatus(Researcher.Status)}>click</button>*/}
         </div>
     );
 }
