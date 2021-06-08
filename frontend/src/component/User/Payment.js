@@ -45,10 +45,10 @@ const Payment=()=>{
     }
 
     return(
-        <div>
+        <div className="container"  >
             <div className="container py-5">
                 <div className="row">
-                    <div className="col-lg-10 mx-auto">
+                    <div className="col-lg-5 mx-auto">
                             <div className="tab-content">
                                 <div id="nav-tab-card" className="tab-pane fade show active">
                                     <h2>Payment Details</h2>

@@ -81,10 +81,23 @@ router.route("/delete/:id").delete(async (req, res)=>{
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
     Workshop.findById(id).then((user)=>{
-        res.status(200).send({status:"Workshop fetched", user})
+        res.json(user)
     }).catch((err)=>{
         console.log(err);
     })
 })
+
+//Updateone
+router.route("/updateOne/:id").put(async (req, res) => {
+    let workshop = await Workshop.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || workshop.Name,
+        Email: req.body.Email || workshop.Email,
+        Phone: req.body.Phone || workshop.Phone,
+        Password: req.body.Password || workshop.Password,
+    };
+    workshop = await Workshop.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(workshop);
+});
 
 module.exports = router;

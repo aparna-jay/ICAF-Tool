@@ -67,66 +67,15 @@ const ResearcherReg = () => {
             alert(err);
         })
     }
-
-//
-//     const history = useHistory();
-//     const [data, setData] = useState({
-//         name: "sasa",
-//         Email:"sasa",
-//         Phone:"12365",
-//         Password:"sasa",
-//         Status:"sasa",
-//         url:url,
-//     });
-    // const handleChange = (name) => (e) => {
-    //     const value = name === "image" ? e.target.files[0] : e.target.value;
-    //     setData({ ...data, [name]: value });
-    // };
-    // const handleEmail = (Email) => (e) => {
-    //     const value = Email === "image" ? e.target.files[0] : e.target.value;
-    //     setData({ ...data, [Email]: value });
-    // };
-    // const handlePhone = (Phone) => (e) => {
-    //     const value = Phone === "image" ? e.target.files[0] : e.target.value;
-    //     setData({ ...data, [Phone]: value });
-    // };
-    // const handlePassword = (Password) => (e) => {
-    //     const value = Password === "image" ? e.target.files[0] : e.target.value;
-    //     setData({ ...data, [Password]: value });
-    // };
-    // const handleStatus = (Status) => (e) => {
-    //     const value = Status === "image" ? e.target.files[0] : e.target.value;
-    //     setData({ ...data, [Status]: value });
-    // };
-    // const handleSubmit = async () => {
-    //     try {
-    //         let formData = new FormData();
-    //         formData.append("image", data.url);
-    //         formData.append("name", data.name);
-    //         formData.append("Email", data.Email);
-    //         formData.append("Phone", data.Phone);
-    //         formData.append("Password", data.Password);
-    //         formData.append("Status", data.Status);
-    //
-    //
-    //         const res = await fetch(`http://localhost:8070/researcher/add`, {
-    //             method: "POST",
-    //             body: formData,
-    //         });
-    //         if (res.ok) {
-    //             setData({ name: "",Email: "",Phone: "",Password: "",Status: "", image: "" });
-    //             history.replace("/");
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
-
     console.log(url);
 
     return (
         <div style={{ maxWidth: 500, margin: "auto" }}>
+            <br></br>
+            <h2><b>Researcher Registration</b></h2>
+            <hr></hr>
+            <br></br>
+
             <div className="mb-3">
                 <input
                     className="form-control"
@@ -168,7 +117,9 @@ const ResearcherReg = () => {
                 />
             </div>
 
-            <label>
+            <h5>Attach your Research Paper</h5>
+
+            <label className={"mylabel"}>
                 <input type="file" onChange={handleChange} />
                 <span>+</span>
             </label>

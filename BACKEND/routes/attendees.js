@@ -9,7 +9,7 @@ let Attendee = require("../models/Attendee");
 router.route("/add").post((req,res)=>{
     const Name = req.body.Name;
     const Email = req.body.Email;
-    const Phone = Number(req.body.Phone);
+    const Phone = req.body.Phone;
     const Password = req.body.Password;
     const Amount = Number(req.body.Amount);
 
@@ -78,11 +78,25 @@ router.route("/delete/:id").delete(async (req, res)=>{
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
     Attendee.findById(id).then((user)=>{
-        res.status(200).send({status:"User fetched", user})
+        res.json(user)
     }).catch((err)=>{
         console.log(err);
     })
 })
+
+//Updateone
+router.route("/updateOne/:id").put(async (req, res) => {
+    let attendee = await Attendee.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || attendee.Name,
+        Email: req.body.Email || attendee.Email,
+        Phone: req.body.Phone || attendee.Phone,
+        Password: req.body.Password || attendee.Password,
+        Amount: req.body.Amount || attendee.Amount,
+    };
+    attendee = await Attendee.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(attendee);
+});
 
 router.route("/login").post((req, res) => {
     const Password = req.body.Password;

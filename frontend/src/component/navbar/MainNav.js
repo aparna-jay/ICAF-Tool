@@ -43,6 +43,15 @@ const MainNav = () =>{
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/user">User</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/UserProfile">UserProfile</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/WorkshopProfile">WorkshopProfile</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/AttendeeProfile">AttendeeProfile</a>
+                        </li>
 
 
                     </ul>
