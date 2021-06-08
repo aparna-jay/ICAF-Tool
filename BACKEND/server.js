@@ -39,6 +39,9 @@ connectio.once("open",()=>{
 const researcherRouter = require("./routes/researchers.js");
 app.use("/researcher",researcherRouter);
 
+//Workshop
+const workshopRouter = require("./routes/workshops.js");
+app.use("/workshop",workshopRouter);
 
 //Attendee
 const attendeeRouter = require("./routes/attendees.js");

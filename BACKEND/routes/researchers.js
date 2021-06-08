@@ -80,25 +80,24 @@ router.route("/delete/:id").delete(async (req, res)=>{
 //find one of the user
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
-    Researcher.findById(id).then((researchers)=>{
-        // res.status(200).send({status:"Researcher fetched", user})
-        res.json(researchers);
+    Researcher.findById(id).then((user)=>{
+            res.json(user)
     }).catch((err)=>{
         console.log(err);
     })
 })
 
-
+//Updateone
 router.route("/updateOne/:id").put(async (req, res) => {
-    let researchers = await Researcher.findById(req.params.id);
+    let researcher = await Researcher.findById(req.params.id);
     const data = {
-
-        Status: req.body.Status || researchers.Status,
-        avatar: req.body.avatar || researchers.avatar,
-
+        Name: req.body.Name || researcher.Name,
+        Email: req.body.Email || researcher.Email,
+        Phone: req.body.Phone || researcher.Phone,
+        Password: req.body.Password || researcher.Password,
     };
-    researchers = await Researcher.findByIdAndUpdate(req.params.id, data, { new: true });
-    res.json(researchers);
+    researcher = await Researcher.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(researcher);
 });
 
 router.route("/login").post((req, res) => {
@@ -119,4 +118,7 @@ router.route("/login").post((req, res) => {
         }
     });
 });
+
+
+
 module.exports = router;
