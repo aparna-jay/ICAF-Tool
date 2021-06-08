@@ -101,4 +101,22 @@ router.route("/updateOne/:id").put(async (req, res) => {
     res.json(researchers);
 });
 
+router.route("/login").post((req, res) => {
+    const Password = req.body.Password;
+    Researcher.findOne({ Email: req.body.Email }).then(researcher => {
+        // Check if researcher exists
+        if (!researcher) {
+            return res.status(404).json({Email: "Email not found"});
+        } else {
+            // Check password
+            if (Password === researcher.Password) {
+                res.json(researcher)
+            } else {
+                return res
+                    .status(400)
+                    .json({Password: "Password incorrect"});
+            }
+        }
+    });
+});
 module.exports = router;

@@ -99,5 +99,24 @@ router.route("/updateOne/:id").put(async (req, res) => {
         res.json(reviewer);
 });
 
+router.route("/login").post((req, res) => {
+    const Password = req.body.Password;
+    Reviewer.findOne({ Email: req.body.Email }).then(reviewer => {
+        // Check if admin exists
+        if (!reviewer) {
+            return res.status(404).json({Email: "Email not found"});
+        } else {
+            // Check password
+            if (Password === reviewer.Password) {
+                res.json(reviewer)
+            } else {
+                return res
+                    .status(400)
+                    .json({Password: "Password incorrect"});
+            }
+        }
+    });
+});
+
 
 module.exports = router;

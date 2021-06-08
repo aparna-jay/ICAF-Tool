@@ -13,6 +13,7 @@ const ConferenceDashboardSideNav =() =>{
                     <li><a href="Home">Home</a></li>
                     <li><a href="Conference">Conference</a></li>
                     <li><a href="Keynotes">Keynotes</a></li>
+                    <li><a href="Keynotes-profile">Keynotes Profile</a></li>
                     <li><a href="Editor">Editor</a></li>
                     <li><a href="Profile">Profile</a></li>
 

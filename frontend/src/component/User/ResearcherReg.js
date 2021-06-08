@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import ProgressBar from '../../component/comps/ProgressBar';
 import useStorage from "../../hooks/useStorage";
+import '../../styles/Researcher/index.css'
 
 
 const ResearcherReg = () => {

@@ -2,7 +2,6 @@ import React from 'react'
 import '../../styles/Editor/EditorProfile.css'
 import img from '../../armaan.jpg'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
-// import EditorSideNav from "../navbar/EditorSideNav";
 
 const EditorProfile = () =>{
     return(
