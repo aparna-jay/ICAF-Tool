@@ -39,3 +39,35 @@ form{
 .adminAdmin{
     background-color: #247fcf;
 }
+
+
+/*reaches*/
+.blog-card {
+
+    background:#b8ebf5;
+    display: inline-block;
+    width: 400px;
+    cursor: pointer;
+    padding: 8px;
+    box-shadow: 2px 0px 13px 7px rgba(25, 12, 255, 0.2);
+    margin: 40px;
+}
+.span{
+    color:grey;
+}
+
+.p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.btn-del{
+    float: right
+}
+.btn-addtocart{
+    background:#1f52a8;
+}
+.mylable{
+    background:#6c757d;
+}
