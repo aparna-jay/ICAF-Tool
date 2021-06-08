@@ -52,7 +52,9 @@ const MainNav = () =>{
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/AttendeeProfile">AttendeeProfile</a>
                         </li>
-
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/Keynotes-profile">Keynotes Profile</a>
+                        </li>
 
                     </ul>
                     <form className="d-flex">
