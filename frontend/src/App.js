@@ -75,7 +75,7 @@ const App = () => {
                     <Route path="/editRP/:id" component={EditRPaper}/>
 
                     <Route path="/Attendee" component={AttendeeReg}/>
-                    <Route path="/UserProfile" component={ResearcherPro}/>
+                    <Route path="/UserProfile" render={props => <ResearcherPro loggedUser={loggedUser}/>} />
                     <Route path="/ResearcherUpdate" component={ResearcherUpdate}/>
                     <Route path="/ResearcherStatus" component={ResearcherStatus}/>
                     <Route path="/WorkshopProfile" component={WorkshopPro}/>
