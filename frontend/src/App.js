@@ -33,7 +33,7 @@ const App = () => {
    const[adminId, setAdminId] = useState('60b0ea663a50a542d8e0fae0');
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
     const [selectedImg, setSelectedImg] = useState(null);
-   const[loggedUser, setLoggedUser]  = useState([])
+   const[loggedUser, setLoggedUser]  = useState('')
         return (
 
             <div>

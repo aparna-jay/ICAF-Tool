@@ -4,7 +4,8 @@ import AdminSideNav from "../navbar/AdminSideNav";
 import img from "../../img.jpg";
 
 const AdminHome = (loggedUser) => {
-    console.log(loggedUser)
+     console.log(loggedUser)
+
     return (
         <div>
             <section>

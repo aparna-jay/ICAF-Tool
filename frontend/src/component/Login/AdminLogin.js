@@ -27,7 +27,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/admin/login', newAdmin).then((res) => {
                 history.push('/admin');
-                setLoggedUser(res.data);
+                setLoggedUser(res.data._id);
             }).catch((err) => {
                 alert(err);
             })
