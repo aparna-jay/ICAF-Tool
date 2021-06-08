@@ -56,6 +56,7 @@ const App = () => {
                     <Route path="/admin" render={props => <AdminHome loggedUser={loggedUser}/>} />
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
+                    <Route path="/Keynotes-profile" component={Keyprofile} />
                     <Route path="/login" render={props => <AdminLogin loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}/>
                     <Route path="/Conference" component={Conference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
