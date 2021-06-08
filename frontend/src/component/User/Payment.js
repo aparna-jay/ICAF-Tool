@@ -29,7 +29,7 @@ const Payment=()=>{
         setCVV(e.target.value);
     }
     const onSubmit = () => {
-        const newReviewer= {
+        const newPayment= {
             Date: Date,
             Time: Time,
             BankName: BankName,
@@ -37,7 +37,7 @@ const Payment=()=>{
             CCNumber:CCNumber,
             CVV:CVV
         };
-        axios.post('http://localhost:8070/payment/add' , newReviewer).then(() =>{
+        axios.post('http://localhost:8070/payment/add' , newPayment).then(() =>{
             alert("Registered successfully!!!");
         }).catch((err) =>{
             alert(err);

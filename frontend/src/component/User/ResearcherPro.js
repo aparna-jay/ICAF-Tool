@@ -38,7 +38,7 @@ const ResearcherPro = ({loggedUser})=>{
                 <form>
                     <div className="row text-capitalize text-start justify-content-center profile-row">
                         <div className="col-md-8">
-                            <h1>User Profile</h1>
+                            <h1>Researcher Profile</h1>
                             <hr></hr>
 
                             <div className="form-group mb-3">
