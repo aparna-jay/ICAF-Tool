@@ -49,7 +49,7 @@ const Keyprofile = () => {
         axios.post('http://localhost:8070/KeyNoteSpeakers/add' , newKeynoteSpeaker).then(() =>{
             alert("Added successfully!!!");
         }).catch((err) =>{
-            alert(err);
+            alert(err); //error
         })
     }
     console.log(url);
