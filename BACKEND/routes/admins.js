@@ -100,5 +100,17 @@ router.route("/login").post((req, res) => {
     });
 });
 
+router.route("/updateOne/:id").put(async (req, res) => {
+    let admin = await Admin.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || admin.Name,
+        Email: req.body.Email || admin.Email,
+        Phone: req.body.Phone || admin.Phone,
+        Password: req.body.Password || admin.Password,
+    };
+    admin = await Admin.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(admin);
+});
+
 
 module.exports = router;

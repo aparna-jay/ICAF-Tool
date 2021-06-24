@@ -1,7 +1,15 @@
 import React  from "react"
 import "../../styles/Admin/sidebar.css"
+import {useHistory} from "react-router-dom";
 
 const AdminSideNav = () => {
+
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
+
         return (
             <div>
                     <nav id="sidebar" >
@@ -22,6 +30,9 @@ const AdminSideNav = () => {
                             </li>
                             <li>
                                 <a href="/adminRegister">Register</a>
+                            </li>
+                            <li>
+                                <a><button onClick={Logout}>Logout</button></a>
                             </li>
                         </ul>
                     </nav>
