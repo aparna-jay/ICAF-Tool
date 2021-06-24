@@ -1,16 +1,30 @@
 import React,{useState, useEffect} from "react"
-import img from "../../img.jpg"
+import img from "../../img/user.png"
 import axios from "axios";
 
-const AdminProfile = ({adminId}) => {
+const AdminProfile = ({adminId, userType}) => {
     console.log(adminId);
     const [admin, setAdmin] = useState([]);
 
     useEffect(()=> {
-        axios.get('http://localhost:8070/admin/get/' + adminId).then((response) => {
-            setAdmin(response.data);
-            console.log(admin)
-        });
+        if(userType === "Admin") {
+            axios.get('http://localhost:8070/admin/get/' + adminId).then((response) => {
+                setAdmin(response.data);
+                console.log(admin)
+            });
+        }
+        if(userType === "Editor") {
+            axios.get('http://localhost:8070/editor/get/' + adminId).then((response) => {
+                setAdmin(response.data.editor);
+                console.log(admin)
+            });
+        }
+        if(userType === "Reviewer") {
+            axios.get('http://localhost:8070/Reviewer/get/' + adminId).then((response) => {
+                setAdmin(response.data);
+                console.log(admin)
+            });
+        }
     },[adminId])
         return (
             <div >
@@ -20,7 +34,7 @@ const AdminProfile = ({adminId}) => {
                         <div className="row justify-content-center">
 
                                 <div className="card clean-card text-center">
-                                    <img className="card-img-top w-100 d-block" src={img}/>
+                                    <img className="card-img-top d-block" src={img}/>
                                     <div className="card-body info">
                                         <div className="row">
                                             <div className="col-md-12">
@@ -29,7 +43,7 @@ const AdminProfile = ({adminId}) => {
                                                         <p className="labels"><strong>Name</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <input className="labels" placeholder={admin.Name}></input>
+                                                        <input className="form-control" type="text" placeholder={admin.Name}></input>
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -37,7 +51,7 @@ const AdminProfile = ({adminId}) => {
                                                         <p className="labels"><strong>Email</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <p className="labels">{admin.Email}</p>
+                                                        <p className="form-control" type="text">{admin.Email}</p>
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -45,7 +59,7 @@ const AdminProfile = ({adminId}) => {
                                                         <p className="labels"><strong>Phone</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <p className="labels">{admin.Phone}</p>
+                                                        <p className="form-control" type="text">{admin.Phone}</p>
                                                     </div>
                                                 </div>
                                                 <div className="row">

@@ -45,4 +45,10 @@
 .panel-table .panel-body .table-bordered > tbody > tr > td {
   line-height: 34px;
 }
-
+.card-img, .card-img-bottom, .card-img-top {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 50%;
+  height:auto;
+  align-self: center;
+}

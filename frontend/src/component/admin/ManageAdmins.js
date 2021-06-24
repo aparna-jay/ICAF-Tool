@@ -3,9 +3,9 @@ import axios from "axios";
 import AdminProfile from "./AdminProfile";
 import AdminSideNav from "../navbar/AdminSideNav";
 
-const ManageAdmins = ({setAdminId, adminId})=>{
+const ManageAdmins = ()=>{
 
-
+    const[adminId, setAdminId] = useState('');
 
     const [Admins, setAdmins] = useState([]);
 
@@ -18,6 +18,7 @@ const ManageAdmins = ({setAdminId, adminId})=>{
 
     const onEditClick = (id) =>{
         setAdminId(id);
+        console.log(adminId);
     }
 
     const deleteAdmin = (id) =>{
@@ -73,7 +74,7 @@ const ManageAdmins = ({setAdminId, adminId})=>{
                                             <tr>
                                                 <td key={"adminSettings"} align="center">
                                                     <a className="btn btn-default"><em
-                                                        className="fa fa-pencil" to="/adminProfile" onClick={()=>onEditClick(admin._id)}></em></a>
+                                                        className="fa fa-pencil"  onClick={()=>onEditClick(admin._id)}></em></a>
                                                     <a className="btn btn-danger"><em
                                                         className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this admin?")){deleteAdmin(admin._id)};}}></em></a>
                                                 </td>
@@ -93,7 +94,7 @@ const ManageAdmins = ({setAdminId, adminId})=>{
             <br /><br />
                 </div>
                     <div className="col-md-6 col-xl-3" >
-            <AdminProfile adminId={adminId}></AdminProfile>
+            <AdminProfile adminId={adminId} userType={"Admin"}></AdminProfile>
                     </div>
 </div>
         </div>
