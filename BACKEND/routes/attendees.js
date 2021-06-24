@@ -11,14 +11,14 @@ router.route("/add").post((req,res)=>{
     const Email = req.body.Email;
     const Phone = req.body.Phone;
     const Password = req.body.Password;
-    const Amount = Number(req.body.Amount);
+
 
     const newAttendee = new Attendee({
         Name,
         Email,
         Phone,
         Password,
-        Amount,
+
     })
 
     newAttendee.save().then(()=>{
@@ -44,13 +44,13 @@ router.route("/").get((req,res)=>{
 //Put Request
 router.route("/update/:id").put(async (req,res)=>{
     let userId = req.params.id;
-    const {Name,Email,Phone,Password,Amount} = req.body;
+    const {Name,Email,Phone,Password} = req.body;
     const updateUser = {
         Name,
         Email,
         Phone,
         Password,
-        Amount
+
     }
 
     const update = await Attendee.findByIdAndUpdate(userId,updateUser).then(()=>{
@@ -92,7 +92,7 @@ router.route("/updateOne/:id").put(async (req, res) => {
         Email: req.body.Email || attendee.Email,
         Phone: req.body.Phone || attendee.Phone,
         Password: req.body.Password || attendee.Password,
-        Amount: req.body.Amount || attendee.Amount,
+
     };
     attendee = await Attendee.findByIdAndUpdate(req.params.id, data, { new: true });
     res.json(attendee);

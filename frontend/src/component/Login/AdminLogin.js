@@ -75,7 +75,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                 Password: Password
             };
             axios.post('http://localhost:8070/researcher/login', newResearcher).then((res) => {
-                history.push('/Researcher');
+                history.push('/UserProfile');
                 setLoggedUser(res.data._id);
                 console.log(loggedUser);
             }).catch((err) => {

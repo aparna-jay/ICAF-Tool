@@ -5,7 +5,7 @@ const { request } = require("express");
 let KeyNoteSpeakers = require("../models/KeyNoteSpeakers");
 
 //Insert data
-//http://localhost:8030/KeyNoteSpeakers/add
+//http://localhost:8070/KeyNoteSpeakers/add
 //arrow function
 router.route("/add").post((req,res) => {
 
@@ -13,8 +13,8 @@ router.route("/add").post((req,res) => {
     const Name = req.body.Name;
     const Organization = req.body.Organization;
     const Designation = req.body.Designation;
-    const Description = req.body.Description;
-    // const Image = req.body.Image;
+    const Conference = req.body.Conference;
+    const avatar = req.body.avatar;
     
     //create an object to insert
     const newKeyNoteSpeakers = new KeyNoteSpeakers({
@@ -22,7 +22,8 @@ router.route("/add").post((req,res) => {
         Name,
         Organization,
         Designation,
-        Description
+        Conference,
+        avatar
     })
 
     //insert data to the database throught the model
@@ -56,15 +57,15 @@ router.route("/update/:id").put(async(req,res)=> {
     //fetch data from request body
     //destructure
     //pass frontend objects as a object to the backend
-    const {Name,Organization, Designation, Description} = req.body;
+    const {Name,Organization, Designation, Conference, avatar} = req.body;
 
     //create a object for update
     const updateKeyNoteSpeakers = {
         Name,
         Organization,
         Designation,
-        Description
-
+        Conference,
+        avatar
     }
 
     //pass KeyNoteSpeakersId,updateKeyNoteSpeakers
