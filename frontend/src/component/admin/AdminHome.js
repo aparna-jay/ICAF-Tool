@@ -1,29 +1,26 @@
 import React, {useEffect, useState} from "react"
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
-import img from "../../img.jpg";
-import {useHistory} from "react-router-dom";
+import img from "../../img/user.png";
 import axios from "axios";
 
-const AdminHome = ({loggedUser}) => {
-     console.log(loggedUser)
-
-    const id = loggedUser;
+const AdminHome = () => {
     const [admin , setAdmin] = useState( []);
 
 
     //get logged admin
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getAdmin(){
-            axios.get("http://localhost:8070/admin/get/"+id).then((res)=>{
+            axios.get("http://localhost:8070/admin/get/"+ loggedInUser).then((res)=>{
                 setAdmin(res.data);
-                // setName(res.data.name);
                 console.log(res.data);
             }).catch((err)=>{
             })
         }
         getAdmin();
-    },[loggedUser]);
+    },[]);
 
 
 
@@ -42,34 +39,35 @@ const AdminHome = ({loggedUser}) => {
                             <div className="row justify-content-center">
 
                                 <div className="card clean-card text-center">
-                                    <img className="card-img-top w-100 d-block" src={img}/>
+                                    <img className="card-img-top d-block" src={img}/>
                                     <div className="card-body info">
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="row">
                                                     <div className="col">
                                                         <p className="labels"><strong>Name</strong></p>
+
+                                                        <input className="form-control" type="text" placeholder={admin.Name} />
                                                     </div>
-                                                    <div className="col">
-                                                        <input className="labels" ></input>
-                                                    </div>
+
                                                 </div>
+                                                <br />
                                                 <div className="row">
                                                     <div className="col">
                                                         <p className="labels"><strong>Email</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels"></p>
+
+                                                        <input className="form-control" type="email" placeholder={admin.Email} />
                                                     </div>
                                                 </div>
+                                                <br />
                                                 <div className="row">
                                                     <div className="col">
                                                         <p className="labels"><strong>Phone</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels"></p>
+
+                                                        <input className="form-control" type="text" placeholder={admin.Phone} />
                                                     </div>
                                                 </div>
+                                                <br />
                                                 <div className="row">
                                                     <div className="col-md-12">
                                                         <a className="btn btn-success" role="button" href="#">
