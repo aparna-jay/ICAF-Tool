@@ -38,6 +38,8 @@ import AttendeePro from "./component/User/AttendeePro";
 import AttendeeUpdate from "./component/User/AttendeeUpdate";
 import WorkshopUpdate from "./component/User/WorkshopUpdate";
 import WorkshopStatus from "./component/User/WorkshopStatus";
+import ManageConferences from "./component/admin/ManageConferences";
+import ManageUsers from "./component/admin/ManageUsers";
 
 
 const App = () => {
@@ -53,6 +55,8 @@ const App = () => {
 
 
                     <Route path="/admin" render={props => <AdminHome/>} />
+                    <Route path="/ManageConference" component={ManageConferences}/>
+                    <Route path="/ManageUsers" component={ManageUsers}/>
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
                     <Route path="/Keynotes-profile" component={Keyprofile} />
