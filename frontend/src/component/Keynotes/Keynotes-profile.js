@@ -25,6 +25,7 @@ const Keyprofile = () => {
     const[Organization, setOrganization]= useState("");
     const[Designation, setDesignation]= useState("");
     const[Conference, setConference]= useState("");
+    const[Status, setStatus]= useState("Pending");
 
     const nameSetter = (e) => {
         setName(e.target.value);
@@ -44,7 +45,8 @@ const Keyprofile = () => {
             Organization: Organization,
             Designation: Designation,
             Conference: Conference,
-            avatar:url
+            avatar:url,
+            Status:Status,
         };
         axios.post('http://localhost:8070/KeyNoteSpeakers/add' , newKeynoteSpeaker).then(() =>{
             alert("Added successfully!!!");

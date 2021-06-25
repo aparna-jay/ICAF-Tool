@@ -15,6 +15,7 @@ router.route("/add").post((req,res) => {
     const Designation = req.body.Designation;
     const Conference = req.body.Conference;
     const avatar = req.body.avatar;
+    const Status = req.body.Status;
     
     //create an object to insert
     const newKeyNoteSpeakers = new KeyNoteSpeakers({
@@ -23,7 +24,8 @@ router.route("/add").post((req,res) => {
         Organization,
         Designation,
         Conference,
-        avatar
+        avatar,
+        Status
     })
 
     //insert data to the database throught the model
@@ -57,7 +59,7 @@ router.route("/update/:id").put(async(req,res)=> {
     //fetch data from request body
     //destructure
     //pass frontend objects as a object to the backend
-    const {Name,Organization, Designation, Conference, avatar} = req.body;
+    const {Name,Organization, Designation, Conference, avatar, Status} = req.body;
 
     //create a object for update
     const updateKeyNoteSpeakers = {
@@ -65,7 +67,8 @@ router.route("/update/:id").put(async(req,res)=> {
         Organization,
         Designation,
         Conference,
-        avatar
+        avatar,
+        Status
     }
 
     //pass KeyNoteSpeakersId,updateKeyNoteSpeakers
@@ -114,7 +117,48 @@ router.route("/get/:id").get(async(req,res)=> {
         console.log(err);
         res.staus(500).send({msg:"Error with get KeyNote Speakers Details!!", error: err.message});
     })
+});
+
+//Update Request
+router.route("/update/:id").put(async (req,res)=>{
+    let userId = req.params.id;
+    const {Name,Email,Phone,Password,Status,avatar} = req.body;
+    const updateUser = {
+        Name,
+        Email,
+        Phone,
+        Password,
+        Status,
+        avatar
+    }
+
+    const update = await Researcher.findByIdAndUpdate(userId,updateUser).then(()=>{
+        res.status(200).send({status: "User Updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status: "Error with updating data"});
+    })
 })
+//Updateone
+router.route("/updateOne/:id").put(async (req, res) => {
+    let KeyNoteSpeakers = await KeyNoteSpeakers.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || KeyNoteSpeakers.Name,
+        Email: req.body.Email || KeyNoteSpeakers.Email,
+        Phone: req.body.Phone || KeyNoteSpeakers.Phone,
+        Password: req.body.Password || KeyNoteSpeakers.Password,
+    };
+    KeyNoteSpeakers = await KeyNoteSpeakers.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(KeyNoteSpeakers);
+});
+
+router.route("/updateOneStatus/:id").put(async (req, res) => {
+    let KeyNoteSpeakers = await KeyNoteSpeakers.findById(req.params.id);
+    const data = {
+        avatar: req.body.avatar || KeyNoteSpeakers.avatar,
+        Status: req.body.Status || KeyNoteSpeakers.Status,
+    };KeyNoteSpeakers = await KeyNoteSpeakers.findByIdAndUpdate(req.params.id, data, {
+        new: true });res.json(KeyNoteSpeakers);});
 
 //export the moduls
 module.exports = router;
