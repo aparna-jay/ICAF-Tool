@@ -22,8 +22,8 @@ const AdminSideNav = () => {
                                 <a href="/ManageAdmins">Manage Admins</a>
                                 <a href="/ManageReviewers">Manage Reviewers</a>
                                 <a href="/ManageEditors">Manage Editors</a>
-
-                                <a href="#">Conference Details</a>
+                                <a href="/ManageUsers">Manage Users</a>
+                                <a href="/ManageConference">Conference Details</a>
                             </li>
                             <li>
                                 <a href="/adminProfile">Profile</a>
