@@ -27,6 +27,10 @@ const KeyNoteSpeakersSchema = new Schema({
         type: String,
         required: true
     },
+    Status : {
+        type : String,
+        required: true
+    },
 })
 
 //create a table to pass the schema
