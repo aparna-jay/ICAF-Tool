@@ -34,7 +34,11 @@ const ConferenceSchema = new Schema({
     Email : {
         type : String,
         required : true
-    }
+    },
+    Status : {
+        type : String,
+        required: true
+    },
 })
 
 //create a table to pass the schema

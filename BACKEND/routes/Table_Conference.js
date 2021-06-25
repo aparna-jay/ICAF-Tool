@@ -15,8 +15,11 @@ router.route("/add").post((req,res) => {
     const End_Date = req.body.End_Date;
     const Organization = req.body.Organization;
     const Description = req.body.Description;
-    const Phone = Number(req.body.Phone); //cast for number format
+    const Phone = Number(req.body.Phone);
     const Email = req.body.Email;
+    const Status = req.body.Status;
+
+
     //create an object to insert
     const newConference = new Conference({
         //initialize objects
@@ -26,7 +29,8 @@ router.route("/add").post((req,res) => {
         Organization,
         Description,
         Phone,
-        Email
+        Email,
+        Status
     })
 
     //insert data to the database throught the model
@@ -60,7 +64,7 @@ router.route("/update/:id").put(async(req,res)=> {
     //fetch data from request body
     //destructure
     //pass frontend objects as a object to the backend
-    const {Title, Start_date, End_Date, Organization, Description, Phone, Email} = req.body;
+    const {Title, Start_date, End_Date, Organization, Description, Phone, Email, Status} = req.body;
 
     //create a object for update
     const updateConference = {
@@ -70,7 +74,8 @@ router.route("/update/:id").put(async(req,res)=> {
         Organization,
         Description,
         Phone,
-        Email
+        Email,
+        Status
 
     }
 

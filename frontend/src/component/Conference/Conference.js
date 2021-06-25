@@ -13,6 +13,7 @@ const Conference = () => {
     const[Description, setDescription]= useState("");
     const[Phone, setPhone]= useState("");
     const[Email, setEmail]= useState("");
+    const[Status, setStatus]= useState("Pending");
 
     const TitleSetter = (e) => {
         setTitle(e.target.value);
@@ -44,10 +45,11 @@ const Conference = () => {
             Organization:Organization,
             Description:Description,
             Phone:Phone,
-            Email:Email
+            Email:Email,
+            Status: Status
 
         };
-        axios.post('http://localhost:8070/Conference/add' , newConference).then(() =>{
+        axios.post('http://localhost:8070/conference/add' , newConference).then(() =>{
             alert("Conference added successfully!!!");
         }).catch((err) =>{
             alert(err);
@@ -133,9 +135,11 @@ const Conference = () => {
                         </div>
 
                         <div className="mb-3">
-                            <a href="ConferenceDashboard.js">
-                            <button className="btn btn-primary d-block w-100" type="submit" onClick={onSubmit}>Submit</button>
-                            </a>
+
+                            <button className="btn btn-primary" role="button" type = "submit" onClick={onSubmit}>
+                                Submit
+                            </button>
+
                         </div>
                     </form>
                 </section>
