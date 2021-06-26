@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import '../../styles/ConferenceDashboard/Conference.css';
-import C from "./ConferenceDashboard";
+// import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
