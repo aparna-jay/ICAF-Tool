@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import '../../styles/ConferenceDashboard/Conference.css';
-import C from "./ConferenceDashboard";
+// import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
@@ -49,7 +49,7 @@ const Conference = () => {
             Status: Status
 
         };
-        axios.post('http://localhost:8070/conference/add' , newConference).then(() =>{
+        axios.post('http://localhost:8070/Conference/add' , newConference).then(() =>{
             alert("Conference added successfully!!!");
         }).catch((err) =>{
             alert(err);
