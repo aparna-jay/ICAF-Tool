@@ -62,6 +62,7 @@ const App = () => {
                     <Route path="/Keynotes-profile" component={Keyprofile} />
                     <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
+                    <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" render={props => <Reviewerhome/>} />

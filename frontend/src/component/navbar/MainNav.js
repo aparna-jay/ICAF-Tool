@@ -55,6 +55,9 @@ const MainNav = () =>{
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/Keynotes-profile">Keynotes Profile</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/ConferenceDashboard">Conference Dashboard</a>
+                        </li>
 
                     </ul>
                     <form className="d-flex">

@@ -8,69 +8,67 @@ const ConferenceDashboard = () => {
                 <div className="container-fluid">
                     <div className="row">
 
-                        <div className="col-12 col-sm-6 col-md-6 text-end"><a className="btn btn-primary" role="button"><i
-                            className="fa fa-plus"></i>&nbsp;Agregar colaborador</a></div>
+
                     </div>
                     <div className="card" id="TableSorterCard">
-                        <div className="card-header py-3">
-                            <div className="row table-topper align-items-center">
-                                <div className="col-12 col-sm-5 col-md-6 text-start">
-                                    <p className="text-primary m-0 fw-bold">Colaboradores</p>
-                                </div>
-                                <div className="col-12 col-sm-7 col-md-6 text-end">
-                                    <button className="btn btn-primary btn-sm reset" type="button">Borrar Filtros
-                                    </button>
-                                    <button className="btn btn-warning btn-sm" id="zoom_in" type="button"
-                                            zoomclick="ChangeZoomLevel(-10);">
-                                        <i className="fa fa-search-plus"></i>
-                                    </button>
-                                    <button className="btn btn-warning btn-sm" id="zoom_out" type="button"
-                                            zoomclick="ChangeZoomLevel(-10);">
-                                        <i className="fa fa-search-minus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+
                         <div className="row">
                             <div className="col-12">
+
                                 <div className="table-responsive">
+
                                     <table className="table table-striped table tablesorter" id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            <th className="text-center">Nombre</th>
-                                            <th className="text-center">Puesto</th>
-                                            <th className="text-center">Departamento</th>
-                                            <th className="text-center filter-false sorter-false">Acciones</th>
+                                            <th className="text-center">Number</th>
+                                            <th className="text-center">Title</th>
+                                            <th className="text-center">Start Date</th>
+                                            <th className="text-center">End Date</th>
+                                            <th className="text-center">Organization</th>
+                                            <th className="text-center">Description</th>
+                                            <th className="text-center">Phone</th>
+                                            <th className="text-center">Email</th>
+                                            <th className="text-center filter-false sorter-false">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        <tr>
+                                        <tr className="tab">
                                             <td>Ana</td>
                                             <td>Diseñador</td>
                                             <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
                                             <td className="text-center">
                                                 <a className="btn btn-primary" role="button">
-                                                    <i className="far fa-eye"></i>
+                                                    <i className="far fa-eye">View</i>
                                                 </a>
                                                 <a className="btn btn-success" role="button">
-                                                    <i className="fas fa-pencil-alt"></i>
+                                                    <i className="fas fa-pencil-alt">Update</i>
                                                 </a>
                                                 <a className="btn btn-danger" role="button"
-                                                ><i className="fas fa-trash"></i></a>
+                                                ><i className="fas fa-trash">Delete</i></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Fer<br/>
-                                            </td>
+                                            <td>Fer<br/></td>
                                             <td>Desarrollador</td>
                                             <td>Development</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
+                                            <td>Diseño</td>
                                             <td className="text-center"><a className="btn btn-primary" role="button">
-                                                <i className="far fa-eye"></i>
+                                                <i className="far fa-eye">View</i>
                                             </a>
                                                 <a className="btn btn-success" role="button">
-                                                    <i className="fas fa-pencil-alt"></i>
+                                                    <i className="fas fa-pencil-alt">Update</i>
                                                 </a>
-                                                <a className="btn btn-danger" role="button"><i className="fas fa-trash">
-                                                </i>
+                                                <a className="btn btn-danger" role="button">
+                                                    <i className="fas fa-trash">Delete</i>
                                                 </a>
                                             </td>
                                         </tr>
