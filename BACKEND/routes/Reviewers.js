@@ -90,6 +90,7 @@ router.route("/updateOne/:id").put(async (req, res) => {
     reviewer = await Reviewer.findByIdAndUpdate(req.params.id, data, { new: true });
     res.json(reviewer);
 });
+
 router.route("/login").post((req, res) => {
     const Password = req.body.Password;
     Reviewer.findOne({ Email: req.body.Email }).then(reviewer => {
