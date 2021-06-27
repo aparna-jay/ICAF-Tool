@@ -89,8 +89,8 @@ const ConferenceDashboard = () => {
                                         })}
                                         </tbody>
                                     </table>
-                                    <button className="btn btn-back">
-                                        <Link to="/adds">+ Back to Conference details</Link>
+                                    <button className="btn btn-primary">
+                                        <Link to="/Conference/add">+ Back to Conference details</Link>
                                     </button>
                                 </div>
                             </div>
