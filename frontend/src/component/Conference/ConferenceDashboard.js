@@ -9,11 +9,6 @@ const ConferenceDashboard = () => {
 
     const [Conference, setConference] = useState([]);
 
-    // const deleteConference = async (Title) => {
-    //     await axios.delete(`http://localhost:8070/Conference/delete/${Title}`);
-    //     alert("Conference deleted!!");
-    //     getConference();
-    // };
     function getConference() {
         axios
             .get("http://localhost:8070/Conference/")
