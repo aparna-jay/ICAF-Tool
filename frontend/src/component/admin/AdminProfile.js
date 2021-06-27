@@ -10,21 +10,37 @@ const AdminProfile = ({adminId, userType}) => {
         if(userType === "Admin") {
             axios.get('http://localhost:8070/admin/get/' + adminId).then((response) => {
                 setAdmin(response.data);
-                console.log(admin)
             });
         }
         if(userType === "Editor") {
             axios.get('http://localhost:8070/editor/get/' + adminId).then((response) => {
                 setAdmin(response.data.editor);
-                console.log(admin)
             });
         }
         if(userType === "Reviewer") {
             axios.get('http://localhost:8070/Reviewer/get/' + adminId).then((response) => {
                 setAdmin(response.data);
+            });
+        }
+        if(userType === "Researcher") {
+            axios.get('http://localhost:8070/researcher/get/' + adminId).then((response) => {
+                setAdmin(response.data);
+                console.log(response.data);
+            });
+        }
+        if(userType === "WorkshopPresenter") {
+            axios.get('http://localhost:8070/workshop/get/' + adminId).then((response) => {
+                setAdmin(response.data);
+                console.log(adminId)
+            });
+        }
+        if(userType === "Attendee") {
+            axios.get('http://localhost:8070/attendee/get/' + adminId).then((response) => {
+                setAdmin(response.data);
                 console.log(admin)
             });
         }
+
     },[adminId])
         return (
             <div >

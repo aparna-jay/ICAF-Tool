@@ -37,7 +37,7 @@ router.route("/add").post((req,res) => {
     newConference.save().then(() => {  //js promise
         //send a response using json format to the frontend
         res.json("Conference Details Added!!")
-    }).catch(() => {
+    }).catch((err) => {
         //display error msg in console
         console.log(err);
     })

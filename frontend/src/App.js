@@ -42,6 +42,7 @@ import EditWorkShopStatus from "./component/ViewPapers/EditWorkShopStatus";
 import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
+import ViewConference from "./component/admin/ViewConference";
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
 
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/ManageConference" component={ManageConferences}/>
+                    <Route path="/viewConf" component={ViewConference}/>
                     <Route path="/ManageUsers" component={ManageUsers}/>
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
@@ -92,6 +94,7 @@ const App = () => {
                     <Route path="/AttendeeUpdate" component={AttendeeUpdate}/>
                     <Route path="/WorkshopUpdate" component={WorkshopUpdate}/>
                     <Route path="/WorkshopStatus" component={WorkshopStatus}/>
+
 
                 </Router>
             </div>
