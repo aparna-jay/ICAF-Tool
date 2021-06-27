@@ -24,6 +24,13 @@ const ResearcherPro = ({loggedUser})=>{
         getResearcher();
     },[loggedUser]);
 
+    const deleteResearcher = (id) =>{
+        axios.delete('http://localhost:8070/researcher/delete/' + id).then(()=>{
+        }).catch((err)=>{
+            alert(err);
+        })
+    };
+
 
 
     return(
@@ -61,7 +68,7 @@ const ResearcherPro = ({loggedUser})=>{
                                 <div className="col-md-12 text-center content-right">
                                     <a href={"/ResearcherStatus"} className="btn btn-success form-btn" type="submit">Working Panel</a>
                                     <a href={"/ResearcherUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
-                                    <button className="btn btn-danger form-btn" type="reset">Delete Profile</button>
+                                    <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteResearcher(researcher._id)};}}>Delete Profile</button>
                                 </div>
                             </div>
 
