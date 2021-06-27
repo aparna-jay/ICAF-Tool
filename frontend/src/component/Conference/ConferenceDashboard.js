@@ -28,7 +28,8 @@ const ConferenceDashboard = () => {
 
     const deleteConference = (id) =>{
         axios.delete('http://localhost:8070/Conference/delete/' + id).then(()=>{
-            alert("Conference deleted!!");
+            confirm("Do you want to delete this Conference?");
+            alert("Conference deleted successfully!!");
         }).catch((err)=>{
             alert(err);
         })
@@ -79,10 +80,10 @@ const ConferenceDashboard = () => {
                                                     <td>{Conference.Phone}</td>
                                                     <td>{Conference.Email}</td>
 
-                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference.ConferenceId}`}>
+                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference._id}`}>
                                                         View
                                                     </Link>
-                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference.ConferenceId}`}>
+                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference._id}`}>
                                                         Update
                                                     </Link>
                                                     <Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">
