@@ -136,13 +136,6 @@ const ViewOneConference = () => {
                                 />
                             </div>
 
-                            <div className="mb-3">
-
-                                <button className="btn btn-primary" role="button" type = "submit" onClick={onSubmit}>
-                                    Submit
-                                </button>
-
-                            </div>
                         </form>
                     </section>
                 </div>

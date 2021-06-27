@@ -5,17 +5,15 @@ import { Link } from "react-router-dom";
 
 
 const ConferenceDashboard = () => {
-    const {Title} = useParams();
+    const {ConferenceId} = useParams();
 
     const [Conference, setConference] = useState([]);
 
-    const deleteConference = async (Title) => {
-        await axios.delete(`http://localhost:8070/Conference/delete/${Title}`);
-        alert("Conference deleted!!");
-        getConference();
-    };
-
-
+    // const deleteConference = async (Title) => {
+    //     await axios.delete(`http://localhost:8070/Conference/delete/${Title}`);
+    //     alert("Conference deleted!!");
+    //     getConference();
+    // };
     function getConference() {
         axios
             .get("http://localhost:8070/Conference/")
@@ -27,6 +25,15 @@ const ConferenceDashboard = () => {
                 alert(err.message);
             });
     }
+
+    const deleteConference = (id) =>{
+        axios.delete('http://localhost:8070/Conference/delete/' + id).then(()=>{
+            alert("Conference deleted!!");
+        }).catch((err)=>{
+            alert(err);
+        })
+    };
+
 
     useEffect(() => {
         getConference();
@@ -72,13 +79,13 @@ const ConferenceDashboard = () => {
                                                     <td>{Conference.Phone}</td>
                                                     <td>{Conference.Email}</td>
 
-                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference.Title}`}>
+                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference.ConferenceId}`}>
                                                         View
                                                     </Link>
-                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference.Title}`}>
+                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference.ConferenceId}`}>
                                                         Update
                                                     </Link>
-                                                    <Link class="btn btn-danger" onClick={() => deleteConference(Conference.Title)} role="button">
+                                                    <Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">
                                                         Delete
                                                     </Link>
                                                 </tr>
