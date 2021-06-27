@@ -37,6 +37,8 @@ import WorkshopPro from "./component/User/WorkshopPro";
 import AttendeePro from "./component/User/AttendeePro";
 import AttendeeUpdate from "./component/User/AttendeeUpdate";
 import WorkshopUpdate from "./component/User/WorkshopUpdate";
+import WorkShopHome from "./component/ViewPapers/WorkShopHome";
+import EditWorkShopStatus from "./component/ViewPapers/EditWorkShopStatus";
 import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";

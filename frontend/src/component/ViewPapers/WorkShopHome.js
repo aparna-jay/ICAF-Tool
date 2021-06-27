@@ -2,13 +2,12 @@ import React, {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import  "../../App.css"
 
-
-const ReserchPapersHome = ()=>{
+const WorkShopHome = ()=>{
     const [users, setUsers] = useState();
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const res = await fetch(`http://localhost:8070/researcher/`);
+            const res = await fetch(`http://localhost:8070/workshop/`);
             const data = await res.json();
             setUsers(data);
         };
@@ -18,7 +17,7 @@ const ReserchPapersHome = ()=>{
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8070/researcher/delete/${id}`, {
+            const res = await fetch(`http://localhost:8070/workshop/delete/${id}`, {
                 method: "DELETE",
             });
             if (res.ok) {
@@ -35,17 +34,11 @@ const ReserchPapersHome = ()=>{
             {users?.map((user) => (
                 <div className="blog-card" key={user._id}>
                     <label className="form-control btn-success"> File uploaded by {user.Name}</label>
-                    <embed  src={user.avatar}
-                            alt="pdf" width={"100%"}
-                            height={150} />
-                            <br /><br />
-                    <a href={user.avatar}
-                       className={"btn btn-danger btn-sm"}>
-                        download pdf form here
-                    </a>
+                    <embed  src={user.avatar} alt="pdf" width={"100%"} height={150} /><br /><br />
+                    <a href={user.avatar} className={"btn btn-danger btn-sm"}>download pdf form here</a>
                     <div className="p-2">
                         <div className="d-flex justify-content-between align-items-center">
-                            <Link to={`/editRP/${user._id}`}
+                            <Link to={`/EditWorkShopStatus/${user._id}`}
                                   className={"btn btn-dark"}
                                   style={{ textDecoration: "none" }}>
                                 Edit
@@ -62,4 +55,4 @@ const ReserchPapersHome = ()=>{
         </div>
     );
 }
-export default ReserchPapersHome;
+export default WorkShopHome;

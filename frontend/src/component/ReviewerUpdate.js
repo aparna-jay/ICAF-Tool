@@ -64,8 +64,6 @@ const ReviewerUpdate = ()=>{
         })
     }
 
-
-
     return(
         <div>
 
