@@ -17,7 +17,7 @@ const MainNav = () =>{
                             <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="Conference">Conference</a>
+                            <a className="nav-link active" aria-current="page" href="/Conference">Conference</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Workshops</a>
@@ -54,6 +54,9 @@ const MainNav = () =>{
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/Keynotes-profile">Keynotes Profile</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/ConferenceDashboard">Conference Dashboard</a>
                         </li>
 
                     </ul>

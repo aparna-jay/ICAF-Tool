@@ -37,6 +37,8 @@ import WorkshopPro from "./component/User/WorkshopPro";
 import AttendeePro from "./component/User/AttendeePro";
 import AttendeeUpdate from "./component/User/AttendeeUpdate";
 import WorkshopUpdate from "./component/User/WorkshopUpdate";
+import WorkShopHome from "./component/ViewPapers/WorkShopHome";
+import EditWorkShopStatus from "./component/ViewPapers/EditWorkShopStatus";
 import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
@@ -62,6 +64,7 @@ const App = () => {
                     <Route path="/Keynotes-profile" component={Keyprofile} />
                     <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
+                    <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" render={props => <Reviewerhome/>} />

@@ -100,4 +100,14 @@ router.route("/updateOne/:id").put(async (req, res) => {
     res.json(workshop);
 });
 
+//UpdateStatus
+router.route("/updateOneStatus/:id").put(async (req, res) => {
+    let workshop = await Workshop.findById(req.params.id);
+    const data = {
+        Status: req.body.Status || workshop.Status,
+        avatar: req.body.avatar || workshop.avatar,
+    };workshop = await Workshop.findByIdAndUpdate(req.params.id, data, {
+        new: true });res.json(workshop);});
+
+
 module.exports = router;
