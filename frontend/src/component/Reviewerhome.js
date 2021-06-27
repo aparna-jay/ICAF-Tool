@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Reviewerhome = ({loggedUser})=>{
     console.log(loggedUser);
- const id = loggedUser;
+    const id = loggedUser;
     const [Reviewers , SetReviwers] = useState( []);
 
 
@@ -81,7 +81,7 @@ const Reviewerhome = ({loggedUser})=>{
                     <br />
                     <div>
                         <a type="button" className="btn btn-primary btn-lg " href={"/allResearchPapers"} > View review paper</a>
-                        <button type="button" className="btn btn-primary btn-lg "> View Work Shop</button>
+                        <a type="button" className="btn btn-primary btn-lg " href={"/WorkShopHome"} > View Work Shop</a>
                     </div>
                 </div>
             </div>
