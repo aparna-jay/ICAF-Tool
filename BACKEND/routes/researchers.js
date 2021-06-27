@@ -81,7 +81,8 @@ router.route("/delete/:id").delete(async (req, res)=>{
 router.route("/get/:id").get((req,res)=>{
     let id = req.params.id;
     Researcher.findById(id).then((user)=>{
-            res.json(user)
+            res.json(user);
+            console.log(user)
     }).catch((err)=>{
         console.log(err);
     })

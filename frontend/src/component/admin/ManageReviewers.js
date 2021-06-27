@@ -50,9 +50,9 @@ const ManageReviewers = ()=>{
                                                 <h3 className="panel-title">Reviewers</h3>
                                             </div>
                                             <div className="col col-xs-6 text-right">
-                                                <button type="button"
-                                                        className="btn btn-sm btn-primary btn-create">Add
-                                                </button>
+                                                <a type="button"
+                                                        className="btn btn-sm btn-primary btn-create" href="/ReviewerRegister">Add
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
