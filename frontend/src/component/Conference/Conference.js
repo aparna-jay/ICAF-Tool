@@ -37,7 +37,8 @@ const Conference = () => {
         setEmail(e.target.value);
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         const newConference= {
             Title: Title,
             Start_date: Start_date,

@@ -29,6 +29,8 @@ import EditRPaper from "./component/ViewPapers/EditRPaper";
 import Conference from "./component/Conference/Conference";
 import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
+import ViewOneConference from "./component/Conference/ViewOneConference";
+import UpdateConference from "./component/Conference/UpdateConference";
 import AttendeeReg from "./component/User/AttendeeReg";
 import ResearcherPro from "./component/User/ResearcherPro";
 import ResearcherUpdate from "./component/User/ResearcherUpdate";
@@ -65,6 +67,8 @@ const App = () => {
                     <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
                     <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
+                    <Route path="/ViewOneConference" component={ViewOneConference}/>
+                    <Route path="/UpdateConference" component={UpdateConference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" render={props => <Reviewerhome/>} />
