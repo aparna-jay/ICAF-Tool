@@ -79,8 +79,10 @@ const App = () => {
                     <Route path="/ManageEditors"render={props => <ManageEditors />}/>
                     <Route path="/Payment" component={Payment}/>
                     <Route path="/allResearchPapers" component={ReserchPapersHome}/>
+                    <Route path="/WorkShopHome" component={WorkShopHome}/>
                     <Route path="/editRP/:id" component={EditRPaper}/>
 
+                    <Route path="/EditWorkShopStatus/:id" component={EditWorkShopStatus}/>
                     <Route path="/Attendee" component={AttendeeReg}/>
                     <Route path="/UserProfile" render={props => <ResearcherPro />} />
                     <Route path="/ResearcherUpdate" component={ResearcherUpdate}/>
