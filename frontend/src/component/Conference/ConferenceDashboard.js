@@ -72,7 +72,7 @@ const ConferenceDashboard = () => {
                                                     <Link class="btn btn-primary" role="button" to={`/gets/${Conference.Title}`}>
                                                         View
                                                     </Link>
-                                                    <Link class="btn btn-warning" role="button" to={`/updates/${Conference.Title}`}>
+                                                    <Link class="btn btn-success" role="button" to={`/updates/${Conference.Title}`}>
                                                         Update
                                                     </Link>
                                                     <Link class="btn btn-danger" onClick={() => deleteConference(Conference.Title)} role="button">
