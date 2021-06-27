@@ -26,12 +26,6 @@ const AdminSideNav = () => {
                                 <a href="/ManageConference">Conference Details</a>
                             </li>
                             <li>
-                                <a href="/adminProfile">Profile</a>
-                            </li>
-                            <li>
-                                <a href="/adminRegister">Register</a>
-                            </li>
-                            <li>
                                 <a><button onClick={Logout}>Logout</button></a>
                             </li>
                         </ul>
