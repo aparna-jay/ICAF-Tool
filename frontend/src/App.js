@@ -13,6 +13,7 @@ import ReviewerRegister from "./component/ReviewerRegister";
 import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
+import EditorRegister from "./component/Editor/EditorRegister";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
 import 'regenerator-runtime/runtime'
@@ -77,6 +78,7 @@ const App = () => {
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
                     <Route path="/Editor" component={EditorProfile}/>
+                    <Route path="/EditorRegister" component={EditorRegister}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>
                     <Route path="/Workshop" component={WorkshopReg}/>
