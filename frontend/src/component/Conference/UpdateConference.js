@@ -6,7 +6,7 @@ import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
 const UpdateConference = () => {
-    const {cTitle} = useParams();
+    const {ConferenceId} = useParams();
 
     const[Title , setTitle] = useState("");
     const[Start_date, setStart_date]= useState("");
@@ -52,15 +52,15 @@ const UpdateConference = () => {
             Status: Status
 
         };
-        axios.put(`http://localhost:8070/Conference/update/${cTitle}` , newConference).then(() =>{
+        axios.put(`http://localhost:8070/Conference/update/${ConferenceId}` , newConference).then(() =>{
             alert("Conference updated successfully!!!");
         }).catch((err) =>{
             alert(err);
         })
     };
-    const loadConference = async () => {
+    const loadConference = async (id) => {
         await axios
-            .get(`http://localhost:8070/Conference/get/${cTitle}`)
+            .get(`http://localhost:8070/Conference/get/` +id)
             .then((res) => {
                 console.log(res.data);
                 setTitle(res.data.Conference.Title);
