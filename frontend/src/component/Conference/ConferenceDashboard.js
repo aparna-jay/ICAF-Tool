@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 
 const ConferenceDashboard = () => {
+    const {Title} = useParams();
 
     const [Conference, setConference] = useState([]);
 
@@ -12,6 +14,7 @@ const ConferenceDashboard = () => {
         alert("Conference deleted!!");
         getConference();
     };
+
 
     function getConference() {
         axios
@@ -69,10 +72,10 @@ const ConferenceDashboard = () => {
                                                     <td>{Conference.Phone}</td>
                                                     <td>{Conference.Email}</td>
 
-                                                    <Link class="btn btn-primary" role="button" to={`/gets/${Conference.Title}`}>
+                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference.Title}`}>
                                                         View
                                                     </Link>
-                                                    <Link class="btn btn-warning" role="button" to={`/updates/${Conference.Title}`}>
+                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference.Title}`}>
                                                         Update
                                                     </Link>
                                                     <Link class="btn btn-danger" onClick={() => deleteConference(Conference.Title)} role="button">
