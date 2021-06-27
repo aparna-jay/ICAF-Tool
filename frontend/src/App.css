@@ -1,12 +1,12 @@
-.heading{
-    color: cornflowerblue;
-}
+/*.heading{*/
+/*    color: cornflowerblue;*/
+/*}*/
 
-.nav-item{
-    margin-right: 35px;
-}
+/*.nav-item{*/
+/*    margin-right: 35px;*/
+/*}*/
 .navbar{
-    width: 168%;
+    width: 100%;
     margin-left: -204px;
     padding: 1px 10px;
 }
@@ -19,10 +19,10 @@
 #search{
     width: 200px;
 }
-form{
-    margin-left: 280px;
-    margin-top: 10px;
-}
+/*form{*/
+/*    margin-left: 280px;*/
+/*    margin-top: 10px;*/
+/*}*/
 #btn{
     margin-left: 42px;
 }

@@ -37,6 +37,8 @@ import WorkshopPro from "./component/User/WorkshopPro";
 import AttendeePro from "./component/User/AttendeePro";
 import AttendeeUpdate from "./component/User/AttendeeUpdate";
 import WorkshopUpdate from "./component/User/WorkshopUpdate";
+import WorkShopHome from "./component/ViewPapers/WorkShopHome";
+import EditWorkShopStatus from "./component/ViewPapers/EditWorkShopStatus";
 
 
 const App = () => {
@@ -72,7 +74,9 @@ const App = () => {
                     <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
                     <Route path="/Payment" component={Payment}/>
                     <Route path="/allResearchPapers" component={ReserchPapersHome}/>
+                    <Route path="/WorkShopHome" component={WorkShopHome}/>
                     <Route path="/editRP/:id" component={EditRPaper}/>
+                    <Route path="/EditWorkShopStatus/:id" component={EditWorkShopStatus}/>
 
                     <Route path="/Attendee" component={AttendeeReg}/>
                     <Route path="/UserProfile" component={ResearcherPro}/>
