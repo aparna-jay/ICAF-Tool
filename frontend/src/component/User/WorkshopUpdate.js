@@ -75,7 +75,7 @@ const WorkshopUpdate = ()=>{
             <form>
                 <div className="row text-capitalize text-start justify-content-center profile-row">
                     <div className="col-md-8">
-                        <h1>User Profile</h1>
+                        <h2>Update Workshop Presenter Profile</h2>
                         <hr></hr>
 
                         <div className="form-group mb-3">

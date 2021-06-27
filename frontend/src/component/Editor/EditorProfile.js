@@ -3,6 +3,7 @@ import '../../styles/Editor/EditorProfile.css'
 import img from '../../armaan.jpg'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 
+
 const EditorProfile = () =>{
     return(
         <div>

@@ -39,53 +39,57 @@ import AttendeeUpdate from "./component/User/AttendeeUpdate";
 import WorkshopUpdate from "./component/User/WorkshopUpdate";
 import WorkShopHome from "./component/ViewPapers/WorkShopHome";
 import EditWorkShopStatus from "./component/ViewPapers/EditWorkShopStatus";
+import WorkshopStatus from "./component/User/WorkshopStatus";
+import ManageConferences from "./component/admin/ManageConferences";
+import ManageUsers from "./component/admin/ManageUsers";
 
 
 const App = () => {
-   const [text, setText] = useState("Hello world");
-   const[adminId, setAdminId] = useState('60b0ea663a50a542d8e0fae0');
+
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
-    const [selectedImg, setSelectedImg] = useState(null);
-   const[loggedUser, setLoggedUser]  = useState('')
+   const [selectedImg, setSelectedImg] = useState(null);
         return (
 
             <div>
                 <Router>
                 <div className="App" />
-                <MainNav text={text} setText={setText}>
-                </MainNav>
+                <MainNav />
 
-                    <Route path="/admin" render={props => <AdminHome loggedUser={loggedUser}/>} />
+
+                    <Route path="/admin" render={props => <AdminHome/>} />
+                    <Route path="/ManageConference" component={ManageConferences}/>
+                    <Route path="/ManageUsers" component={ManageUsers}/>
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
-                    <Route path="/login" render={props => <AdminLogin loggedUser={loggedUser} setLoggedUser={setLoggedUser} />}/>
+                    <Route path="/Keynotes-profile" component={Keyprofile} />
+                    <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
+                    <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
-                    <Route path="/reviewer" render={props => <Reviewerhome loggedUser={loggedUser}/>} />
+                    <Route path="/reviewer" render={props => <Reviewerhome/>} />
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
                     <Route path="/Editor" component={EditorProfile}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>
                     <Route path="/Workshop" component={WorkshopReg}/>
-                    <Route path="/ManageAdmins"render={props => <ManageAdmins setAdminId={setAdminId} adminId={adminId}/>}/>
-                    <Route path="/ManageReviewers"render={props => <ManageReviewers setAdminId={setAdminId} adminId={adminId}/>}/>
-                    <Route path="/ManageEditors"render={props => <ManageEditors setAdminId={setAdminId} adminId={adminId}/>}/>
+                    <Route path="/ManageAdmins"render={props => <ManageAdmins />}/>
+                    <Route path="/ManageReviewers"render={props => <ManageReviewers />}/>
+                    <Route path="/ManageEditors"render={props => <ManageEditors />}/>
                     <Route path="/Payment" component={Payment}/>
                     <Route path="/allResearchPapers" component={ReserchPapersHome}/>
-                    <Route path="/WorkShopHome" component={WorkShopHome}/>
                     <Route path="/editRP/:id" component={EditRPaper}/>
-                    <Route path="/EditWorkShopStatus/:id" component={EditWorkShopStatus}/>
 
                     <Route path="/Attendee" component={AttendeeReg}/>
-                    <Route path="/UserProfile" component={ResearcherPro}/>
+                    <Route path="/UserProfile" render={props => <ResearcherPro />} />
                     <Route path="/ResearcherUpdate" component={ResearcherUpdate}/>
                     <Route path="/ResearcherStatus" component={ResearcherStatus}/>
                     <Route path="/WorkshopProfile" component={WorkshopPro}/>
                     <Route path="/AttendeeProfile" component={AttendeePro}/>
                     <Route path="/AttendeeUpdate" component={AttendeeUpdate}/>
                     <Route path="/WorkshopUpdate" component={WorkshopUpdate}/>
+                    <Route path="/WorkshopStatus" component={WorkshopStatus}/>
 
                 </Router>
             </div>

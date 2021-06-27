@@ -19,10 +19,6 @@ const attendeeSchema = new Schema({
         type : String,
         required: true
     },
-    Amount : {
-        type : Number,
-        required: true
-    },
 })
 
 //table and path

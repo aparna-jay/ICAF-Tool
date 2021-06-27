@@ -40,8 +40,8 @@ const researcherRouter = require("./routes/researchers.js");
 app.use("/researcher",researcherRouter);
 
 //Workshop
-const workshopRouter = require("./routes/workshops.js");
-app.use("/workshop",workshopRouter);
+// const workshopRouter = require("./routes/workshops.js");
+// app.use("/workshop",workshopRouter);
 
 //Attendee
 const attendeeRouter = require("./routes/attendees.js");
@@ -70,7 +70,7 @@ app.use("/editor", editorRouter);
 
 //use Table_Conference.js
 //http://localhost:8070/conference (conference.js file loaded.)
-app.use("/conference", ConferenceRouter);
+app.use("/Conference", ConferenceRouter);
 
 //use Table_Conference.js
 //http://localhost:8070/KeyNoteSpeakers (Editor.js file loaded.)

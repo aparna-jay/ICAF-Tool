@@ -11,10 +11,6 @@ const KeyNoteSpeakersSchema = new Schema({
         type : String,
         required : true //backend validation
     },
-    // Image : {
-    //     type : String,
-    //     required : true
-    // },
     Organization : {
         type : String,
         required : true
@@ -23,10 +19,18 @@ const KeyNoteSpeakersSchema = new Schema({
         type : String,
         required : true
     },
-    Description : {
+    Conference : {
         type : String,
         required : true
-    }
+    },
+    avatar: {
+        type: String,
+        required: true
+    },
+    Status : {
+        type : String,
+        required: true
+    },
 })
 
 //create a table to pass the schema

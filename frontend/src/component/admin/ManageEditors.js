@@ -3,9 +3,9 @@ import axios from "axios";
 import AdminProfile from "./AdminProfile";
 import AdminSideNav from "../navbar/AdminSideNav";
 
-const ManageEditors = ({setAdminId, adminId})=>{
+const ManageEditors = ()=>{
 
-
+    const[adminId, setEditorId] = useState('');
 
     const [Editors, setEditors] = useState([]);
 
@@ -16,9 +16,9 @@ const ManageEditors = ({setAdminId, adminId})=>{
         });
     }, [])
 
-    // const onEditClick = (id) =>{
-    //     setAdminId(id);
-    // }
+     const onEditClick = (id) =>{
+         setEditorId(id);
+     }
 
     const deleteEditor = (id) =>{
         axios.delete('http://localhost:8070/editor/delete/' + id).then(()=>{
@@ -75,7 +75,7 @@ const ManageEditors = ({setAdminId, adminId})=>{
                                                     <tr>
                                                         <td key={"adminSettings"} align="center">
                                                             <a className="btn btn-default"><em
-                                                                className="fa fa-pencil" to="/adminProfile" onClick={()=>onEditClick(editor._id)}></em></a>
+                                                                className="fa fa-pencil"  onClick={()=>onEditClick(editor._id)}></em></a>
                                                             <a className="btn btn-danger"><em
                                                                 className="fa fa-trash" onClick={()=>deleteAdmin(editor._id)}></em></a>
                                                         </td>
@@ -96,7 +96,7 @@ const ManageEditors = ({setAdminId, adminId})=>{
                     <br /><br />
                 </div>
                 <div className="col-md-6 col-xl-3" >
-                    <AdminProfile adminId={adminId}></AdminProfile>
+                    <AdminProfile adminId={adminId} userType={"Editor"}></AdminProfile>
                 </div>
             </div>
         </div>

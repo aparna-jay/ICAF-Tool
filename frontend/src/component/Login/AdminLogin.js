@@ -27,7 +27,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/admin/login', newAdmin).then((res) => {
                 history.push('/admin');
-                setLoggedUser(res.data._id);
+                localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
             })
@@ -39,8 +39,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/Reviewer/login', newReviewer).then((res) => {
                 history.push('/reviewer');
-                setLoggedUser(res.data._id);
-                console.log(loggedUser);
+                localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
             })
@@ -52,8 +51,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/editor/login', newEditor).then((res) => {
                 history.push('/Editor');
-                setLoggedUser(res.data._id);
-                console.log(loggedUser);
+                localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
             })
@@ -64,8 +62,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/attendee/login', newAttendee).then((res) => {
                 history.push('/Attendee');
-                setLoggedUser(res.data._id);
-                console.log(loggedUser);
+                localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
             })
@@ -75,9 +72,8 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                 Password: Password
             };
             axios.post('http://localhost:8070/researcher/login', newResearcher).then((res) => {
-                history.push('/Researcher');
-                setLoggedUser(res.data._id);
-                console.log(loggedUser);
+                history.push('/UserProfile');
+                localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
             })

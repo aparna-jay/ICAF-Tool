@@ -3,8 +3,8 @@ import axios from "axios";
 import AdminProfile from "./AdminProfile";
 import AdminSideNav from "../navbar/AdminSideNav";
 
-const ManageReviewers = ({setReviewerId, adminId})=>{
-
+const ManageReviewers = ()=>{
+    const[adminId, setReviewerId] = useState('');
     const [Reviewers, setReviewers] = useState([]);
 
 
@@ -16,6 +16,7 @@ const ManageReviewers = ({setReviewerId, adminId})=>{
 
     const onEditClick = (id) =>{
         setReviewerId(id);
+        console.log(adminId);
     }
 
     const deleteReviewer = (id) =>{
@@ -73,7 +74,7 @@ const ManageReviewers = ({setReviewerId, adminId})=>{
                                                     <tr>
                                                         <td key={"adminSettings"} align="center">
                                                             <a className="btn btn-default"><em
-                                                                className="fa fa-pencil" to="/adminProfile" onClick={()=>onEditClick(reviewer._id)}></em></a>
+                                                                className="fa fa-pencil"  onClick={()=>onEditClick(reviewer._id)}></em></a>
                                                             <a className="btn btn-danger"><em
                                                                 className="fa fa-trash" onClick={()=>deleteAdmin(reviewer._id)}></em></a>
                                                         </td>
@@ -94,7 +95,7 @@ const ManageReviewers = ({setReviewerId, adminId})=>{
                     <br /><br />
                 </div>
                 <div className="col-md-6 col-xl-3" >
-                    <AdminProfile adminId={adminId}></AdminProfile>
+                    <AdminProfile adminId={adminId} userType={"Reviewer"}></AdminProfile>
                 </div>
             </div>
         </div>

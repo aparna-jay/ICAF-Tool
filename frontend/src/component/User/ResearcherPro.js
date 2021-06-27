@@ -3,9 +3,9 @@ import axios from "axios";
 
 import '../../styles/Researcher/Profile-Edit-Form.css';
 
-const ResearcherPro = ()=>{
-
-    const id = "60be68d8d0d3003a943e0707"
+const ResearcherPro = ({loggedUser})=>{
+    console.log(loggedUser);
+    const id = loggedUser
     const [Researcher , SetResearcher] = useState( []);
 
 
@@ -18,11 +18,11 @@ const ResearcherPro = ()=>{
                 // setName(res.data.name);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
+
             })
         }
         getResearcher();
-    },[]);
+    },[loggedUser]);
 
 
 
@@ -38,7 +38,7 @@ const ResearcherPro = ()=>{
                 <form>
                     <div className="row text-capitalize text-start justify-content-center profile-row">
                         <div className="col-md-8">
-                            <h1>User Profile</h1>
+                            <h1>Researcher Profile</h1>
                             <hr></hr>
 
                             <div className="form-group mb-3">
