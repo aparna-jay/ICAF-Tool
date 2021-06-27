@@ -9,7 +9,7 @@ const ManageConferences = ()=>{
     const[conferences, setConferences] = useState([]);
 
     useEffect( ()=>{
-        axios.get('http://localhost:8070/conference/').then((response)=>{
+        axios.get('http://localhost:8070/Conference/').then((response)=>{
             setConferences(response.data);
         });
     }, [])
