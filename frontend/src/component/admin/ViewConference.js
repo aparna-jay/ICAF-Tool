@@ -72,42 +72,42 @@ const ViewConference = ({conId}) => {
 
             <section className="register-photo">
                 <div className="row">
-                    <div className="col-md-6 col-xl-1" >
+                    <div className="col-md-6 col-xl-3" >
                         <AdminSideNav />
                     </div>
-                    <div className="col-md-6 col-xl-9">
+                    <div className="col-md-6 col-xl-6">
 
                         <div className="form-container">
-                            <div className="image-holder image">
-                            </div>
+
                             <form>
                                 <h2 className="text-center"><strong>Conference Details</strong></h2>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Title</label>
-                                    <input className="form-control" type="text" placeholder={conference.Title} onChange={titleSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.Title} disabled={true} onChange={titleSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Start Date</label>
-                                    <input className="form-control" type="text" placeholder={conference.Start_date} onChange={startDateSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.Start_date} disabled={true} onChange={startDateSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">End Date</label>
-                                    <input className="form-control" type="text" placeholder={conference.End_Date} onChange={endDateSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.End_Date} disabled={true} onChange={endDateSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Organization</label>
-                                    <input className="form-control" type="text" placeholder={conference.Organization} onChange={organizationSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.Organization} disabled={true} onChange={organizationSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Description</label>
-                                    <input className="form-control" type="text" placeholder={conference.Description} onChange={descriptionSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.Description} disabled={true} onChange={descriptionSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Phone</label>
-                                    <input className="form-control" type="text" placeholder={conference.Phone} onChange={phoneSetter}/></div>
+                                    <input className="form-control" type="text" placeholder={conference.Phone} disabled={true} onChange={phoneSetter}/></div>
                                 <div className="form-group mb-3">
                                     <label className="float-left font-weight-bolder">Email</label>
-                                    <input className="form-control" type="email" placeholder={conference.Email} onChange={emailSetter}  /></div>
+                                    <input className="form-control" type="email" placeholder={conference.Email} disabled={true} onChange={emailSetter}  /></div>
                                 <div className="form-group mb-3">
                                     <button className="btn btn-primary d-block w-100 regButton" type="submit"
                                             onClick={()=>UpdateStatus("Approved")}>Approve
                                     </button>
-                                    <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                                    <br />
+                                    <button className="btn btn-danger d-block w-100 regButton" type="submit"
                                             onClick={()=>UpdateStatus("Rejected")}>Reject
                                     </button>
                                 </div>
@@ -116,6 +116,7 @@ const ViewConference = ({conId}) => {
                     </div>
                 </div>
             </section>
+            <br /> <br />
         </div>
     );
 }

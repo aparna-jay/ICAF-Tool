@@ -23,7 +23,7 @@ const ManageUsers = ()=>{
         axios.get('http://localhost:8070/attendee/').then((response)=>{
             setAttendee(response.data);
         });
-    }, [])
+    }, [Researcher, WorkshopPresenter, Attendee])
 
     const onEditClick = (id, userType) =>{
         setUserID(id);
@@ -45,7 +45,7 @@ const ManageUsers = ()=>{
             })
         }
         else if(userType === "Attendee") {
-            axios.delete('http://localhost:8070/sttendee/delete/' + id).then(() => {
+            axios.delete('http://localhost:8070/attendee/delete/' + id).then(() => {
             }).catch((err) => {
                 alert(err);
             })
@@ -55,7 +55,7 @@ const ManageUsers = ()=>{
     return(
         <div>
             <div className="row">
-                <div className="col-md-6 col-xl-2 position-sticky" >
+                <div className="col-md-6 col-xl-2 " >
                     <AdminSideNav />
                 </div>
                 <div className="col-md-6 col-xl-6 " >
@@ -63,7 +63,7 @@ const ManageUsers = ()=>{
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                         rel='stylesheet' type='text/css' />
 
-                    <div className="container adminAdmin">
+                    <div className="container adminResearcher">
                         <br />
                         <div className="row">
                             <p></p>
@@ -98,7 +98,7 @@ const ManageUsers = ()=>{
                                                             <a className="btn btn-default"><em
                                                                 className="fa fa-pencil"  onClick={()=>onEditClick(researcher._id, "Researcher")}></em></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this admin?")){deleteUser(researcher._id, "Researcher")};}}></em></a>
+                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this researcher?")){deleteUser(researcher._id, "Researcher")};}}></em></a>
                                                         </td>
                                                         <td key={"admin.Name"} className="hidden-xs">{researcher.Name}</td>
                                                         <td key={researcher.Email}>{researcher.Email}</td>
@@ -113,9 +113,10 @@ const ManageUsers = ()=>{
                             </div>
                         </div>
                     </div>
-                    <br /><br />
+
                 </div>
-                <div className="col-md-6 col-xl-3 " >
+
+                <div className="col-md-6 col-xl-3" >
                     <AdminProfile adminId={userId} userType={userType}></AdminProfile>
                 </div>
             </div>
@@ -128,7 +129,7 @@ const ManageUsers = ()=>{
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                         rel='stylesheet' type='text/css' />
 
-                    <div className="container adminAdmin">
+                    <div className="container adminWorkshop">
                         <br />
                         <div className="row">
                             <p></p>
@@ -163,7 +164,7 @@ const ManageUsers = ()=>{
                                                             <a className="btn btn-default"><em
                                                                 className="fa fa-pencil"  onClick={()=>onEditClick(workshopPresenter._id, "WorkshopPresenter")}></em></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this admin?")){deleteUser(workshopPresenter._id, "WorkShopPresenter")};}}></em></a>
+                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this workshop presenter?")){deleteUser(workshopPresenter._id, "WorkShopPresenter")};}}></em></a>
                                                         </td>
                                                         <td key={"admin.Name"} className="hidden-xs">{workshopPresenter.Name}</td>
                                                         <td key={workshopPresenter.Email}>{workshopPresenter.Email}</td>
@@ -190,7 +191,7 @@ const ManageUsers = ()=>{
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                         rel='stylesheet' type='text/css' />
 
-                    <div className="container adminAdmin">
+                    <div className="container adminAttendee">
                         <br />
                         <div className="row">
                             <p></p>
@@ -225,7 +226,7 @@ const ManageUsers = ()=>{
                                                             <a className="btn btn-default"><em
                                                                 className="fa fa-pencil"  onClick={()=>onEditClick(attendee._id, "Attendee")}></em></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this admin?")){deleteUser(attendee._id, "Attendee")};}}></em></a>
+                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this attendee?")){deleteUser(attendee._id, "Attendee")};}}></em></a>
                                                         </td>
                                                         <td key={"admin.Name"} className="hidden-xs">{attendee.Name}</td>
                                                         <td key={attendee.Email}>{attendee.Email}</td>
