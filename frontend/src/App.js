@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
 // import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
+import Home from "./component/Home/Home";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
@@ -61,8 +62,7 @@ const App = () => {
                 <Router>
                 <div className="App" />
                 <MainNav />
-
-
+                    <Route path="/Home" component={Home}/>
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/ManageConference" render={props => <ManageConferences  setConId={setConId} />} />
                     <Route path="/viewConf" render={props =><ViewConference conId={conId} />}/>
