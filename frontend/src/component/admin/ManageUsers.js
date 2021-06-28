@@ -120,7 +120,7 @@ const ManageUsers = ()=>{
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6 col-xl-2 position-sticky" >
+                <div className="col-md-6 col-xl-2 " >
 
                 </div>
                 <div className="col-md-6 col-xl-6" >

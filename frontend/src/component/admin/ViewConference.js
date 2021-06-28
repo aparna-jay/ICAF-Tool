@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import '../../styles/Admin/adminRegister.css'
 import AdminSideNav from "../navbar/AdminSideNav";
+import {useHistory} from "react-router-dom";
 
-const ViewConference = (id) => {
+const ViewConference = ({conId}) => {
 
+    const history = useHistory();
     const[conference, setConference] = useState([]);
     const[title , setTitle] = useState("");
     const[startDate, setStartDate]= useState("");
@@ -13,7 +15,6 @@ const ViewConference = (id) => {
     const[description, setDescription]= useState("");
     const[phone, setPhone]= useState("");
     const[email, setEmail]= useState("");
-    const[status, setStatus]= useState("");
 
     const titleSetter = (e) => {
         setTitle(e.target.value);
@@ -36,22 +37,19 @@ const ViewConference = (id) => {
     const emailSetter = (e) => {
         setEmail(e.target.value);
     }
-    const statusSetter = (e) => {
-        setStatus(e.target.value);
-    }
 
     useEffect(()=>{
-            axios.get("http://localhost:8070/Conference/get/"+id).then((res)=>{
+            axios.get("http://localhost:8070/Conference/get/"+conId).then((res)=>{
 
                 setConference(res.data.conference);
                 // setName(res.data.name);
                 console.log(res.data.conference);
             }).catch((err)=>{
             })
-    },[]);
+    },[conId]);
 
 
-    const UpdateStatus = () => {
+    const UpdateStatus = (status) => {
         const newConference= {
             Title: title,
             Start_date: startDate,
@@ -62,12 +60,11 @@ const ViewConference = (id) => {
             Email:email,
             Status:status
         };
-        axios.put('http://localhost:8070/Conference/updateOne/'+ id , newConference).then(() =>{
-
-            alert("Updated successfully!!!");
+        axios.put('http://localhost:8070/Conference/updateOne/'+ conId , newConference).then(() =>{
         }).catch((err) =>{
-            alert(err);
-        })
+        });
+        history.push('/ManageConference');
+
     }
 
     return(
@@ -108,10 +105,10 @@ const ViewConference = (id) => {
                                     <input className="form-control" type="email" placeholder={conference.Email} onChange={emailSetter}  /></div>
                                 <div className="form-group mb-3">
                                     <button className="btn btn-primary d-block w-100 regButton" type="submit"
-                                            onClick={UpdateStatus}>Approve
+                                            onClick={()=>UpdateStatus("Approved")}>Approve
                                     </button>
                                     <button className="btn btn-primary d-block w-100 regButton" type="submit"
-                                            onClick={UpdateStatus}>Reject
+                                            onClick={()=>UpdateStatus("Rejected")}>Reject
                                     </button>
                                 </div>
                             </form>
