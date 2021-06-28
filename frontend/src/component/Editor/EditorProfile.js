@@ -2,17 +2,48 @@ import React, { useState, useEffect }  from 'react'
 import '../../styles/Editor/EditorProfile.css'
 import img from '../../armaan.jpg'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 
-const EditorProfile = (props) =>{
-    // useEffect(() => {
-    //     const {
-    //         match: { params },
-    //     } = props;
-    //
-    //     console.log(params._id, "<<<");
-    //     const userId = params._id;
-    //     getEditor(userId).then((response) => {};
+const EditorProfile = () =>{
+    // let his = useHistory();
+
+    const [Editor , setEditor] = useState( []);
+
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
+
+    //get logged Editor
+    useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        function getEditor(){
+            axios.get("http://localhost:8070/editor/get/"+ loggedInUser).then((res)=>{
+                setEditor(res.data);
+                console.log("data")
+                console.log(res.data);
+            }).catch((err)=>{
+            })
+        }
+        getEditor();
+    },[]);
+
+    //delete logged Editor
+    function deleteEditor(){
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.delete('http://localhost:8070/editor/delete/' + loggedInUser).then(()=>{
+            localStorage.clear();
+            history.push('/login');
+        }).catch((err)=>{
+            alert(err);
+        })
+    }
+
     return(
         <div>
             <div className="editorProfile">
@@ -22,68 +53,76 @@ const EditorProfile = (props) =>{
                             <ConferenceDashboardSideNav/>
                         </div>
                 <section></section>
-                <main className="page">
-                    <section className="clean-block about-us">
-                        <div className="row justify-content-center">
-                            <div className="col-sm-6 col-lg-4">
-                                <div className="card clean-card text-center">
-                                    <img className="card-img-top w-100 d-block" src={img}/>
-                                    <div className="card-body info">
-                                        <div className="row">
-                                            <div className="col-md-12">
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <p className="labels"><strong>Name</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels">Armaan Malik</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <p className="labels"><strong>Designation</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels">Editor</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <p className="labels"><strong>Email</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels">armaan@gmail.com</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <p className="labels"><strong>Phone</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels">0112345678</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col">
-                                                        <p className="labels"><strong>Password</strong></p>
-                                                    </div>
-                                                    <div className="col">
-                                                        <p className="labels">ar123$</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col-md-12">
-                                                        <a className="btn btn-success" role="button" href="#">
-                                                            <i className="fas fa-pencil-alt"></i>&nbsp;Submit</a></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div>
+                            <section className="login-dark">
+
+                                <form method="post">
+                                    <h2 className="visually-hidden">Editor Profile</h2>
+                                    <div className="illustration">
+                                        <i className="icon ion-ios-locked-outline"></i>
                                     </div>
-                                </div>
-                            </div>
+                                    <div className="mb-3">
+                                        <label className="col-form-label" htmlFor="name-input-field">Name </label>
+                                        <input className="form-control"
+                                               type="text"
+                                               name="Name"
+                                               placeholder="Name"
+                                               value={Editor.Name}/>
+
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="col-form-label" htmlFor="name-input-field">Designation </label>
+                                        <input className="form-control"
+                                               type="text"
+                                               name="Designation"
+                                               placeholder="Designation"
+                                               value={Editor.Designation}
+
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="col-form-label" htmlFor="name-input-field">Email </label>
+                                        <input className="form-control"
+                                               type="email"
+                                               name="Email"
+                                               placeholder="Email"
+                                               value={Editor.Email}
+
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="col-form-label" htmlFor="name-input-field">Phone </label>
+                                        <input className="form-control"
+                                               type="text"
+                                               name="Phone"
+                                               placeholder="Phone"
+                                               value={Editor.Phone}
+
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="col-form-label" htmlFor="name-input-field">Password </label>
+                                        <input className="form-control"
+                                               type="password"
+                                               name="Password"
+                                               placeholder="Password"
+                                               value={Editor.Password}
+
+                                        />
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <a href={"/EditorUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
+                                        <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
+                                        <button className="btn btn-danger form-btn" type="reset" onClick={()=>{
+                                            if(window.confirm("Are you sure you want to delete your Profile?"))
+                                            {deleteEditor()};}}>Delete Profile
+                                        </button>
+
+                                    </div>
+                                </form>
+                            </section>
                         </div>
-                    </section>
-                </main>
                         </div>
                 </div>
             </div>

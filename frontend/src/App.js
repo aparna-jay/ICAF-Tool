@@ -14,6 +14,7 @@ import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
 import EditorRegister from "./component/Editor/EditorRegister";
+import EditorUpdate from "./component/Editor/EditorUpdate";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
 import 'regenerator-runtime/runtime'
@@ -80,6 +81,7 @@ const App = () => {
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
                     <Route path="/EditorProf" render={props => <EditorRegister />} />
                     <Route path="/Editor" component={EditorProfile}/>
+                    <Route path="/EditorUpdate" component={EditorUpdate}/>
                     <Route path="/EditorRegister" component={EditorRegister}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>
