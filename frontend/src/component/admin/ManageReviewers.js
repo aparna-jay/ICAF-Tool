@@ -12,7 +12,7 @@ const ManageReviewers = ()=>{
         axios.get('http://localhost:8070/Reviewer/').then((response)=>{
             setReviewers(response.data);
         });
-    }, [])
+    }, [Reviewers])
 
     const onEditClick = (id) =>{
         setReviewerId(id);
@@ -21,7 +21,6 @@ const ManageReviewers = ()=>{
 
     const deleteReviewer = (id) =>{
         axios.delete('http://localhost:8070/Reviewer/delete/' + id).then(()=>{
-            alert("Reviewer deleted!!!");
         }).catch((err)=>{
             alert(err);
         })
@@ -74,9 +73,9 @@ const ManageReviewers = ()=>{
                                                     <tr>
                                                         <td key={"adminSettings"} align="center">
                                                             <a className="btn btn-default"><em
-                                                                className="fa fa-pencil"  onClick={()=>onEditClick(reviewer._id)}></em></a>
+                                                                className="fa fa-pencil"  onClick={()=>onEditClick(reviewer._id)} /></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>deleteAdmin(reviewer._id)}></em></a>
+                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this reviewer?")){deleteReviewer(reviewer._id)};}}></em></a>
                                                         </td>
                                                         <td key={"reviewer.Name"} className="hidden-xs">{reviewer.Name}</td>
                                                         <td key={reviewer.Designation}>{reviewer.Designation}</td>

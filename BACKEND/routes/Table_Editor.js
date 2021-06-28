@@ -146,6 +146,17 @@ router.route("/login").post((req, res) => {
     });
 });
 
-
+router.route("/updateOne/:id").put(async (req, res) => {
+    let editor = await Editor.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || editor.Name,
+        Designation: req.body.Designation || editor.Designation,
+        Email: req.body.Email || editor.Email,
+        Phone: req.body.Phone || editor.Phone,
+        Password: req.body.Password || editor.Password,
+    };
+    editor = await Editor.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(editor);
+});
 //export the modules
 module.exports = router;
