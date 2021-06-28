@@ -46,6 +46,7 @@ import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
 import ViewConference from "./component/admin/ViewConference";
+import downloadPapers from "./component/User/downoadPapers";
 
 
 const App = () => {
@@ -100,6 +101,7 @@ const App = () => {
                     <Route path="/AttendeeUpdate" component={AttendeeUpdate}/>
                     <Route path="/WorkshopUpdate" component={WorkshopUpdate}/>
                     <Route path="/WorkshopStatus" component={WorkshopStatus}/>
+                    <Route path="/downloadPapers" component={downloadPapers}/>
 
 
                 </Router>

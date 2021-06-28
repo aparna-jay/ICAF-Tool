@@ -7,19 +7,17 @@ import {useHistory} from "react-router-dom";
 const ResearcherUpdate = ()=>{
     let his = useHistory();
 
-    const id = "60be68d8d0d3003a943e0707"
-    const [Researcher , SetResearcher] = useState( []);
+    const [Researcher , setResearcher] = useState( []);
 
-    //get all Researcher
+    //get logged admin
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getResearcher(){
-            axios.get("http://localhost:8070/researcher/get/"+id).then((res)=>{
-
-                SetResearcher(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/researcher/get/"+ loggedInUser).then((res)=>{
+                setResearcher(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
         getResearcher();
@@ -51,7 +49,9 @@ const ResearcherUpdate = ()=>{
             Password:Password,
         };
 
-        axios.put('http://localhost:8070/researcher/updateOne/'+ id , newResearcher).then(() =>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.put('http://localhost:8070/researcher/updateOne/'+ loggedInUser , newResearcher).then(() =>{
             alert("Updated successfully!!!");
             his.push('/UserProfile')
 

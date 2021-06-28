@@ -109,5 +109,23 @@ router.route("/updateOneStatus/:id").put(async (req, res) => {
     };workshop = await Workshop.findByIdAndUpdate(req.params.id, data, {
         new: true });res.json(workshop);});
 
+router.route("/login").post((req, res) => {
+    const Password = req.body.Password;
+    Workshop.findOne({ Email: req.body.Email }).then(workshop => {
+        // Check if workshop exists
+        if (!workshop) {
+            return res.status(404).json({Email: "Email not found"});
+        } else {
+            // Check password
+            if (Password === workshop.Password) {
+                res.json(workshop)
+            } else {
+                return res
+                    .status(400)
+                    .json({Password: "Password incorrect"});
+            }
+        }
+    });
+});
 
 module.exports = router;
