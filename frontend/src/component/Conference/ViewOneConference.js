@@ -1,11 +1,15 @@
 import React, {useState,useEffect} from 'react';
 import { useParams } from "react-router";
 import '../../styles/ConferenceDashboard/Conference.css';
+import '../../styles/ConferenceDashboard/ViewOneConference.css';
 // import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
-const ViewOneConference = () => {
+const ViewOneConference = ({match}) => {
+    console.log( match.params.id);
+
     const {conferenceId} = useParams();
 
     const [Conference, setConference] = useState([]);
@@ -46,12 +50,13 @@ const ViewOneConference = () => {
     }
 
 
-    const loadConference = async (id) => {
+    const loadConference = async () => {
+        const id = match.params.id;
         await axios
             .get('http://localhost:8070/Conference/get/' +id)
             .then((res) => {
-                console.log(res.data);
-                setConference(res.data.Conference);
+                console.log(res.data.conference);
+                setConference(res.data.conference);
             })
             .catch((err) => {
                 alert(err.message);
@@ -75,21 +80,27 @@ const ViewOneConference = () => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
-                                <li className="list-group-item">{Conference.Title}</li>
+                                <li className="list-group-item" onChange={TitleSetter}>{Conference.Title}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Title"*/}
+                                {/*       placeholder="Title"*/}
+                                {/*       onChange={TitleSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Start Date </label>
-                                <li className="list-group-item">{Conference.Start_date}</li>
+                                <li className="list-group-item"  onChange={Start_dateSetter}>{Conference.Start_date}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="text"*/}
                                 {/*       name="Start_date"*/}
-                                {/*       placeholder="Start Date"*/}
+                                {/*       placeholder="Start Date" */}
                                 {/*       onChange={Start_dateSetter}*/}
                                 {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">End Date </label>
-                                <li className="list-group-item">{Conference.End_Date}</li>
+                                <li className="list-group-item" onChange={End_DateSetter}>{Conference.End_Date}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="text"*/}
                                 {/*       name="End_Date"*/}
@@ -99,7 +110,7 @@ const ViewOneConference = () => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Organization </label>
-                                <li className="list-group-item">{Conference.Organization}</li>
+                                <li className="list-group-item" onChange={OrganizationSetter}>{Conference.Organization}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="text"*/}
                                 {/*       name="Organization"*/}
@@ -109,7 +120,7 @@ const ViewOneConference = () => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Description </label>
-                                <li className="list-group-item">{Conference.Description}</li>
+                                <li className="list-group-item" onChange={DescriptionSetter}>{Conference.Description}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="text"*/}
                                 {/*       name="Description"*/}
@@ -119,7 +130,7 @@ const ViewOneConference = () => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Phone </label>
-                                <li className="list-group-item">{Conference.Phone}</li>
+                                <li className="list-group-item" onChange={PhoneSetter}>{Conference.Phone}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="text"*/}
                                 {/*       name="Phone"*/}
@@ -129,7 +140,7 @@ const ViewOneConference = () => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Email </label>
-                                <li className="list-group-item">{Conference.Email}</li>
+                                <li className="list-group-item" onChange={EmailSetter}>{Conference.Email}</li>
                                 {/*<input className="form-control"*/}
                                 {/*       type="email"*/}
                                 {/*       name="Email"*/}
@@ -137,7 +148,9 @@ const ViewOneConference = () => {
                                 {/*       onChange={EmailSetter}*/}
                                 {/*/>*/}
                             </div>
-
+                            <button className="btn btn-primary">
+                                <Link to="/ConferenceDashboard">+ Back to Conference details</Link>
+                            </button>
                         </form>
                     </section>
                 </div>

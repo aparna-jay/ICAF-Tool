@@ -35,7 +35,7 @@ const WorkShopHome = ()=>{
                 <div className="blog-card" key={user._id}>
                     <label className="form-control btn-success"> File uploaded by {user.Name}</label>
                     <embed  src={user.avatar} alt="pdf" width={"100%"} height={150} /><br /><br />
-                    <a href={user.avatar} className={"btn btn-danger btn-sm"}>download pdf form here</a>
+                    <a href={user.avatar} className={"btn btn-danger btn-sm"}>VIEW PAPER</a>
                     <div className="p-2">
                         <div className="d-flex justify-content-between align-items-center">
                             <Link to={`/EditWorkShopStatus/${user._id}`}
