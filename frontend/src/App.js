@@ -70,7 +70,7 @@ const App = () => {
                     <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
                     <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
-                    <Route path="/ViewOneConference" component={ViewOneConference}/>
+                    <Route path="/get/:id" component={ViewOneConference}/>
                     <Route path="/UpdateConference" component={UpdateConference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
