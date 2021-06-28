@@ -7,23 +7,22 @@ import {useHistory} from "react-router-dom";
 const AttendeeUpdate = ()=>{
     let his = useHistory();
 
-    const id = "60bb2823255db134d4d352ff"
-    const [Attendee , SetAttendee] = useState( []);
+    const [Attendee , setAttendee] = useState( []);
 
-    //get all Researcher
+    //get logged admin
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getAttendee(){
-            axios.get("http://localhost:8070/attendee/get/"+id).then((res)=>{
-
-                SetAttendee(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/attendee/get/"+ loggedInUser).then((res)=>{
+                setAttendee(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
         getAttendee();
     },[]);
+
 
     //updateOne
     const[Name , setName] = useState('');
@@ -51,7 +50,9 @@ const AttendeeUpdate = ()=>{
             Password:Password,
         };
 
-        axios.put('http://localhost:8070/attendee/updateOne/'+ id , newAttendee).then(() =>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.put('http://localhost:8070/attendee/updateOne/'+ loggedInUser , newAttendee).then(() =>{
             alert("Updated successfully!!!");
             his.push('/AttendeeProfile')
 

@@ -61,7 +61,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                 Password: Password
             };
             axios.post('http://localhost:8070/attendee/login', newAttendee).then((res) => {
-                history.push('/Attendee');
+                history.push('/AttendeeProfile');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
@@ -73,6 +73,17 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
             };
             axios.post('http://localhost:8070/researcher/login', newResearcher).then((res) => {
                 history.push('/UserProfile');
+                localStorage.setItem('user', res.data._id);
+            }).catch((err) => {
+                alert(err);
+            })
+        }else if(userType === "Workshop" ) {
+            const newWorkshop = {
+                Email: Email,
+                Password: Password
+            };
+            axios.post('http://localhost:8070/workshop/login', newWorkshop).then((res) => {
+                history.push('/WorkshopProfile');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
                 alert(err);
@@ -93,7 +104,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                             <option className="dropdown-content" value="Reviewer">Reviewer</option>
                             <option className="dropdown-content" value="Editor">Editor</option>
                             <option className="dropdown-content" value="Researcher">Researcher</option>
-                            <option className="dropdown-content" value="Workshop Presenter">Workshop Presenter</option>
+                            <option className="dropdown-content" value="Workshop">Workshop Presenter</option>
                             <option className="dropdown-content" value="Attendee">Attendee</option>
                             <option className="dropdown-content" value="Admin">Admin</option>
                         </select>

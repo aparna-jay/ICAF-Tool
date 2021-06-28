@@ -2,36 +2,43 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 
 import '../../styles/Researcher/Profile-Edit-Form.css';
+import {useHistory} from "react-router-dom";
 
-const ResearcherPro = ({loggedUser})=>{
-    console.log(loggedUser);
-    const id = loggedUser
-    const [Researcher , SetResearcher] = useState( []);
+const ResearcherPro = ()=>{
+    // console.log(loggedUser);
+    // const id = loggedUser
+    const [Researcher , setResearcher] = useState( []);
 
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
 
-    //get all Researcher
+    //get logged researcher
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getResearcher(){
-            axios.get("http://localhost:8070/researcher/get/"+id).then((res)=>{
-
-                SetResearcher(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/researcher/get/"+ loggedInUser).then((res)=>{
+                setResearcher(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-
             })
         }
         getResearcher();
-    },[loggedUser]);
+    },[]);
 
-    const deleteResearcher = (id) =>{
-        axios.delete('http://localhost:8070/researcher/delete/' + id).then(()=>{
+    function deleteResearcher(){
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.delete('http://localhost:8070/researcher/delete/' + loggedInUser).then(()=>{
+            localStorage.clear();
+            history.push('/login');
         }).catch((err)=>{
             alert(err);
         })
-    };
-
-
+    }
 
     return(
             <div className="container profile profile-view" id="profile">
@@ -68,7 +75,8 @@ const ResearcherPro = ({loggedUser})=>{
                                 <div className="col-md-12 text-center content-right">
                                     <a href={"/ResearcherStatus"} className="btn btn-success form-btn" type="submit">Working Panel</a>
                                     <a href={"/ResearcherUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
-                                    <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteResearcher(researcher._id)};}}>Delete Profile</button>
+                                    <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
+                                    <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteResearcher()};}}>Delete Profile</button>
                                 </div>
                             </div>
 

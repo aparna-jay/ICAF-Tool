@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const ResearcherStatus = ()=>{
     const history = useHistory();
 
-    const id = "60be68d8d0d3003a943e0707"
+    // const id = "60be68d8d0d3003a943e0707"
     const [Researcher , SetResearcher] = useState( []);
     const [state, setState] = useState(true);
 
@@ -14,7 +14,9 @@ const ResearcherStatus = ()=>{
     //get all Researcher
     useEffect(()=>{
         function getResearcher(){
-            axios.get("http://localhost:8070/researcher/get/"+id).then((res)=>{
+            const loggedInUser = localStorage.getItem("user");
+            console.log(loggedInUser);
+            axios.get("http://localhost:8070/researcher/get/"+loggedInUser).then((res)=>{
 
                 SetResearcher(res.data);
                 // setName(res.data.name);

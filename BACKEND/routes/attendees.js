@@ -101,7 +101,7 @@ router.route("/updateOne/:id").put(async (req, res) => {
 router.route("/login").post((req, res) => {
     const Password = req.body.Password;
     Attendee.findOne({ Email: req.body.Email }).then(attendee => {
-        // Check if admin exists
+        // Check if Attendee exists
         if (!attendee) {
             return res.status(404).json({Email: "Email not found"});
         } else {
