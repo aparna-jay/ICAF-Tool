@@ -6,7 +6,8 @@ import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
 const ViewOneConference = ({match}) => {
-    console.log(match.params.id);
+    console.log( match.params.id);
+
     const {conferenceId} = useParams();
 
     const [Conference, setConference] = useState([]);
@@ -52,8 +53,8 @@ const ViewOneConference = ({match}) => {
         await axios
             .get('http://localhost:8070/Conference/get/' +id)
             .then((res) => {
-                console.log(res.data);
-                setConference(res.data.Conference);
+                console.log(res.data.conference);
+                setConference(res.data.conference);
             })
             .catch((err) => {
                 alert(err.message);
@@ -78,12 +79,6 @@ const ViewOneConference = ({match}) => {
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
                                 <li className="list-group-item">{Conference.Title}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="Start_date"
-                                       placeholder="Start Date"
-                                       onChange={TitleSetter}
-                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Start Date </label>
