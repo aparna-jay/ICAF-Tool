@@ -1,4 +1,5 @@
 import React from "react"
+import downloadPapers from "../User/downoadPapers";
 
 const MainNav = () =>{
 
@@ -44,6 +45,9 @@ const MainNav = () =>{
                             <a className="nav-link active" aria-current="page" href="/user">User</a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/downloadPapers">Download Papers</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/UserProfile">UserProfile</a>
                         </li>
                         <li className="nav-item">
@@ -61,6 +65,7 @@ const MainNav = () =>{
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/KeynoteDashboard">Keynote Dashboard</a>
                         </li>
+
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />

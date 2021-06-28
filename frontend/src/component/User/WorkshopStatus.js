@@ -3,10 +3,11 @@ import axios from "axios";
 
 import '../../styles/Researcher/Profile-Edit-Form.css';
 import { useHistory } from "react-router-dom";
-const WorkshopStatus = ()=>{
+const WorkshopStatus = ({match})=>{
+    console.log( match.params.id);
     const history = useHistory();
 
-    const id = "60be61ea64d7e1246cc7357b"
+    // const id = "60be61ea64d7e1246cc7357b"
     const [Workshop , SetWorkshop] = useState( []);
     const [state, setState] = useState(true);
 
@@ -14,7 +15,10 @@ const WorkshopStatus = ()=>{
     //get all Workshop
     useEffect(()=>{
         function getWorkshop(){
-            axios.get("http://localhost:8070/workshop/get/"+id).then((res)=>{
+            const loggedInUser = localStorage.getItem("user");
+            console.log(loggedInUser);
+            const id = match.params.id;
+            axios.get("http://localhost:8070/workshop/get/"+loggedInUser).then((res)=>{
 
                 SetWorkshop(res.data);
                 // setName(res.data.name);

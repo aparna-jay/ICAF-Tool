@@ -7,19 +7,18 @@ import {useHistory} from "react-router-dom";
 const WorkshopUpdate = ()=>{
     let his = useHistory();
 
-    const id = "60be61ea64d7e1246cc7357b"
-    const [Workshop , SetWorkshop] = useState( []);
+    // const id = "60be61ea64d7e1246cc7357b"
+    const [Workshop , setWorkshop] = useState( []);
 
-    //get all Researcher
+    //get logged workshop
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getWorkshop(){
-            axios.get("http://localhost:8070/workshop/get/"+id).then((res)=>{
-
-                SetWorkshop(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/workshop/get/"+ loggedInUser).then((res)=>{
+                setWorkshop(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
         getWorkshop();
@@ -51,9 +50,11 @@ const WorkshopUpdate = ()=>{
             Password:Password,
         };
 
-        axios.put('http://localhost:8070/workshop/updateOne/'+ id , newWorkshop).then(() =>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.put('http://localhost:8070/workshop/updateOne/'+ loggedInUser , newWorkshop).then(() =>{
             alert("Updated successfully!!!");
-            his.push('/UserProfile')
+            his.push('/WorkshopProfile')
 
         }).catch((err) =>{
             alert(err);

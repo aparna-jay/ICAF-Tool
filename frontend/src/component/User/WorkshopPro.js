@@ -2,29 +2,41 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 
 import '../../styles/Researcher/Profile-Edit-Form.css';
+import {useHistory} from "react-router-dom";
 
 const WorkshopPro = ()=>{
 
-    const id = "60be61ea64d7e1246cc7357b"
-    const [Workshop , SetWorkshop] = useState( []);
+    const [Workshop , setWorkshop] = useState( []);
 
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
 
-    //get all Researcher
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getWorkshop(){
-            axios.get("http://localhost:8070/workshop/get/"+id).then((res)=>{
-
-                SetWorkshop(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/workshop/get/"+ loggedInUser).then((res)=>{
+                setWorkshop(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
         getWorkshop();
     },[]);
 
-
+    function deleteWorkshop(){
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.delete('http://localhost:8070/workshop/delete/' + loggedInUser).then(()=>{
+            localStorage.clear();
+            history.push('/login');
+        }).catch((err)=>{
+            alert(err);
+        })
+    }
 
     return(
         <div className="container profile profile-view" id="profile">
@@ -61,7 +73,8 @@ const WorkshopPro = ()=>{
                             <div className="col-md-12 text-center content-right">
                                 <a href={"/WorkshopStatus"} className="btn btn-success form-btn" type="submit">Working Panel</a>
                                 <a href={"/WorkshopUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
-                                <button className="btn btn-danger form-btn" type="reset">Delete Profile</button>
+                                <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
+                                <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteWorkshop()};}}>Delete Profile</button>
                             </div>
                         </div>
 
