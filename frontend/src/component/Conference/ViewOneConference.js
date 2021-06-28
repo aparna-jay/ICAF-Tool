@@ -1,9 +1,11 @@
 import React, {useState,useEffect} from 'react';
 import { useParams } from "react-router";
 import '../../styles/ConferenceDashboard/Conference.css';
+import '../../styles/ConferenceDashboard/ViewOneConference.css';
 // import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const ViewOneConference = ({match}) => {
     console.log( match.params.id);
@@ -78,69 +80,77 @@ const ViewOneConference = ({match}) => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
-                                <li className="list-group-item">{Conference.Title}</li>
+                                <li className="list-group-item" onChange={TitleSetter}>{Conference.Title}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Title"*/}
+                                {/*       placeholder="Title"*/}
+                                {/*       onChange={TitleSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Start Date </label>
-                                <li className="list-group-item">{Conference.Start_date}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="Start_date"
-                                       placeholder="Start Date"
-                                       onChange={Start_dateSetter}
-                                />
+                                <li className="list-group-item"  onChange={Start_dateSetter}>{Conference.Start_date}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Start_date"*/}
+                                {/*       placeholder="Start Date" */}
+                                {/*       onChange={Start_dateSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">End Date </label>
-                                <li className="list-group-item">{Conference.End_Date}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="End_Date"
-                                       placeholder="End Date"
-                                       onChange={End_DateSetter}
-                                />
+                                <li className="list-group-item" onChange={End_DateSetter}>{Conference.End_Date}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="End_Date"*/}
+                                {/*       placeholder="End Date"*/}
+                                {/*       onChange={End_DateSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Organization </label>
-                                <li className="list-group-item">{Conference.Organization}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="Organization"
-                                       placeholder="Organization"
-                                       onChange={OrganizationSetter}
-                                />
+                                <li className="list-group-item" onChange={OrganizationSetter}>{Conference.Organization}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Organization"*/}
+                                {/*       placeholder="Organization"*/}
+                                {/*       onChange={OrganizationSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Description </label>
-                                <li className="list-group-item">{Conference.Description}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="Description"
-                                       placeholder="Description"
-                                       onChange={DescriptionSetter}
-                                />
+                                <li className="list-group-item" onChange={DescriptionSetter}>{Conference.Description}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Description"*/}
+                                {/*       placeholder="Description"*/}
+                                {/*       onChange={DescriptionSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Phone </label>
-                                <li className="list-group-item">{Conference.Phone}</li>
-                                <input className="form-control"
-                                       type="text"
-                                       name="Phone"
-                                       placeholder="Phone"
-                                       onChange={PhoneSetter}
-                                />
+                                <li className="list-group-item" onChange={PhoneSetter}>{Conference.Phone}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="text"*/}
+                                {/*       name="Phone"*/}
+                                {/*       placeholder="Phone"*/}
+                                {/*       onChange={PhoneSetter}*/}
+                                {/*/>*/}
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Email </label>
-                                <li className="list-group-item">{Conference.Email}</li>
-                                <input className="form-control"
-                                       type="email"
-                                       name="Email"
-                                       placeholder="Email"
-                                       onChange={EmailSetter}
-                                />
+                                <li className="list-group-item" onChange={EmailSetter}>{Conference.Email}</li>
+                                {/*<input className="form-control"*/}
+                                {/*       type="email"*/}
+                                {/*       name="Email"*/}
+                                {/*       placeholder="Email"*/}
+                                {/*       onChange={EmailSetter}*/}
+                                {/*/>*/}
                             </div>
-
+                            <button className="btn btn-primary">
+                                <Link to="/ConferenceDashboard">+ Back to Conference details</Link>
+                            </button>
                         </form>
                     </section>
                 </div>
