@@ -54,6 +54,7 @@ const App = () => {
 
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
    const [selectedImg, setSelectedImg] = useState(null);
+   const[conId, setConId] = useState('');
         return (
 
             <div>
@@ -63,8 +64,8 @@ const App = () => {
 
 
                     <Route path="/admin" render={props => <AdminHome/>} />
-                    <Route path="/ManageConference" component={ManageConferences}/>
-                    <Route path="/viewConf" component={ViewConference}/>
+                    <Route path="/ManageConference" render={props => <ManageConferences  setConId={setConId} />} />
+                    <Route path="/viewConf" render={props =><ViewConference conId={conId} />}/>
                     <Route path="/ManageUsers" component={ManageUsers}/>
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>

@@ -40,8 +40,17 @@
     background-color: #247fcf;
 }
 .adminConference{
-    background-color: #05bf3b;
+    background-color: #03cd3c;
 }
+.adminAttendee{
+    background-color: #f507d6;
+}
+.adminResearcher{
+    background-color: #bfbc05;
+}.adminWorkshop{
+     background-color: #0ac49a;
+ }
+
 
 
 /*reaches*/
