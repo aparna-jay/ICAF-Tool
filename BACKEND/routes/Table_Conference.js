@@ -127,5 +127,20 @@ router.route("/get/:id").get(async(req,res)=> {
     })
 })
 
+//UPDATE ONE
+router.route("/updateOne/:id").put(async (req, res) => {
+    let conferenceId = await Conference.findById(req.params.id);
+    const data = {
+        Title:req.body.Title || conferenceId.Title,
+        Start_date:req.body.Start_date || conferenceId.Start_date,
+        End_Date:req.body.End_Date || conferenceId.End_Date,
+        Organization:req.body.Organization || conferenceId.Organization,
+        Description:req.body.Description || conferenceId.Description,
+        Phone:req.body.Phone || conferenceId.Phone,
+        Email:req.body.Email || conferenceId.Email,
+        Status: req.body.Status || conferenceId.Status,
+    };conferenceId = await Conference.findByIdAndUpdate(req.params.id, data, {
+        new: true });res.json(conferenceId);});
+
 //export the moduls
 module.exports = router;

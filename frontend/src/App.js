@@ -77,6 +77,7 @@ const App = () => {
                     <Route path="/reviewer" render={props => <Reviewerhome/>} />
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
+                    <Route path="/EditorProf" render={props => <EditorRegister />} />
                     <Route path="/Editor" component={EditorProfile}/>
                     <Route path="/EditorRegister" component={EditorRegister}/>
                     <Route path="/user" component={UserMainReg}/>
