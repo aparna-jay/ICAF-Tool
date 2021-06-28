@@ -3,8 +3,10 @@ import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
 import img from "../../img/user.png";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 const AdminHome = () => {
+    const history = useHistory();
     const [admin , setAdmin] = useState( []);
     const[phone, setPhone]= useState("");
     const[email, setEmail]= useState("");
@@ -45,7 +47,14 @@ const AdminHome = () => {
         }).catch((err) =>{
         });
     }
-
+    const deleteAdmin = (id) =>{
+        axios.delete('http://localhost:8070/admin/delete/' + id).then(()=>{
+            localStorage.clear();
+            history.push('/login');
+        }).catch((err)=>{
+            alert(err);
+        })
+    };
     return (
         <div>
             <section>
@@ -94,17 +103,17 @@ const AdminHome = () => {
                                                 <div className="row">
                                                     <div className="col-md-12">
                                                         <button className="btn btn-primary d-block w-100 regButton" type="submit"
-                                                                onClick={()=>UpdateProfile()}>Update
+                                                                onClick={()=>UpdateProfile()}>Update Profile
                                                         </button>
                                                     </div>
                                                     <br /><br />
 
                                                     <div className="col-md-12">
                                                         <button className="btn btn-danger d-block w-100" type="submit"
-                                                                onClick={()=>DeleteProfile(admin._id)}>Delete
+                                                                onClick={()=>{if(window.confirm("Are you sure you want to delete your account?")){deleteAdmin(admin._id)};}}>Delete Account
                                                         </button>
                                                     </div>
-                                                    <br /><br />
+                                                    <br /><br /> <br />
                                                 </div>
                                             </div>
                                         </div>
