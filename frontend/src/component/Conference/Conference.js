@@ -37,7 +37,8 @@ const Conference = () => {
         setEmail(e.target.value);
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         const newConference= {
             Title: Title,
             Start_date: Start_date,
@@ -49,7 +50,7 @@ const Conference = () => {
             Status: Status
 
         };
-        axios.post('http://localhost:8070/conference/add' , newConference).then(() =>{
+        axios.post('http://localhost:8070/Conference/add' , newConference).then(() =>{
             alert("Conference added successfully!!!");
         }).catch((err) =>{
             alert(err);
@@ -82,7 +83,7 @@ const Conference = () => {
                         <div className="mb-3">
                             <label className="col-form-label" htmlFor="name-input-field">Start Date </label>
                             <input className="form-control"
-                                   type="text"
+                                   type="date"
                                    name="Start_date"
                                    placeholder="Start Date"
                                    onChange={Start_dateSetter}
@@ -91,7 +92,7 @@ const Conference = () => {
                         <div className="mb-3">
                             <label className="col-form-label" htmlFor="name-input-field">End Date </label>
                             <input className="form-control"
-                                   type="text"
+                                   type="date"
                                    name="End_Date"
                                    placeholder="End Date"
                                    onChange={End_DateSetter}

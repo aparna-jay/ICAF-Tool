@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import AdminSideNav from "../navbar/AdminSideNav";
 import axios from "axios";
 import AdminProfile from "./AdminProfile";
+import ViewConference from "./ViewConference";
 
 const ManageConferences = ()=>{
 
@@ -9,11 +10,15 @@ const ManageConferences = ()=>{
     const[conferences, setConferences] = useState([]);
 
     useEffect( ()=>{
-        axios.get('http://localhost:8070/conference/').then((response)=>{
+        axios.get('http://localhost:8070/Conference/').then((response)=>{
             setConferences(response.data);
         });
     }, [])
 
+    const onViewClick = (id) =>{
+        setConId(id);
+        console.log(id);
+    }
 
     return(
         <div>
@@ -50,9 +55,8 @@ const ManageConferences = ()=>{
                                                 <th>End date</th>
                                                 <th>Organization</th>
                                                 <th>Description</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th><em className="fa fa-cog"></em></th>
+                                                <th>Status</th>
+                                                <th><em className="btn fa fa-cog"></em></th>
                                             </tr>
                                             </thead>
                                             {
@@ -64,9 +68,9 @@ const ManageConferences = ()=>{
                                                         <td key={conference.End_Date}>{conference.End_Date}</td>
                                                         <td key={conference.Organization}>{conference.Organization}</td>
                                                         <td key={conference.Description}>{conference.Description}</td>
-                                                        <td key={conference.Phone}>{conference.Phone}</td>
-                                                        <td key={conference.Email}>{conference.Email}</td>
-                                                        <td><button>Approve</button></td>
+                                                        <td key={conference.Status}>{conference.Status}</td>
+                                                        <td> <a className="btn btn-success" onClick={()=>onViewClick(conference._id)}><em className="fa fa-info"></em></a>
+                                                          </td>
                                                     </tr>
                                                     </tbody>
                                                 ))}
