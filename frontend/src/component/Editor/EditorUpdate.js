@@ -6,16 +6,10 @@ import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 
-const EditorProfile = () =>{
-    // let his = useHistory();
+const EditorUpdate = () =>{
+    let his = useHistory();
 
     const [Editor , setEditor] = useState( []);
-
-    const history = useHistory();
-    const Logout = () => {
-        localStorage.clear();
-        history.push('/login');
-    };
 
     //get logged Editor
     useEffect(()=>{
@@ -24,7 +18,6 @@ const EditorProfile = () =>{
         function getEditor(){
             axios.get("http://localhost:8070/editor/get/"+ loggedInUser).then((res)=>{
                 setEditor(res.data);
-                console.log("data")
                 console.log(res.data);
             }).catch((err)=>{
             })
@@ -32,18 +25,52 @@ const EditorProfile = () =>{
         getEditor();
     },[]);
 
-    //delete logged Editor
-    function deleteEditor(){
+    //updateOne
+    const[Name , setName] = useState("");
+    const[Designation, setDesignation]= useState("");
+    const[Email, setEmail]= useState("");
+    const[Phone, setPhone]= useState("");
+    const[Password, setPassword]= useState("");
+    const[CPassword, setCPassword]= useState("");
+
+    const NameSetter = (e) => {
+        setName(e.target.value);
+    }
+    const DesignationSetter = (e) => {
+        setDesignation(e.target.value);
+    }
+    const EmailSetter = (e) => {
+        setEmail(e.target.value);
+    }
+    const PhoneSetter = (e) => {
+        setPhone(e.target.value);
+    }
+    const PasswordSetter = (e) => {
+        setPassword(e.target.value);
+    }
+    const CPasswordSetter = (e) => {
+        setCPassword(e.target.value);
+    }
+
+    const onSubmit = () => {
+        const newEditor = {
+            Name: Name,
+            Designation:Designation,
+            Email: Email,
+            Phone: Phone,
+            Password:Password
+        };
+
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.delete('http://localhost:8070/editor/delete/' + loggedInUser).then(()=>{
-            localStorage.clear();
-            history.push('/login');
-        }).catch((err)=>{
+        axios.put('http://localhost:8070/editor/updateOne/'+ loggedInUser , newEditor).then(() =>{
+            alert("Updated successfully!!!");
+            his.push('/Editor')
+
+        }).catch((err) =>{
             alert(err);
         })
     }
-
     return(
         <div>
             <div className="editorProfile">
@@ -52,12 +79,12 @@ const EditorProfile = () =>{
                         <div>
                             <ConferenceDashboardSideNav/>
                         </div>
-                <section></section>
+                        <section></section>
                         <div>
                             <section className="login-dark">
 
                                 <form method="post">
-                                    <h2 className="visually-hidden">Editor Profile</h2>
+                                    <h2 className="visually-hidden">Editor Profile Update</h2>
                                     <div className="illustration">
                                         <i className="icon ion-ios-locked-outline"></i>
                                     </div>
@@ -66,8 +93,9 @@ const EditorProfile = () =>{
                                         <input className="form-control"
                                                type="text"
                                                name="Name"
-                                               placeholder="Name"
-                                               value={Editor.Name}/>
+                                               placeholder={Editor.Name}
+                                               onChange={NameSetter}
+                                               />
 
                                     </div>
                                     <div className="mb-3">
@@ -75,8 +103,8 @@ const EditorProfile = () =>{
                                         <input className="form-control"
                                                type="text"
                                                name="Designation"
-                                               placeholder="Designation"
-                                               value={Editor.Designation}
+                                               placeholder={Editor.Designation}
+                                               onChange={DesignationSetter}
 
                                         />
                                     </div>
@@ -85,8 +113,8 @@ const EditorProfile = () =>{
                                         <input className="form-control"
                                                type="email"
                                                name="Email"
-                                               placeholder="Email"
-                                               value={Editor.Email}
+                                               placeholder={Editor.Email}
+                                               onChange={EmailSetter}
 
                                         />
                                     </div>
@@ -95,8 +123,8 @@ const EditorProfile = () =>{
                                         <input className="form-control"
                                                type="text"
                                                name="Phone"
-                                               placeholder="Phone"
-                                               value={Editor.Phone}
+                                               placeholder={Editor.Phone}
+                                               onChange={PhoneSetter}
 
                                         />
                                     </div>
@@ -105,28 +133,23 @@ const EditorProfile = () =>{
                                         <input className="form-control"
                                                type="password"
                                                name="Password"
-                                               placeholder="Password"
-                                               value={Editor.Password}
-
+                                               placeholder={Editor.Password}
+                                               onChange={PasswordSetter}
                                         />
                                     </div>
 
                                     <div className="mb-3">
-                                        <a href={"/EditorUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
-                                        <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
-                                        <button className="btn btn-danger form-btn" type="reset" onClick={()=>{
-                                            if(window.confirm("Are you sure you want to delete your Profile?"))
-                                            {deleteEditor()};}}>Delete Profile
-                                        </button>
+                                        <button className="btn btn-warning form-btn" type="reset" onClick={onSubmit}>Update Profile</button>
 
                                     </div>
                                 </form>
                             </section>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
-export default EditorProfile;
+
+export default EditorUpdate;
