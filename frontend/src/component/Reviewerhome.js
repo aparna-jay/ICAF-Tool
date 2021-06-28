@@ -1,24 +1,62 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 const Reviewerhome = ({loggedUser})=>{
-    console.log(loggedUser);
-    const id = loggedUser;
-    const [Reviewers , SetReviwers] = useState( []);
 
+    // console.log(loggedUser);
+    // const id = loggedUser
+    const [Reviewers , setReviewer] = useState( []);
 
-    //get all Reviewers
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
+
+    //get logged Reviewer
     useEffect(()=>{
-        function getReviwers(){
-            axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
-                SetReviwers(res.data);
-                // setName(res.data.name);
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        function getReviewer(){
+            axios.get("http://localhost:8070/reviewer/get/"+ loggedInUser).then((res)=>{
+                setReviewer(res.data);
                 console.log(res.data);
             }).catch((err)=>{
             })
         }
-        getReviwers();
-    },[loggedUser]);
+        getReviewer();
+    },[]);
+
+    function deleteReviewer(){
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.delete('http://localhost:8070/reviewer/delete/' + loggedInUser).then(()=>{
+            localStorage.clear();
+            history.push('/login');
+        }).catch((err)=>{
+            alert(err);
+        })
+    }
+
+
+    // console.log(loggedUser);
+    // const id = loggedUser;
+    // const [Reviewers , SetReviwers] = useState( []);
+    //
+    //
+    // //get all Reviewers
+    // useEffect(()=>{
+    //     function getReviwers(){
+    //         axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
+    //             SetReviwers(res.data);
+    //             // setName(res.data.name);
+    //             console.log(res.data);
+    //         }).catch((err)=>{
+    //         })
+    //     }
+    //     getReviwers();
+    // },[loggedUser]);
 
 
         return(
@@ -76,6 +114,8 @@ const Reviewerhome = ({loggedUser})=>{
                         </div>
                         <br />
                         <a href={"/ReviewerUpdate"} type="button" className="btn btn-primary btn-lg ">Update Profile</a>
+                        <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
+                        <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteReviewer()};}}>Delete Profile</button>
                         <br /><br />
                     </form>
                     <br />

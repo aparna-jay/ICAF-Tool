@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 
 const ConferenceDashboard = () => {
+    const {ConferenceId} = useParams();
 
     const [Conference, setConference] = useState([]);
-
-    const deleteConference = async (Title) => {
-        await axios.delete(`http://localhost:8070/Conference/delete/${Title}`);
-        alert("Conference deleted!!");
-        getConference();
-    };
 
     function getConference() {
         axios
@@ -24,6 +20,16 @@ const ConferenceDashboard = () => {
                 alert(err.message);
             });
     }
+
+    const deleteConference = (id) =>{
+        axios.delete('http://localhost:8070/Conference/delete/' + id).then(()=>{
+            confirm("Do you want to delete this Conference?");
+            alert("Conference deleted successfully!!");
+        }).catch((err)=>{
+            alert(err);
+        })
+    };
+
 
     useEffect(() => {
         getConference();
@@ -69,13 +75,13 @@ const ConferenceDashboard = () => {
                                                     <td>{Conference.Phone}</td>
                                                     <td>{Conference.Email}</td>
 
-                                                    <Link class="btn btn-primary" role="button" to={`/gets/${Conference.Title}`}>
+                                                    <Link class="btn btn-primary" role="button" to={`/get/${Conference._id}`}>
                                                         View
                                                     </Link>
-                                                    <Link class="btn btn-warning" role="button" to={`/updates/${Conference.Title}`}>
+                                                    <Link class="btn btn-success" role="button" to={`/update/${Conference._id}`}>
                                                         Update
                                                     </Link>
-                                                    <Link class="btn btn-danger" onClick={() => deleteConference(Conference.Title)} role="button">
+                                                    <Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">
                                                         Delete
                                                     </Link>
                                                 </tr>
@@ -83,8 +89,8 @@ const ConferenceDashboard = () => {
                                         })}
                                         </tbody>
                                     </table>
-                                    <button className="btn btn-back">
-                                        <Link to="/adds">+ Back to Conference details</Link>
+                                    <button className="btn btn-primary">
+                                        <Link to="/Conference/add">+ Back to Conference details</Link>
                                     </button>
                                 </div>
                             </div>

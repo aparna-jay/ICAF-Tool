@@ -4,26 +4,45 @@ import {useHistory} from "react-router-dom";
 
 
 const ReviewerUpdate = ()=>{
+
     let his = useHistory();
 
-    //get spesific users data
-    const id = "60b1cd482605f1120c24915b"
-    const [Reviewers , SetReviwers] = useState( []);
+    const [Reviewers , setReviewer] = useState( []);
 
-    //get all Reviewers
+    //get logged Reviewer
     useEffect(()=>{
-        function getReviwers(){
-            axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
-
-                SetReviwers(res.data);
-                // setName(res.data.name);
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        function getReviewer(){
+            axios.get("http://localhost:8070/reviewer/get/"+ loggedInUser).then((res)=>{
+                setReviewer(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
-        getReviwers();
+        getReviewer();
     },[]);
+
+    // let his = useHistory();
+    //
+    // //get spesific users data
+    // const id = "60b1cd482605f1120c24915b"
+    // const [Reviewers , SetReviwers] = useState( []);
+    //
+    // //get all Reviewers
+    // useEffect(()=>{
+    //     function getReviwers(){
+    //         axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
+    //
+    //             SetReviwers(res.data);
+    //             // setName(res.data.name);
+    //             console.log(res.data);
+    //         }).catch((err)=>{
+    //             alert(err.message);
+    //         })
+    //     }
+    //     getReviwers();
+    // },[]);
 
 
     const[Name , setName] = useState('');
@@ -56,7 +75,9 @@ const ReviewerUpdate = ()=>{
             Designation:Designation
         };
         his.push('/reviewer');
-        axios.put('http://localhost:8070/Reviewer/updateOne/'+ id , newReviewer).then(() =>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.put('http://localhost:8070/Reviewer/updateOne/'+ loggedInUser , newReviewer).then(() =>{
 
             alert("Updated successfully!!!");
         }).catch((err) =>{

@@ -13,6 +13,7 @@ import ReviewerRegister from "./component/ReviewerRegister";
 import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
+import EditorRegister from "./component/Editor/EditorRegister";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
 import 'regenerator-runtime/runtime'
@@ -29,6 +30,8 @@ import EditRPaper from "./component/ViewPapers/EditRPaper";
 import Conference from "./component/Conference/Conference";
 import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
+import ViewOneConference from "./component/Conference/ViewOneConference";
+import UpdateConference from "./component/Conference/UpdateConference";
 import AttendeeReg from "./component/User/AttendeeReg";
 import ResearcherPro from "./component/User/ResearcherPro";
 import ResearcherUpdate from "./component/User/ResearcherUpdate";
@@ -43,6 +46,7 @@ import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
 import ViewConference from "./component/admin/ViewConference";
+import downloadPapers from "./component/User/downoadPapers";
 
 
 const App = () => {
@@ -68,12 +72,16 @@ const App = () => {
                     <Route path="/login" render={props => <AdminLogin/>}/>
                     <Route path="/Conference" component={Conference}/>
                     <Route path="/ConferenceDashboard" component={ConferenceDashboard}/>
+                    <Route path="/get/:id" component={ViewOneConference}/>
+                    <Route path="/update/:id" component={UpdateConference}/>
                     <Route path="/adminRegister" component={AdminRegister}/>
                     <Route path="/test" component={getAdmin}></Route>
                     <Route path="/reviewer" render={props => <Reviewerhome/>} />
                     <Route path="/ReviewerRegister" component={ReviewerRegister}/>
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
+                    <Route path="/EditorProf" render={props => <EditorRegister />} />
                     <Route path="/Editor" component={EditorProfile}/>
+                    <Route path="/EditorRegister" component={EditorRegister}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>
                     <Route path="/Workshop" component={WorkshopReg}/>
@@ -95,6 +103,7 @@ const App = () => {
                     <Route path="/AttendeeUpdate" component={AttendeeUpdate}/>
                     <Route path="/WorkshopUpdate" component={WorkshopUpdate}/>
                     <Route path="/WorkshopStatus" component={WorkshopStatus}/>
+                    <Route path="/downloadPapers" component={downloadPapers}/>
 
 
                 </Router>

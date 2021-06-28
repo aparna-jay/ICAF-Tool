@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 //create an object
 const ConferenceSchema = new Schema({
     //create attributes
+
     Title : {
         type : String,
         required : true //backend validation

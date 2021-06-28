@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect }  from 'react'
 import '../../styles/Editor/EditorProfile.css'
 import img from '../../armaan.jpg'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 
 
-const EditorProfile = () =>{
+const EditorProfile = (props) =>{
+    // useEffect(() => {
+    //     const {
+    //         match: { params },
+    //     } = props;
+    //
+    //     console.log(params._id, "<<<");
+    //     const userId = params._id;
+    //     getEditor(userId).then((response) => {};
     return(
         <div>
             <div className="editorProfile">

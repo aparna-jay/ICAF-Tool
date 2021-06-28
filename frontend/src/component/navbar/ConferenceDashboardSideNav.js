@@ -15,6 +15,7 @@ const ConferenceDashboardSideNav =() =>{
                     <li><a href="Keynotes">Keynotes</a></li>
                     <li><a href="Keynotes-profile">Keynotes Profile</a></li>
                     <li><a href="Editor">Editor</a></li>
+                    <li><a href="EditorRegister">Editor Register</a></li>
                     <li><a href="Profile">Profile</a></li>
 
                     <p className="text-centerEd social-linksEd">

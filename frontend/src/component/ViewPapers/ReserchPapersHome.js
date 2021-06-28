@@ -41,7 +41,7 @@ const ReserchPapersHome = ()=>{
                             <br /><br />
                     <a href={user.avatar}
                        className={"btn btn-danger btn-sm"}>
-                        download pdf form here
+                        VIEW PAPER
                     </a>
                     <div className="p-2">
                         <div className="d-flex justify-content-between align-items-center">

@@ -2,29 +2,42 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 
 import '../../styles/Researcher/Profile-Edit-Form.css';
+import {useHistory} from "react-router-dom";
 
 const AttendeePro = ()=>{
 
-    const id = "60bb2823255db134d4d352ff"
-    const [Attendee , SetAttendee] = useState( []);
+    const [Attendee , setAttendee] = useState( []);
 
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
 
-    //get all Researcher
+    //get logged Attendee
     useEffect(()=>{
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
         function getAttendee(){
-            axios.get("http://localhost:8070/attendee/get/"+id).then((res)=>{
-
-                SetAttendee(res.data);
-                // setName(res.data.name);
+            axios.get("http://localhost:8070/attendee/get/"+ loggedInUser).then((res)=>{
+                setAttendee(res.data);
                 console.log(res.data);
             }).catch((err)=>{
-                alert(err.message);
             })
         }
         getAttendee();
     },[]);
 
-
+    function deleteAttendee(){
+        const loggedInUser = localStorage.getItem("user");
+        console.log(loggedInUser);
+        axios.delete('http://localhost:8070/attendee/delete/' + loggedInUser).then(()=>{
+            localStorage.clear();
+            history.push('/login');
+        }).catch((err)=>{
+            alert(err);
+        })
+    }
 
     return(
         <div className="container profile profile-view" id="profile">
@@ -38,7 +51,7 @@ const AttendeePro = ()=>{
             <form>
                 <div className="row text-capitalize text-start justify-content-center profile-row">
                     <div className="col-md-8">
-                        <h1>Attendee Profile</h1>
+                        <h1>Hello {Attendee.Name}</h1>
                         <hr></hr>
 
                         <div className="form-group mb-3">
@@ -60,7 +73,8 @@ const AttendeePro = ()=>{
                         <div className="row">
                             <div className="col-md-12 text-center content-right">
                                 <a href={"/AttendeeUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
-                                <button className="btn btn-danger form-btn" type="reset">Delete Profile</button>
+                                <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
+                                <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteAttendee()};}}>Delete Profile</button>
                             </div>
                         </div>
 
