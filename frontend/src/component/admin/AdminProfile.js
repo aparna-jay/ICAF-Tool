@@ -5,6 +5,19 @@ import axios from "axios";
 const AdminProfile = ({adminId, userType}) => {
     console.log(adminId);
     const [admin, setAdmin] = useState([]);
+    const[phone, setPhone]= useState("");
+    const[email, setEmail]= useState("");
+    const[name, setName]= useState("");
+
+    const phoneSetter = (e) => {
+        setPhone(e.target.value);
+    }
+    const emailSetter = (e) => {
+        setEmail(e.target.value);
+    }
+    const nameSetter = (e) => {
+        setName(e.target.value);
+    }
 
     useEffect(()=> {
         if(userType === "Admin") {
@@ -42,6 +55,76 @@ const AdminProfile = ({adminId, userType}) => {
         }
 
     },[adminId])
+
+    const UpdateProfile = (id)=>{
+        if(userType === "Admin") {
+            const newAdmin= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/admin/updateOne/'+ id , newAdmin).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+        if(userType === "Editor") {
+            const newEditor= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/editor/updateOne/'+ admin._id , newEditor).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+        if(userType === "Reviewer") {
+            const newReviewer= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/Reviewer/updateOne/'+ admin._id , newReviewer).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+        if(userType === "Researcher") {
+            const newResearcher= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/researcher/updateOne/'+ admin._id , newResearcher).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+        if(userType === "WorkshopPresenter") {
+            const newWorkshopPresenter= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/workshop/updateOne/'+ admin._id , newWorkshopPresenter).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+        if(userType === "Attendee") {
+            const newAttendee= {
+                Name: name,
+                Phone:phone,
+                Email:email
+            };
+            axios.put('http://localhost:8070/attendee/updateOne/'+ admin._id , newAttendee).then(() =>{
+                alert("Updated successfully!!!")
+            }).catch((err) =>{
+            });
+        }
+
+    }
         return (
             <div >
 
@@ -59,7 +142,7 @@ const AdminProfile = ({adminId, userType}) => {
                                                         <p className="labels"><strong>Name</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <input className="form-control" type="text" placeholder={admin.Name}></input>
+                                                        <input className="form-control" type="text" placeholder={admin.Name} onChange={nameSetter}></input>
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -67,7 +150,7 @@ const AdminProfile = ({adminId, userType}) => {
                                                         <p className="labels"><strong>Email</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <p className="form-control" type="text">{admin.Email}</p>
+                                                        <input className="form-control" type="text" placeholder={admin.Email} onChange={emailSetter} />
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -75,13 +158,16 @@ const AdminProfile = ({adminId, userType}) => {
                                                         <p className="labels"><strong>Phone</strong></p>
                                                     </div>
                                                     <div className="col">
-                                                        <p className="form-control" type="text">{admin.Phone}</p>
+                                                        <input className="form-control" type="text" placeholder={admin.Phone} onChange={phoneSetter}/>
                                                     </div>
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-12">
-                                                        <a className="btn btn-success" role="button" href="#">
-                                                            <i className="fas fa-pencil-alt"></i>&nbsp;Update</a></div>
+                                                        <div className="col-md-12">
+                                                            <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                                                                    onClick={()=>UpdateProfile(admin._id)}>Update Profile
+                                                            </button>
+                                                        </div></div>
                                                 </div>
                                             </div>
                                         </div>
