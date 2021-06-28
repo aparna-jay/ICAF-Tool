@@ -83,9 +83,10 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
     return(
         <div>
 
-                <section className="login-dark">
+                <div className="login-dark">
+
                     <form>
-                        <h2 className="visually-hidden">Login Form</h2>
+                        <h2 className="visually-hidden"> Login Form</h2>
                         <div className="illustration"><i className="icon ion-ios-locked-outline"></i></div>
                         <div className="mb-3">
                         <select className="form-control" onChange={userSetter}>
@@ -105,9 +106,9 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                         <div className="mb-3">
                             <button className="btn btn-primary d-block w-100" onClick={onSubmit} type="submit">Log In</button>
                         </div>
-                        <a className="forgot" href="#">Forgot your email or password?</a>
+
                     </form>
-                </section>
+                </div>
         </div>
     )
 }
