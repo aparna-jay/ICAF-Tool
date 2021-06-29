@@ -30,19 +30,32 @@ const AdminRegister = () => {
     }
 
     const onSubmit = (e) => {
-        e.preventDefault();
-        const newAdmin = {
-            Name: Name,
-            Email: Email,
-            Phone: Phone,
-            Password:Password
-        };
-        axios.post('http://localhost:8070/admin/add' , newAdmin).then(() =>{
-            alert("Registered successfully!!!");
-            history.push('/ManageAdmins');
-        }).catch((err) =>{
-            alert(err);
-        })
+        if(validate() == true) {
+            e.preventDefault();
+            const newAdmin = {
+                Name: Name,
+                Email: Email,
+                Phone: Phone,
+                Password: Password
+            };
+            axios.post('http://localhost:8070/admin/add', newAdmin).then(() => {
+                alert("Registered successfully!!!");
+                history.push('/ManageAdmins');
+            }).catch((err) => {
+                alert(err);
+            })
+        }
+        else{
+            alert("Passwords do not match!");
+            e.preventDefault();
+
+        }
+    }
+
+    const validate = () =>{
+        if(Password == cPassword){
+            return true;
+        }
     }
 
     return(
@@ -62,9 +75,9 @@ const AdminRegister = () => {
                         <div className="form-group mb-3">
                             <input className="form-control" type="text" placeholder="Name" onChange={nameSetter}/></div>
                         <div className="form-group mb-3">
-                            <input className="form-control" type="email" placeholder="Email" onChange={emailSetter}  /></div>
+                            <input className="form-control" type="email" placeholder="Email" onChange={emailSetter}/></div>
                         <div className="form-group mb-3">
-                            <input className="form-control" type="text" placeholder="Phone" onChange={phoneSetter} /></div>
+                            <input className="form-control" type="number" placeholder="Phone" onChange={phoneSetter} /></div>
                         <div className="form-group mb-3">
                             <input className="form-control" type="password" placeholder="Password" onChange={passwordSetter}/></div>
                         <div className="form-group mb-3">
