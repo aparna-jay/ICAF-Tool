@@ -92,8 +92,10 @@
 }
 
 .adminHomeCard{
-    width:400px;
+    width:500px;
     height:auto;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 .adminProfileCard{
     height:400px;
