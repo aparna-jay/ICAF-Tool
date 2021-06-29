@@ -65,6 +65,7 @@ const ResearcherUpdate = ()=>{
 
     return(
         <div className="container profile profile-view" id="profile">
+            <a href={"/UserProfile"} className="btn btn-success form-btn" type="submit">Back to Profile</a>
             <div className="row">
                 <div className="col-md-12 alert-col relative">
                     <div className="alert alert-info alert-dismissible absolue center" role="alert">
@@ -73,9 +74,11 @@ const ResearcherUpdate = ()=>{
                 </div>
             </div>
             <form>
-                <div className="row text-capitalize text-start justify-content-center profile-row">
-                    <div className="col-md-8">
-                        <h1>Update Profile</h1>
+                <div className="row text-capitalize text-left justify-content-center profile-row">
+                    <div className="col-md-8 ">
+                        <div className="text-center">
+                            <h2>Update Profile</h2>
+                        </div>
                         <hr></hr>
 
                         <div className="form-group mb-3">
