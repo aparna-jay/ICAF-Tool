@@ -141,6 +141,32 @@ router.route("/updateOne/:id").put(async (req, res) => {
         Status: req.body.Status || conferenceId.Status,
     };conferenceId = await Conference.findByIdAndUpdate(req.params.id, data, {
         new: true });res.json(conferenceId);});
+//home
+router.get("/sort", async (req, res) =>{
+
+    let query;
+    const reqQuery = { ...req.query};
+    const removeFields = ["sort"];
+    removeFields.forEach(params => delete reqQuery[params]);
+    let queryStr = JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, (match) => `$${match}`);
+    console.log(queryStr);
+    try {
+
+        const conference = await Conference.find(JSON.parse(queryStr));
+        res.status(200).json({
+            status: 'success',
+            // results: items.length,
+            data: {
+                conference
+            }
+        });
+    }catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        });
+    }});
 
 //export the moduls
 module.exports = router;

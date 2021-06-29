@@ -34,6 +34,7 @@ const EditorRegister = () => {
     }
 
     const onSubmit = (e) => {
+        if(validate() == true) {
         e.preventDefault();
         const newEditor = {
             Name: Name,
@@ -50,6 +51,16 @@ const EditorRegister = () => {
         })
     }
 
+    else{
+        alert("Passwords do not match!");
+        e.preventDefault();
+
+    }}
+    const validate = () =>{
+        if(Password == CPassword){
+            return true;
+        }
+    }
     return(
         <div>
 
