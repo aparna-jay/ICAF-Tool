@@ -33,7 +33,7 @@ const ConferenceDashboard = () => {
 
     useEffect(() => {
         getConference();
-    }, []);
+    }, [Conference]);
 
     return(
         <div>

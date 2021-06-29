@@ -87,8 +87,21 @@ router.route("/update/:id").put(async(req,res)=> {
     
 })
 
-//delete data
+//Updateone
+router.route("/updateOne/:id").put(async (req, res) => {
+    let editor = await Editor.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || editor.Name,
+        Designation: req.body.Designation || editor.Designation,
+        Email: req.body.Email || editor.Email,
+        Phone: req.body.Phone || editor.Phone,
+        Password: req.body.Password || editor.Password,
+    };
+    editor = await Editor.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(editor);
+});
 
+//delete data
 router.route("/delete/:id").delete(async(req,res)=> {
     let editorId = req.params.id;
 
@@ -102,14 +115,12 @@ router.route("/delete/:id").delete(async(req,res)=> {
 })
 
 //Fetch only one user
-
 router.route("/get/:id").get(async(req,res)=> {
-    
     //fetch editorId
     let editorId = req.params.id;
 
     const user = await Editor.findById(editorId).then((editor)=> {
-        res.status(200).send({status: "Editor Fetched", editor})//staus
+        res.status(200).send({status: "Editor Fetched", editor})
     }).catch((err) => {
         console.log(err);
         res.status(500).send({msg:"Error with get Editor", error: err.message});
@@ -135,6 +146,17 @@ router.route("/login").post((req, res) => {
     });
 });
 
-
+router.route("/updateOne/:id").put(async (req, res) => {
+    let editor = await Editor.findById(req.params.id);
+    const data = {
+        Name: req.body.Name || editor.Name,
+        Designation: req.body.Designation || editor.Designation,
+        Email: req.body.Email || editor.Email,
+        Phone: req.body.Phone || editor.Phone,
+        Password: req.body.Password || editor.Password,
+    };
+    editor = await Editor.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(editor);
+});
 //export the modules
 module.exports = router;

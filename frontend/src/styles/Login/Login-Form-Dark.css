@@ -2,18 +2,18 @@
   height: 1000px;
   background: #475d62 url(../../img/star-sky.jpg);
   background-size: cover;
-  position: relative;
+  position: absolute;
 }
 
 .login-dark form {
-  max-width: 320px;
+  max-width: 1000px;
   width: 90%;
   background-color: #1e2833;
-  padding: 40px;
+  padding: 60px;
   border-radius: 4px;
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 35%;
+  top: 55%;
   left: 30%;
   color: #fff;
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2);

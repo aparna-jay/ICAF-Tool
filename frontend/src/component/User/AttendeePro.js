@@ -51,7 +51,7 @@ const AttendeePro = ()=>{
             <form>
                 <div className="row text-capitalize text-start justify-content-center profile-row">
                     <div className="col-md-8">
-                        <h1>Attendee Profile</h1>
+                        <h1>Hello {Attendee.Name}</h1>
                         <hr></hr>
 
                         <div className="form-group mb-3">

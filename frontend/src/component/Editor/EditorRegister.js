@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import axios from "axios";
 import '../../styles/Admin/adminRegister.css'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
+import {useHistory} from "react-router-dom";
+import AdminSideNav from "../navbar/AdminSideNav";
+
 const EditorRegister = () => {
+    const history = useHistory();
     const[Name , setName] = useState("");
     const[Designation, setDesignation]= useState("");
     const[Email, setEmail]= useState("");
@@ -29,7 +33,8 @@ const EditorRegister = () => {
         setCPassword(e.target.value);
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         const newEditor = {
             Name: Name,
             Designation:Designation,
@@ -39,6 +44,7 @@ const EditorRegister = () => {
         };
         axios.post('http://localhost:8070/editor/add' , newEditor).then(() =>{
             alert("Editor Registered successfully!!!");
+            history.push('/ManageEditors');
         }).catch((err) =>{
             alert(err);
         })
@@ -50,7 +56,7 @@ const EditorRegister = () => {
             <section className="register-photo">
                 <div className="row">
                     <div className="col-md-6 col-xl-1" >
-                        <ConferenceDashboardSideNav />
+                        <AdminSideNav />
                     </div>
                     <div className="col-md-6 col-xl-9">
 

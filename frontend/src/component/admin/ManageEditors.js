@@ -14,7 +14,7 @@ const ManageEditors = ()=>{
         axios.get('http://localhost:8070/editor/').then((response)=>{
             setEditors(response.data);
         });
-    }, [])
+    }, [Editors])
 
      const onEditClick = (id) =>{
          setEditorId(id);
@@ -22,7 +22,6 @@ const ManageEditors = ()=>{
 
     const deleteEditor = (id) =>{
         axios.delete('http://localhost:8070/editor/delete/' + id).then(()=>{
-            confirm("Do you want to delete this user?");
         }).catch((err)=>{
             alert(err);
         })
@@ -51,9 +50,9 @@ const ManageEditors = ()=>{
                                                 <h3 className="panel-title">Editors</h3>
                                             </div>
                                             <div className="col col-xs-6 text-right">
-                                                <button type="button"
-                                                        className="btn btn-sm btn-primary btn-create">Add
-                                                </button>
+                                                <a type="button"
+                                                        className="btn btn-sm btn-primary btn-create" href="/EditorRegister">Add
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +76,7 @@ const ManageEditors = ()=>{
                                                             <a className="btn btn-default"><em
                                                                 className="fa fa-pencil"  onClick={()=>onEditClick(editor._id)}></em></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>deleteAdmin(editor._id)}></em></a>
+                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this editor?")){deleteEditor(editor._id)};}}></em></a>
                                                         </td>
                                                         <td key={"editor.Name"} className="hidden-xs">{editor.Name}</td>
                                                         <td key={editor.Designation}>{editor.Designation}</td>

@@ -75,7 +75,7 @@ const ResearcherUpdate = ()=>{
             <form>
                 <div className="row text-capitalize text-start justify-content-center profile-row">
                     <div className="col-md-8">
-                        <h1>Update Researcher Profile</h1>
+                        <h1>Update Profile</h1>
                         <hr></hr>
 
                         <div className="form-group mb-3">

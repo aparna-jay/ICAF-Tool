@@ -1,23 +1,22 @@
 import React, {useEffect, useState} from "react"
 import AdminSideNav from "../navbar/AdminSideNav";
 import axios from "axios";
-import AdminProfile from "./AdminProfile";
-import ViewConference from "./ViewConference";
+import {useHistory} from "react-router-dom";
 
-const ManageConferences = ()=>{
-
-    const[conId, setConId] = useState('');
+const ManageConferences = ({setConId})=>{
+    const history = useHistory();
     const[conferences, setConferences] = useState([]);
 
     useEffect( ()=>{
         axios.get('http://localhost:8070/Conference/').then((response)=>{
             setConferences(response.data);
         });
-    }, [])
+    }, [conferences])
 
     const onViewClick = (id) =>{
         setConId(id);
         console.log(id);
+        history.push('/viewConf');
     }
 
     return(

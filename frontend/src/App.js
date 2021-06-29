@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 import "App.css";
 import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
+import Home from "./component/Home/Home";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
@@ -14,6 +15,7 @@ import ReviewerUpdate from "./component/ReviewerUpdate";
 
 import EditorProfile from "./component/Editor/EditorProfile";
 import EditorRegister from "./component/Editor/EditorRegister";
+import EditorUpdate from "./component/Editor/EditorUpdate";
 import UserMainReg from "./component/User/UserMainReg";
 import ResearcherReg from "./component/User/ResearcherReg";
 import 'regenerator-runtime/runtime'
@@ -54,17 +56,17 @@ const App = () => {
 
    const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
    const [selectedImg, setSelectedImg] = useState(null);
+   const[conId, setConId] = useState('');
         return (
 
             <div>
                 <Router>
                 <div className="App" />
                 <MainNav />
-
-
+                    <Route path="/Home" component={Home}/>
                     <Route path="/admin" render={props => <AdminHome/>} />
-                    <Route path="/ManageConference" component={ManageConferences}/>
-                    <Route path="/viewConf" component={ViewConference}/>
+                    <Route path="/ManageConference" render={props => <ManageConferences  setConId={setConId} />} />
+                    <Route path="/viewConf" render={props =><ViewConference conId={conId} />}/>
                     <Route path="/ManageUsers" component={ManageUsers}/>
                     <Route path="/adminProfile" render={props => <AdminProfile /> }/>
                     <Route path="/keynotes" component={Keynotes}/>
@@ -81,6 +83,7 @@ const App = () => {
                     <Route path="/ReviewerUpdate" component={ReviewerUpdate}/>
                     <Route path="/EditorProf" render={props => <EditorRegister />} />
                     <Route path="/Editor" component={EditorProfile}/>
+                    <Route path="/EditorUpdate" component={EditorUpdate}/>
                     <Route path="/EditorRegister" component={EditorRegister}/>
                     <Route path="/user" component={UserMainReg}/>
                     <Route path="/Researcher" component={ResearcherReg}/>

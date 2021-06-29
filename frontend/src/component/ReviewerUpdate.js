@@ -21,7 +21,7 @@ const ReviewerUpdate = ()=>{
             })
         }
         getReviewer();
-    },[]);
+    },[Reviewers]);
 
     // let his = useHistory();
     //

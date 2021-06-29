@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import axios from "axios";
 import '../../styles/Admin/adminRegister.css'
 import AdminSideNav from "../navbar/AdminSideNav";
+import {useHistory} from "react-router-dom";
+
 const AdminRegister = () => {
+
+    const history = useHistory();
     const[Name , setName] = useState("");
     const[Email, setEmail]= useState("");
     const[Phone, setPhone]= useState("");
@@ -25,7 +29,8 @@ const AdminRegister = () => {
         setcPassword(e.target.value);
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         const newAdmin = {
             Name: Name,
             Email: Email,
@@ -34,6 +39,7 @@ const AdminRegister = () => {
         };
         axios.post('http://localhost:8070/admin/add' , newAdmin).then(() =>{
             alert("Registered successfully!!!");
+            history.push('/ManageAdmins');
         }).catch((err) =>{
             alert(err);
         })
