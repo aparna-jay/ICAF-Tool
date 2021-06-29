@@ -40,16 +40,16 @@ const WorkshopPro = ()=>{
 
     return(
         <div className="container profile profile-view" id="profile">
-            <div className="row">
-                <div className="col-md-12 alert-col relative">
-                    <div className="alert alert-info alert-dismissible absolue center" role="alert">
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <span>Profile save with success</span></div>
-                </div>
-            </div>
-            <form>
+            {/*<div className="row">*/}
+            {/*    <div className="col-md-12 alert-col relative">*/}
+            {/*        <div className="alert alert-info alert-dismissible absolue center" role="alert">*/}
+            {/*            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>*/}
+            {/*            <span>Profile save with success</span></div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <form className="card qwerty col-xl-6">
                 <div className="row text-capitalize text-left justify-content-center profile-row">
-                    <div className="col-md-8 ">
+                    <div className="">
                         <div className="text-center">
                             <h1>Hello {Workshop.Name}</h1>
                         </div>

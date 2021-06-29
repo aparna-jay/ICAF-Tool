@@ -69,7 +69,10 @@ const WorkshopReg = () => {
     console.log(url);
 
     return (
-        <div style={{ maxWidth: 500, margin: "auto" }}>
+        <div>
+            <br />
+
+        <div style={{ maxWidth: 500, margin: "auto" }} className="card qwerty">
             <br></br>
             <h2><b>Workshop Presenter Registration</b></h2>
             <hr></hr>
@@ -136,6 +139,7 @@ const WorkshopReg = () => {
                 </button>
             </div>
 
+        </div>
         </div>
 
     );
