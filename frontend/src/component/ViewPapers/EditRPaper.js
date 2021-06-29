@@ -43,10 +43,10 @@ const EditRPaper = ({ match }) => {
     }
 
     return (
-        <div style={{ maxWidth: 500, margin: "auto" }}>
 
-            <br /> <br /> <br />
-            <lable> STATUS</lable><br/>
+        <div style={{ maxWidth: 500, margin: "auto" }}  >
+            <div className={"card EP"}>
+            <lable><b> Status</b></lable><br/>
             <div className="mb-3">
                 <input
                     className="form-control"
@@ -64,6 +64,7 @@ const EditRPaper = ({ match }) => {
                     onClick={()=>onSubmit("Rejected")}>Reject
             </button>
             <br />
+            </div>
         </div>
     );
 };

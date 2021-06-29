@@ -65,88 +65,82 @@ const ViewOneConference = ({match}) => {
 
     return(
         <div>
-            <div className="ConferenceDashboard">
+            <div className="row">
+                <div className="col-lg-2">
                 <div>
                     <ConferenceDashboardSideNav/>
                 </div>
-                <section></section>
-                <div>
-                    <section className="login-dark">
+                </div>
+                <div className="col-lg-8 col-sm-auto">
+                    <section className="frm">
 
-                        <form method="post">
+                        <form className="card" id="c">
                             <h2 className="visually-hidden">Conference Details</h2>
                             <div className="illustration">
                                 <i className="icon ion-ios-locked-outline"></i>
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
-                                <li className="list-group-item" onChange={TitleSetter}>{Conference.Title}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="Title"*/}
-                                {/*       placeholder="Title"*/}
-                                {/*       onChange={TitleSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="Title"
+                                       placeholder={Conference.Title}
+                                       onChange={TitleSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Start Date </label>
-                                <li className="list-group-item"  onChange={Start_dateSetter}>{Conference.Start_date}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="Start_date"*/}
-                                {/*       placeholder="Start Date" */}
-                                {/*       onChange={Start_dateSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="Start_date"
+                                       placeholder={Conference.Start_date}
+                                       onChange={Start_dateSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">End Date </label>
-                                <li className="list-group-item" onChange={End_DateSetter}>{Conference.End_Date}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="End_Date"*/}
-                                {/*       placeholder="End Date"*/}
-                                {/*       onChange={End_DateSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="End_Date"
+                                       placeholder={Conference.End_Date}
+                                       onChange={End_DateSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Organization </label>
-                                <li className="list-group-item" onChange={OrganizationSetter}>{Conference.Organization}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="Organization"*/}
-                                {/*       placeholder="Organization"*/}
-                                {/*       onChange={OrganizationSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="Organization"
+                                       placeholder={Conference.Organization}
+                                       onChange={OrganizationSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Description </label>
-                                <li className="list-group-item" onChange={DescriptionSetter}>{Conference.Description}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="Description"*/}
-                                {/*       placeholder="Description"*/}
-                                {/*       onChange={DescriptionSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="Description"
+                                       placeholder={Conference.Description}
+                                       onChange={DescriptionSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Phone </label>
-                                <li className="list-group-item" onChange={PhoneSetter}>{Conference.Phone}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="text"*/}
-                                {/*       name="Phone"*/}
-                                {/*       placeholder="Phone"*/}
-                                {/*       onChange={PhoneSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="text"
+                                       name="Phone"
+                                       placeholder={Conference.Phone}
+                                       onChange={PhoneSetter}
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Email </label>
-                                <li className="list-group-item" onChange={EmailSetter}>{Conference.Email}</li>
-                                {/*<input className="form-control"*/}
-                                {/*       type="email"*/}
-                                {/*       name="Email"*/}
-                                {/*       placeholder="Email"*/}
-                                {/*       onChange={EmailSetter}*/}
-                                {/*/>*/}
+                                <input className="form-control"
+                                       type="email"
+                                       name="Email"
+                                       placeholder={Conference.Email}
+                                       onChange={EmailSetter}
+                                />
                             </div>
                             <button className="btn btn-primary">
                                 <Link to="/ConferenceDashboard">+ Back to Conference details</Link>

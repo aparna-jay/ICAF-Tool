@@ -44,8 +44,8 @@ const EditWorkShopStatus = ({ match }) => {
 
     return (
         <div style={{ maxWidth: 500, margin: "auto" }}>
-            <br/><br/><br/><br/>
-            <lable> STATUS</lable><br/>
+            <div className={"card EP"}>
+            <lable><b>Status</b></lable><br/>
             <div className="mb-3">
                 <input
                     className="form-control"
@@ -63,6 +63,7 @@ const EditWorkShopStatus = ({ match }) => {
             <button className="btn btn-danger d-block w-100 regButton" type="submit"
                     onClick={()=>onSubmit("Rejected")}>Reject
             </button>
+                </div>
         </div>
     );
 };
