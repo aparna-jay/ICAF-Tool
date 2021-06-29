@@ -90,3 +90,13 @@
 .mylable{
     background:#6c757d;
 }
+
+.adminHomeCard{
+    width:400px;
+    height:auto;
+}
+.adminProfileCard{
+    height:400px;
+    padding-bottom: 40px;
+}
+
