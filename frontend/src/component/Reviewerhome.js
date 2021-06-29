@@ -61,7 +61,9 @@ const Reviewerhome = ({loggedUser})=>{
 
         return(
             <div className={"container"}>
+                <button onClick={Logout} className="btn btn-success form-btn btn-del" type="submit">Logout</button><br/>
                 <div className={"container "}>
+
                     <form className={"container bg-danger"}>
                         <br />
                         <div className="row g-2">
@@ -114,14 +116,15 @@ const Reviewerhome = ({loggedUser})=>{
                         </div>
                         <br />
                         <a href={"/ReviewerUpdate"} type="button" className="btn btn-primary btn-lg ">Update Profile</a>
-                        <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
-                        <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteReviewer()};}}>Delete Profile</button>
+
+
                         <br /><br />
                     </form>
                     <br />
                     <div>
                         <a type="button" className="btn btn-primary btn-lg " href={"/allResearchPapers"} > View review paper</a>
                         <a type="button" className="btn btn-primary btn-lg " href={"/WorkShopHome"} > View Work Shop</a>
+                        <button className="btn btn-danger form-btn btn-del " type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteReviewer()};}}>Delete Profile</button>
                     </div>
                 </div>
             </div>

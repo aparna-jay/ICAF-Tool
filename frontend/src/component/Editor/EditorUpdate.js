@@ -17,8 +17,8 @@ const EditorUpdate = () =>{
         console.log(loggedInUser);
         function getEditor(){
             axios.get("http://localhost:8070/editor/get/"+ loggedInUser).then((res)=>{
-                setEditor(res.data);
-                console.log(res.data);
+                setEditor(res.data.editor);
+                console.log(res.data.editor);
             }).catch((err)=>{
             })
         }
