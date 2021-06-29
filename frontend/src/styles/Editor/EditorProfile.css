@@ -1,3 +1,16 @@
+.card{
+    margin-top: 40px;
+    margin-left: 74px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+}
+#c{
+    border-radius: 1.2rem;
+}
+
 /*.loginEditor-dark {*/
 /*    height:100%;*/
 /*    width: 100%;*/

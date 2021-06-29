@@ -53,8 +53,8 @@ const EditorProfile = () =>{
                         </div>
                     </div>
                         <div className="col-lg-8 col-sm-auto">
-                            <section className="">
-                                <form>
+                            <section className="frm">
+                                <form className="card" id="c">
                                     <h2 className="visually-hidden">Editor Profile</h2>
                                     <div className="illustration">
                                         <i className="icon ion-ios-locked-outline"></i>
