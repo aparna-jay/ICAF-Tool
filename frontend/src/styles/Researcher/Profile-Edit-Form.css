@@ -11,8 +11,8 @@
 /*}*/
 
 /*.absolue {*/
-/*  position: absolute;*/
-/*}*/
+/*   position: absolute;*/
+/* }*/
 
 /*div.profile-row {*/
 /*  margin-top: 55px;*/
@@ -39,9 +39,9 @@
 /*  height: 2px;*/
 /*}*/
 
-/*.content-right > * {*/
-/*  float: right;*/
-/*}*/
+.content-right > * {
+  float: right;
+}
 
 .form-btn {
   min-width: 100px;

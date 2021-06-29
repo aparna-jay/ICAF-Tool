@@ -9,7 +9,7 @@ import '../../styles/Researcher/index.css'
 
 const ResearcherReg = () => {
 
-
+    let his = useHistory();
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -63,6 +63,7 @@ const ResearcherReg = () => {
         };
         axios.post('http://localhost:8070/researcher/add' , newResearcher).then(() =>{
             alert("Registered successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
