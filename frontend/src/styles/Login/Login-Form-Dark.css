@@ -1,8 +1,8 @@
 .login-dark {
-  height: 1000px;
-  background: #475d62 url(../../img/star-sky.jpg);
+  height: 600px;
+  background: #475d62 url(../../img/star-skyv2.jpg);
   background-size: cover;
-  position: absolute;
+  /*position: absolute;*/
 }
 
 .login-dark form {
@@ -13,8 +13,6 @@
   border-radius: 4px;
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 55%;
-  left: 30%;
   color: #fff;
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
 }
@@ -76,4 +74,12 @@
   min-width: 160px;
   padding: 12px 16px;
   z-index: 1;
+}
+
+.logForm{
+  background-color: #1e2833;
+  padding: 60px;
+  border-radius: 4px;
+  color: #fff;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
 }

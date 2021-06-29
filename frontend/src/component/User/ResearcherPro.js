@@ -50,9 +50,11 @@ const ResearcherPro = ()=>{
                     </div>
                 </div>
                 <form>
-                    <div className="row text-capitalize text-start justify-content-center profile-row">
-                        <div className="col-md-8">
+                    <div className="row text-capitalize text-left justify-content-center profile-row">
+                        <div className="col-md-8 ">
+                            <div className="text-center">
                             <h1>Hello {Researcher.Name}</h1>
+                            </div>
                             <hr></hr>
 
                             <div className="form-group mb-3">
