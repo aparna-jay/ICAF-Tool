@@ -8,10 +8,10 @@ const Home = () => {
             <div className="Home">
                 <div>
                     <section id="services">
-                        <div className="">
+                        <div className="home">
                             <div className="row">
                                 <div className="col-lg-12 text-center">
-                                    <img className="img" src="src/photo.jpg"/>
+                                    <img className="img" src="src/home.jpg"/>
                                 </div>
                             </div>
 
@@ -20,10 +20,9 @@ const Home = () => {
                     <section id="services">
                         <div className="container">
                             <div className="row">
-                                <div className="col-lg-12 text-center">
-                                    <h2 className="text-uppercase section-heading">Services</h2>
-                                    <h3 className="text-muted section-subheading">Lorem ipsum dolor sit amet
-                                        consectetur</h3>
+                                <div className="col-lg-12 text-center" id="home">
+                                    <h1 className="text-uppercase section-heading">Conferences</h1>
+                                    <h2 className="text-muted section-subheading">ICAF 2021</h2>
                                 </div>
                             </div>
                             <figure className="snip1527">
