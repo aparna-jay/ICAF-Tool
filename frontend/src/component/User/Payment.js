@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios";
 import '../../styles/Payment/Bootstrap-4---Payment-Form.css'
+import {useHistory} from "react-router-dom";
 
 const Payment=()=>{
+
+    let his = useHistory();
 
     const[Date , setDate] = useState("");
     const[Time, setTime]= useState("");
@@ -38,7 +41,8 @@ const Payment=()=>{
             CVV:CVV
         };
         axios.post('http://localhost:8070/payment/add' , newPayment).then(() =>{
-            alert("Registered successfully!!!");
+            alert("Successfully Paid!!!");
+            his.push('/UserProfile')
         }).catch((err) =>{
             alert(err);
         })
