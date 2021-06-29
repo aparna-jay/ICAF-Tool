@@ -1,4 +1,5 @@
 import React from "react"
+import Home from "../Home/Home";
 
 const MainNav = () =>{
 
@@ -11,7 +12,7 @@ const MainNav = () =>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="list">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <a className="nav-link active" aria-current="page" href="Home">Home</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>

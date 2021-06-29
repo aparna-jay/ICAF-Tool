@@ -30,7 +30,7 @@ const EditRPaper = ({ match }) => {
     }
 
 
-    const onSubmit = () => {
+    const onSubmit = (status) => {
         const newResearcher= {
             Status: status,
         };
@@ -44,6 +44,9 @@ const EditRPaper = ({ match }) => {
 
     return (
         <div style={{ maxWidth: 500, margin: "auto" }}>
+
+            <br /> <br /> <br />
+            <lable> STATUS</lable><br/>
             <div className="mb-3">
                 <input
                     className="form-control"
@@ -54,18 +57,13 @@ const EditRPaper = ({ match }) => {
                 />
             </div>
             <button className="btn btn-primary d-block w-100 regButton" type="submit"
-                    onClick={onSubmit}>Approve
+                    onClick={()=>onSubmit("Approved")}>Approve
             </button>
-            <button className="btn btn-primary d-block w-100 regButton" type="submit"
-                    onClick={onSubmit}>Reject
+            <br />
+            <button className="btn btn-danger d-block w-100 regButton" type="submit"
+                    onClick={()=>onSubmit("Rejected")}>Reject
             </button>
-            <div className="text-center">
-                <button className="btn btn-primary"
-                        onClick={onSubmit}
-                >
-                    Update
-                </button>
-            </div>
+            <br />
         </div>
     );
 };

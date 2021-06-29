@@ -31,8 +31,15 @@ const ReserchPapersHome = ()=>{
     };
 
     return (
+
         <div className="">
-            <a className={"btn-group-lg"} href={"/reviewer"}>back</a><br />
+            <link
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+                rel='stylesheet' type='text/css' />
+            <a className="btn btn-default" href={"/reviewer"}>
+                <em className="fa fa-arrow-left" >  back</em>
+            </a>
+            <br />
             {users?.map((user) => (
                 <div className="blog-card" key={user._id}>
                     <label className="form-control btn-success"> File uploaded by {user.Name}</label>

@@ -106,9 +106,9 @@
 }
 
 .img {
-    width: 1520px;
-    margin-left: -205px;
-    height: 100%;
+    width: 85%;
+    /*margin-left: -205px;*/
+    height: auto;
 }
 .image {
     width: 130%;
