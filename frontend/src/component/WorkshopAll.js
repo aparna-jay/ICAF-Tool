@@ -27,8 +27,6 @@ const WorkshopAll = ()=>{
                                 <li>  Data driven approaches and technologies. </li>
                                 <li>  Data analytics and visualizations </li>
                                 <li>  Data science applications </li>
-                                <li>  Big data </li>
-                                <li>  Business intelligence  </li>
                             </ul>
                             <h5><b>By Mr.Chameera</b></h5>
                         </figcaption>
