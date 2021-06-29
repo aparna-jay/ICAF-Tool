@@ -140,7 +140,7 @@ const ViewOneConference = ({match}) => {
                                        type="email"
                                        name="Email"
                                        placeholder={Conference.Email}
-                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                        onChange={EmailSetter}
                                 />
                             </div>
