@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import '../../styles/Admin/table.css'
 import AdminSideNav from "../navbar/AdminSideNav";
-import img from "../../img/user.png";
+import image from "../../img/user.png";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
@@ -70,8 +70,8 @@ const AdminHome = () => {
                         <section className="clean-block about-us">
                             <div className="row justify-content-center">
 
-                                <div className="card clean-card text-center">
-                                    <img className="card-img-top d-block" src={img}/>
+                                <div className="card adminHomeCard clean-card text-center">
+                                    <img className="card-img-top d-block" src={image}/>
                                     <div className="card-body info">
                                         <div className="row">
                                             <div className="col-md-12">
