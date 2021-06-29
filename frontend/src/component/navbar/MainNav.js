@@ -56,6 +56,9 @@ const MainNav = () =>{
                         {/*<li className="nav-item">*/}
                         {/*    <a className="nav-link active" aria-current="page" href="/KeynoteDashboard">Keynote Dashboard</a>*/}
                         {/*</li>*/}
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/WorkShopAll">WorkShopAll</a>
+                        </li>
 
                     </ul>
                     <form className="d-flex">
