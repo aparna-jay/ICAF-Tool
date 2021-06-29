@@ -48,6 +48,7 @@ import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
 import ViewConference from "./component/admin/ViewConference";
 import downloadPapers from "./component/User/downoadPapers";
+import Footer from "./component/Footer";
 
 
 const App = () => {
@@ -107,8 +108,9 @@ const App = () => {
                     <Route path="/WorkshopStatus" component={WorkshopStatus}/>
                     <Route path="/downloadPapers" component={downloadPapers}/>
 
-
                 </Router>
+
+                <Footer />
             </div>
         );
 }

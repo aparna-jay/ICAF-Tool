@@ -12,7 +12,7 @@ const UserMainReg=()=>{
 
              <div class="carousel-inner">
                 <div class="carousel-item active">
-                     <div class="bg-light border rounded border-light pulse animated hero-technology carousel-hero jumbotron py-5 px-4">
+                     <div class="bg-white border rounded border-light pulse animated hero-technology carousel-hero jumbotron py-5 px-4">
                          <h1 class="hero-title">User Registration</h1>
                          <p></p><br></br>
                     <a class="btn btn-primary hero-button plat" role="button" href="/Researcher" >&nbsp; &nbsp; &nbsp;Sign-Up As Researcher&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a><br/><br/>

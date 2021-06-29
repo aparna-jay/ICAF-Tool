@@ -10,9 +10,9 @@ const downloadPapers=()=>{
 
             <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
 
-                <div class="carousel-inner">
+                <div class="carousel-inner ci">
                     <div class="carousel-item active">
-                        <div class="bg-light border rounded border-light pulse animated hero-technology carousel-hero jumbotron py-5 px-4">
+                        <div class="bg-white border rounded border-light pulse animated hero-technology carousel-hero jumbotron py-5 px-4">
                             <p></p><br></br>
                             <a href={"https://firebasestorage.googleapis.com/v0/b/ninja-firegram-a5001.appspot.com/o/research-paper-format-template.doc?alt=media&token=d35fe31c-0c6e-4acb-ade4-58f90faf9ee0"}
                                className={"btn btn-danger btn-sm"}>
