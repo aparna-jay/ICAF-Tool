@@ -12,7 +12,7 @@ const ManageReviewers = ()=>{
         axios.get('http://localhost:8070/Reviewer/').then((response)=>{
             setReviewers(response.data);
         });
-    }, [])
+    }, [Reviewers])
 
     const onEditClick = (id) =>{
         setReviewerId(id);

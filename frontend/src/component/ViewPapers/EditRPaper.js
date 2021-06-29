@@ -53,15 +53,12 @@ const EditRPaper = ({ match }) => {
                     onChange={statusSetter}
                 />
             </div>
-            <div className="mb-3">
-                <input
-                    className="form-control"
-                    type="file"
-                    accept="image/*"
-                    name="image"
-                    // onChange={handleChange("image")}
-                />
-            </div>
+            <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                    onClick={onSubmit}>Approve
+            </button>
+            <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                    onClick={onSubmit}>Reject
+            </button>
             <div className="text-center">
                 <button className="btn btn-primary"
                         onClick={onSubmit}

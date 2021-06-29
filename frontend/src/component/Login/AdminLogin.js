@@ -93,8 +93,7 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
     }
     return(
         <div>
-
-                <section className="login-dark">
+                <section className="login-dark ">
                     <form>
                         <h2 className="visually-hidden">Login Form</h2>
                         <div className="illustration"><i className="icon ion-ios-locked-outline"></i></div>
