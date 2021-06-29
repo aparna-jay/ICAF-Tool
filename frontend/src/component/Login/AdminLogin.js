@@ -93,10 +93,10 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
     }
     return(
         <div>
-
-                <div className="login-dark">
-
-                    <form>
+                    <form className="login-dark">
+                        <br /><br /><br />
+                        <div className="container logForm col-md-6 col-xl-4" >
+                            <br />
                         <h2 className="visually-hidden"> Login Form</h2>
                         <div className="illustration"><i className="icon ion-ios-locked-outline"></i></div>
                         <div className="mb-3">
@@ -117,9 +117,10 @@ const AdminLogin = ({loggedUser, setLoggedUser})=>{
                         <div className="mb-3">
                             <button className="btn btn-primary d-block w-100" onClick={onSubmit} type="submit">Log In</button>
                         </div>
-
+                            <br />
+                        </div>
                     </form>
-                </div>
+
         </div>
     )
 }
