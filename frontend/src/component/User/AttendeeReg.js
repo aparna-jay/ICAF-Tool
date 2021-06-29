@@ -99,7 +99,7 @@ const AttendeeReg=()=>{
                         <div className="col"><label>Enter Password</label><input className="form-control" type="text" onChange={PasswordSetter}/>
                         </div>
 
-                        <h5>*You should pay the Rs:800 for the Registration.Please Fill the below Payment details*</h5>
+                        <h5>*You should pay Rs:800 for the Registration.Please Fill the below Payment details*</h5>
 
                         <div className="col"><label>Enter Date</label><input className="form-control" type="date" onChange={DateSetter}/>
                         </div>
