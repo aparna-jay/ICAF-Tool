@@ -42,7 +42,7 @@ const UpdateConference = ({match}) => {
     }
 
     const onSubmit = async (e) => {
-        if (validate() == true) {
+        // if (validate() == true) {
             const id = match.params.id;
             e.preventDefault();
             const newConference = {
@@ -61,7 +61,7 @@ const UpdateConference = ({match}) => {
             }).catch((err) => {
                 alert(err);
             })
-        }
+       // }
     }
 
     useEffect(() => {
