@@ -132,7 +132,7 @@ const AdminProfile = ({adminId, userType}) => {
                     <section className="clean-block about-us">
                         <div className="row justify-content-center">
 
-                                <div className="card clean-card text-center">
+                                <div className=" adminProfileCard card clean-card text-center">
                                     <img className="card-img-top d-block" src={img}/>
                                     <div className="card-body info">
                                         <div className="row">
@@ -177,6 +177,7 @@ const AdminProfile = ({adminId, userType}) => {
 
                     </section>
                 </main>
+
             </div>
         );
 
