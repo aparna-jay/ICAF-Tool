@@ -123,6 +123,7 @@ const Conference = () => {
                                    type="text"
                                    name="Phone"
                                    placeholder="Phone"
+                                   pattern="[0-9]{9}"
                                    onChange={PhoneSetter}
                             />
                         </div>
@@ -132,6 +133,7 @@ const Conference = () => {
                                    type="email"
                                    name="Email"
                                    placeholder="Email"
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
                                    onChange={EmailSetter}
                             />
                         </div>

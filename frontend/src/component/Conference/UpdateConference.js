@@ -45,6 +45,7 @@ const UpdateConference = ({match}) => {
     }
 
     const onSubmit = async (e) => {
+        if(validate() == true) {
         const id = match.params.id;
         e.preventDefault();
         const newConference= {
@@ -64,7 +65,7 @@ const UpdateConference = ({match}) => {
         }).catch((err) =>{
             alert(err);
         })
-    };
+    }}
     useEffect(()=>{
     const loadConference = async () => {
         const id = match.params.id;
@@ -159,6 +160,7 @@ const UpdateConference = ({match}) => {
                                        type="text"
                                        name="Phone"
                                        placeholder="Phone"
+                                       pattern="[0-9]{9}"
                                        value={Phone}
                                        onChange={PhoneSetter}
                                 />
@@ -170,6 +172,7 @@ const UpdateConference = ({match}) => {
                                        name="Email"
                                        value={Email}
                                        placeholder="Email"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
                                        onChange={EmailSetter}
                                 />
                             </div>
