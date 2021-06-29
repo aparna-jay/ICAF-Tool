@@ -12,13 +12,13 @@ const ManageUsers = () => {
     const [Attendee, setAttendee] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/researcher/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/researcher/').then((response) => {
             setResearcher(response.data);
         });
-        axios.get('http://localhost:8070/workshop/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/workshop/').then((response) => {
             setWorkshopPresenter(response.data);
         });
-        axios.get('http://localhost:8070/attendee/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/attendee/').then((response) => {
             setAttendee(response.data);
         });
     }, [Researcher, WorkshopPresenter, Attendee])
@@ -31,17 +31,17 @@ const ManageUsers = () => {
 
     const deleteUser = (id, userType) => {
         if (userType === "Researcher") {
-            axios.delete('http://localhost:8070/researcher/delete/' + id).then(() => {
+            axios.delete('https://icaf-tool.herokuapp.com/researcher/delete/' + id).then(() => {
             }).catch((err) => {
                 alert(err);
             })
         } else if (userType === "WorkShopPresenter") {
-            axios.delete('http://localhost:8070/workshop/delete/' + id).then(() => {
+            axios.delete('https://icaf-tool.herokuapp.com/workshop/delete/' + id).then(() => {
             }).catch((err) => {
                 alert(err);
             })
         } else if (userType === "Attendee") {
-            axios.delete('http://localhost:8070/attendee/delete/' + id).then(() => {
+            axios.delete('https://icaf-tool.herokuapp.com/attendee/delete/' + id).then(() => {
             }).catch((err) => {
                 alert(err);
             })

@@ -6,7 +6,7 @@ import { fetchAttendeeData } from '../../component/admin/getAdmin';
 
 jest.mock('axios');
 
-    it('Fetches data correctly from the URL http://localhost:8070/Reviewer/ ',  () => {
+    it('Fetches data correctly from the URL https://icaf-tool.herokuapp.com/Reviewer/ ',  () => {
         const errorMessage = 'Incorrect URL accessed';
 
         axios.get.mockImplementationOnce(() =>
@@ -14,11 +14,11 @@ jest.mock('axios');
         );
 
         expect(axios.get).toHaveBeenCalledWith(
-            `http://localhost:8070/Reviewer/`,
+            `https://icaf-tool.herokuapp.com/Reviewer/`,
         );
     });
 
-        it('Fetches data correctly from the URL http://localhost:8070/Admin/ ',  () => {
+        it('Fetches data correctly from the URL https://icaf-tool.herokuapp.com/Admin/ ',  () => {
             const errorMessage = 'Incorrect URL accessed';
 
             axios.get.mockImplementationOnce(() =>
@@ -26,11 +26,11 @@ jest.mock('axios');
             );
 
             expect(axios.get).toHaveBeenCalledWith(
-                `http://localhost:8070/Admin/`,
+                `https://icaf-tool.herokuapp.com/Admin/`,
             );
 });
 
-it('Fetches data correctly from the URL http://localhost:8070/Attendee/ ',  () => {
+it('Fetches data correctly from the URL https://icaf-tool.herokuapp.com/Attendee/ ',  () => {
     const errorMessage = 'Incorrect URL accessed';
 
     axios.get.mockImplementationOnce(() =>
@@ -38,12 +38,12 @@ it('Fetches data correctly from the URL http://localhost:8070/Attendee/ ',  () =
     );
 
     expect(axios.get).toHaveBeenCalledWith(
-        `http://localhost:8070/Attendee/`,
+        `https://icaf-tool.herokuapp.com/Attendee/`,
     );
 });
 
 
-it('Fetches data correctly from the URL http://localhost:8070/editor/ ',  () => {
+it('Fetches data correctly from the URL https://icaf-tool.herokuapp.com/editor/ ',  () => {
     const errorMessage = 'Incorrect URL accessed';
 
     axios.get.mockImplementationOnce(() =>
@@ -51,7 +51,7 @@ it('Fetches data correctly from the URL http://localhost:8070/editor/ ',  () => 
     );
 
     expect(axios.get).toHaveBeenCalledWith(
-        `http://localhost:8070/editor/`,
+        `https://icaf-tool.herokuapp.com/editor/`,
     );
 });
 

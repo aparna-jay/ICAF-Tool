@@ -9,7 +9,7 @@ const ManageEditors = () => {
     const [Editors, setEditors] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/editor/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/editor/').then((response) => {
             setEditors(response.data);
         });
     }, [Editors])
@@ -19,7 +19,7 @@ const ManageEditors = () => {
     }
 
     const deleteEditor = (id) => {
-        axios.delete('http://localhost:8070/editor/delete/' + id).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/editor/delete/' + id).then(() => {
         }).catch((err) => {
             alert(err);
         })

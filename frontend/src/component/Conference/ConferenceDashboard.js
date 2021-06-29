@@ -11,7 +11,7 @@ const ConferenceDashboard = () => {
 
     function getConference() {
         axios
-            .get("http://localhost:8070/Conference/")
+            .get("https://icaf-tool.herokuapp.com/Conference/")
             .then((res) => {
                 console.log(res.data);
                 setConference(res.data);
@@ -22,8 +22,7 @@ const ConferenceDashboard = () => {
     }
 
     const deleteConference = (id) =>{
-        axios.delete('http://localhost:8070/Conference/delete/' + id).then(()=>{
-            confirm("Do you want to delete this Conference?");
+        axios.delete('https://icaf-tool.herokuapp.com/Conference/delete/' + id).then(()=>{
             alert("Conference deleted successfully!!");
         }).catch((err)=>{
             alert(err);
@@ -80,14 +79,14 @@ const ConferenceDashboard = () => {
                                                     </Link>
                                                     <a className="btn btn-danger" id="icon"><em
                                                         className="fa fa-trash"
-                                                        onClick={()=>{if(window.confirm("Are you sure you want to delete this Editor?")){deleteConference(Conference._id)};}} /></a>
+                                                        onClick={()=>{if(window.confirm("Are you sure you want to delete this conference?")){deleteConference(Conference._id)};}} /></a>
                                                 </tr>
                                             );
                                         })}
                                         </tbody>
                                     </table>
                                     <button className="btn btn-primary">
-                                        <Link to="/Conference/add">+ Back to Conference details</Link>
+                                        <Link to="/Editor">+ Back to Dashboard</Link>
                                     </button>
                                 </div>
                             </div>

@@ -62,7 +62,7 @@ const AttendeeReg = () => {
             Phone: Phone,
             Password: Password,
         };
-        axios.post('http://localhost:8070/attendee/add', newAttendee).then(() => {
+        axios.post('https://icaf-tool.herokuapp.com/attendee/add', newAttendee).then(() => {
             alert("Registered successfully!!!");
             his.push('/user')
         }).catch((err) => {
@@ -80,7 +80,7 @@ const AttendeeReg = () => {
             CCNumber: CCNumber,
             CVV: CVV
         };
-        axios.post('http://localhost:8070/payment/add', newPayment).then(() => {
+        axios.post('https://icaf-tool.herokuapp.com/payment/add', newPayment).then(() => {
             alert("Paid successfully!!!");
             his.push('/user')
         }).catch((err) => {

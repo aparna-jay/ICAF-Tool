@@ -42,7 +42,7 @@ const Payment = () => {
             CCNumber: CCNumber,
             CVV: CVV
         };
-        axios.post('http://localhost:8070/payment/add', newPayment).then(() => {
+        axios.post('https://icaf-tool.herokuapp.com/payment/add', newPayment).then(() => {
             alert("Successfully Paid!!!");
             his.push('/UserProfile')
         }).catch((err) => {

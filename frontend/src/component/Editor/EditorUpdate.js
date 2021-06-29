@@ -16,7 +16,7 @@ const EditorUpdate = () => {
         console.log(loggedInUser);
 
         function getEditor() {
-            axios.get("http://localhost:8070/editor/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/editor/get/" + loggedInUser).then((res) => {
                 setEditor(res.data.editor);
                 console.log(res.data.editor);
             }).catch((err) => {
@@ -64,7 +64,7 @@ const EditorUpdate = () => {
 
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/editor/updateOne/' + loggedInUser, newEditor).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/editor/updateOne/' + loggedInUser, newEditor).then(() => {
             alert("Updated successfully!!!");
             his.push('/Editor')
 

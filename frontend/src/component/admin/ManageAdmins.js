@@ -9,7 +9,7 @@ const ManageAdmins = () => {
     const [Admins, setAdmins] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/admin/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/admin/').then((response) => {
             setAdmins(response.data);
         });
     }, [Admins])
@@ -20,7 +20,7 @@ const ManageAdmins = () => {
     }
 
     const deleteAdmin = (id) => {
-        axios.delete('http://localhost:8070/admin/delete/' + id).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/admin/delete/' + id).then(() => {
         }).catch((err) => {
             alert(err);
         })

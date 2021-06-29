@@ -8,7 +8,7 @@ const ManageReviewers = () => {
     const [Reviewers, setReviewers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/Reviewer/').then((response) => {
+        axios.get('https://icaf-tool.herokuapp.com/Reviewer/').then((response) => {
             setReviewers(response.data);
         });
     }, [Reviewers])
@@ -19,7 +19,7 @@ const ManageReviewers = () => {
     }
 
     const deleteReviewer = (id) => {
-        axios.delete('http://localhost:8070/Reviewer/delete/' + id).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/Reviewer/delete/' + id).then(() => {
         }).catch((err) => {
             alert(err);
         })

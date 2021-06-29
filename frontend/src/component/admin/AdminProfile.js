@@ -22,34 +22,34 @@ const AdminProfile = ({adminId, userType}) => {
 
     useEffect(()=> {
         if(userType === "Admin") {
-            axios.get('http://localhost:8070/admin/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/admin/get/' + adminId).then((response) => {
                 setAdmin(response.data);
             });
         }
         if(userType === "Editor") {
-            axios.get('http://localhost:8070/editor/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/editor/get/' + adminId).then((response) => {
                 setAdmin(response.data.editor);
             });
         }
         if(userType === "Reviewer") {
-            axios.get('http://localhost:8070/Reviewer/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/Reviewer/get/' + adminId).then((response) => {
                 setAdmin(response.data);
             });
         }
         if(userType === "Researcher") {
-            axios.get('http://localhost:8070/researcher/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/researcher/get/' + adminId).then((response) => {
                 setAdmin(response.data);
                 console.log(response.data);
             });
         }
         if(userType === "WorkshopPresenter") {
-            axios.get('http://localhost:8070/workshop/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/workshop/get/' + adminId).then((response) => {
                 setAdmin(response.data);
                 console.log(adminId)
             });
         }
         if(userType === "Attendee") {
-            axios.get('http://localhost:8070/attendee/get/' + adminId).then((response) => {
+            axios.get('https://icaf-tool.herokuapp.com/attendee/get/' + adminId).then((response) => {
                 setAdmin(response.data);
                 console.log(admin)
             });
@@ -64,7 +64,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/admin/updateOne/'+ id , newAdmin).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/admin/updateOne/'+ id , newAdmin).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });
@@ -75,7 +75,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/editor/updateOne/'+ admin._id , newEditor).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/editor/updateOne/'+ admin._id , newEditor).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });
@@ -86,7 +86,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/Reviewer/updateOne/'+ admin._id , newReviewer).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/Reviewer/updateOne/'+ admin._id , newReviewer).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });
@@ -97,7 +97,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/researcher/updateOne/'+ admin._id , newResearcher).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/researcher/updateOne/'+ admin._id , newResearcher).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });
@@ -108,7 +108,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/workshop/updateOne/'+ admin._id , newWorkshopPresenter).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/workshop/updateOne/'+ admin._id , newWorkshopPresenter).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });
@@ -119,7 +119,7 @@ const AdminProfile = ({adminId, userType}) => {
                 Phone:phone,
                 Email:email
             };
-            axios.put('http://localhost:8070/attendee/updateOne/'+ admin._id , newAttendee).then(() =>{
+            axios.put('https://icaf-tool.herokuapp.com/attendee/updateOne/'+ admin._id , newAttendee).then(() =>{
                 alert("Updated successfully!!!")
             }).catch((err) =>{
             });

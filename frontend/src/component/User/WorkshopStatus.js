@@ -15,7 +15,7 @@ const WorkshopStatus = ({match})=>{
             const loggedInUser = localStorage.getItem("user");
             console.log(loggedInUser);
             const id = match.params.id;
-            axios.get("http://localhost:8070/workshop/get/"+loggedInUser).then((res)=>{
+            axios.get("https://icaf-tool.herokuapp.com/workshop/get/"+loggedInUser).then((res)=>{
                 SetWorkshop(res.data);
 
                 console.log(res.data);

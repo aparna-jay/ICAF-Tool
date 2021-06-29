@@ -19,7 +19,7 @@ const AttendeePro = () => {
         console.log(loggedInUser);
 
         function getAttendee() {
-            axios.get("http://localhost:8070/attendee/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/attendee/get/" + loggedInUser).then((res) => {
                 setAttendee(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -32,7 +32,7 @@ const AttendeePro = () => {
     function deleteAttendee() {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.delete('http://localhost:8070/attendee/delete/' + loggedInUser).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/attendee/delete/' + loggedInUser).then(() => {
             localStorage.clear();
             history.push('/login');
         }).catch((err) => {

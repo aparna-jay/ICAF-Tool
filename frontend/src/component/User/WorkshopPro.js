@@ -18,7 +18,7 @@ const WorkshopPro = () => {
         console.log(loggedInUser);
 
         function getWorkshop() {
-            axios.get("http://localhost:8070/workshop/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/workshop/get/" + loggedInUser).then((res) => {
                 setWorkshop(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -31,7 +31,7 @@ const WorkshopPro = () => {
     function deleteWorkshop() {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.delete('http://localhost:8070/workshop/delete/' + loggedInUser).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/workshop/delete/' + loggedInUser).then(() => {
             localStorage.clear();
             history.push('/login');
         }).catch((err) => {

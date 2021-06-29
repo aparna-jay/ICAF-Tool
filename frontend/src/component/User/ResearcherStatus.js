@@ -14,7 +14,7 @@ const ResearcherStatus = () => {
         function getResearcher() {
             const loggedInUser = localStorage.getItem("user");
             console.log(loggedInUser);
-            axios.get("http://localhost:8070/researcher/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/researcher/get/" + loggedInUser).then((res) => {
                 SetResearcher(res.data);
                 // setName(res.data.name);
                 console.log(res.data);

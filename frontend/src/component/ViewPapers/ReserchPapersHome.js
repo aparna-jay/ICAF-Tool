@@ -8,7 +8,7 @@ const ReserchPapersHome = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const res = await fetch(`http://localhost:8070/researcher/`);
+            const res = await fetch(`https://icaf-tool.herokuapp.com/researcher/`);
             const data = await res.json();
             setUsers(data);
         };
@@ -19,7 +19,7 @@ const ReserchPapersHome = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8070/researcher/delete/${id}`, {
+            const res = await fetch(`https://icaf-tool.herokuapp.com/researcher/delete/${id}`, {
                 method: "DELETE",
             });
             if (res.ok) {

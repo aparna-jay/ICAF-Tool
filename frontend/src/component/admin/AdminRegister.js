@@ -38,7 +38,7 @@ const AdminRegister = () => {
                 Phone: Phone,
                 Password: Password
             };
-            axios.post('http://localhost:8070/admin/add', newAdmin).then(() => {
+            axios.post('https://icaf-tool.herokuapp.com/admin/add', newAdmin).then(() => {
                 alert("Registered successfully!!!");
                 history.push('/ManageAdmins');
             }).catch((err) => {

@@ -63,7 +63,7 @@ const ResearcherReg = () => {
                 Status: Status,
                 avatar: url
             };
-            axios.post('http://localhost:8070/researcher/add', newResearcher).then(() => {
+            axios.post('https://icaf-tool.herokuapp.com/researcher/add', newResearcher).then(() => {
                 alert("Registered successfully!!!");
                 his.push('/user');
             }).catch((err) => {

@@ -27,7 +27,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/admin/login', newAdmin).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/admin/login', newAdmin).then((res) => {
                 history.push('/admin');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
@@ -38,7 +38,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/Reviewer/login', newReviewer).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/Reviewer/login', newReviewer).then((res) => {
                 history.push('/reviewer');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
@@ -49,7 +49,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/editor/login', newEditor).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/editor/login', newEditor).then((res) => {
                 history.push('/Editor');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
@@ -60,7 +60,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/attendee/login', newAttendee).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/attendee/login', newAttendee).then((res) => {
                 history.push('/AttendeeProfile');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
@@ -71,7 +71,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/researcher/login', newResearcher).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/researcher/login', newResearcher).then((res) => {
                 history.push('/UserProfile');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {
@@ -82,7 +82,7 @@ const AdminLogin = () => {
                 Email: Email,
                 Password: Password
             };
-            axios.post('http://localhost:8070/workshop/login', newWorkshop).then((res) => {
+            axios.post('https://icaf-tool.herokuapp.com/workshop/login', newWorkshop).then((res) => {
                 history.push('/WorkshopProfile');
                 localStorage.setItem('user', res.data._id);
             }).catch((err) => {

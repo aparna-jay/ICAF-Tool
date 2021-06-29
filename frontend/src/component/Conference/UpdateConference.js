@@ -42,7 +42,7 @@ const UpdateConference = ({match}) => {
     }
 
     const onSubmit = async (e) => {
-        if (validate() == true) {
+        // if (validate() == true) {
             const id = match.params.id;
             e.preventDefault();
             const newConference = {
@@ -55,20 +55,20 @@ const UpdateConference = ({match}) => {
                 Email: Email,
                 Status: Status
             };
-            axios.put('http://localhost:8070/Conference/updateOne/' + id, newConference).then(() => {
+            axios.put('https://icaf-tool.herokuapp.com/Conference/updateOne/' + id, newConference).then(() => {
                 alert("Conference updated successfully!!!");
                 his.push('/ConferenceDashboard');
             }).catch((err) => {
                 alert(err);
             })
-        }
+       // }
     }
 
     useEffect(() => {
         const loadConference = async () => {
             const id = match.params.id;
             await axios
-                .get(`http://localhost:8070/Conference/get/` + id)
+                .get(`https://icaf-tool.herokuapp.com/Conference/get/` + id)
                 .then((res) => {
                     console.log(res.data.conference);
                     setTitle(res.data.conference.Title);

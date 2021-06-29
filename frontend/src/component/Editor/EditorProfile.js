@@ -20,7 +20,7 @@ const EditorProfile = () => {
         console.log(loggedInUser);
 
         function getEditor() {
-            axios.get("http://localhost:8070/editor/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/editor/get/" + loggedInUser).then((res) => {
                 setEditor(res.data.editor);
                 console.log("data")
                 console.log(res.data.editor);
@@ -35,7 +35,7 @@ const EditorProfile = () => {
     function deleteEditor() {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.delete('http://localhost:8070/editor/delete/' + loggedInUser).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/editor/delete/' + loggedInUser).then(() => {
             localStorage.clear();
             history.push('/login');
         }).catch((err) => {

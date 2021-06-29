@@ -19,7 +19,7 @@ const AdminHome = () => {
         console.log(loggedInUser);
 
         function getAdmin() {
-            axios.get("http://localhost:8070/admin/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/admin/get/" + loggedInUser).then((res) => {
                 setAdmin(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -45,14 +45,14 @@ const AdminHome = () => {
             Phone: phone,
             Email: email
         };
-        axios.put('http://localhost:8070/admin/updateOne/' + admin._id, newAdmin).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/admin/updateOne/' + admin._id, newAdmin).then(() => {
             alert("Updated successfully!!!")
         }).catch((err) => {
         });
     }
 
     const deleteAdmin = (id) => {
-        axios.delete('http://localhost:8070/admin/delete/' + id).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/admin/delete/' + id).then(() => {
             localStorage.clear();
             history.push('/login');
         }).catch((err) => {

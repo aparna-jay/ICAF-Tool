@@ -14,7 +14,7 @@ const ResearcherUpdate = () => {
         console.log(loggedInUser);
 
         function getResearcher() {
-            axios.get("http://localhost:8070/researcher/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/researcher/get/" + loggedInUser).then((res) => {
                 setResearcher(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -53,7 +53,7 @@ const ResearcherUpdate = () => {
 
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/researcher/updateOne/' + loggedInUser, newResearcher).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/researcher/updateOne/' + loggedInUser, newResearcher).then(() => {
             alert("Updated successfully!!!");
             his.push('/UserProfile')
 

@@ -10,7 +10,7 @@ const EditRPaper = ({match}) => {
 
     useEffect(() => {
         function getResearcher() {
-            axios.get(`http://localhost:8070/researcher/get/${match.params.id}`).then((res) => {
+            axios.get(`https://icaf-tool.herokuapp.com/researcher/get/${match.params.id}`).then((res) => {
                 setData(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -32,7 +32,7 @@ const EditRPaper = ({match}) => {
             Status: status,
         };
         history.push('/allResearchPapers')
-        axios.put(`http://localhost:8070/researcher/updateOneStatus/${match.params.id}`, newResearcher).then(() => {
+        axios.put(`https://icaf-tool.herokuapp.com/researcher/updateOneStatus/${match.params.id}`, newResearcher).then(() => {
             alert("Updated successfully!!!");
         }).catch((err) => {
             alert(err);

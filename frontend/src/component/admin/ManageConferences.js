@@ -9,7 +9,7 @@ const ManageConferences = ({setConId})=>{
     const[conferences, setConferences] = useState([]);
 
     useEffect( ()=>{
-        axios.get('http://localhost:8070/Conference/').then((response)=>{
+        axios.get('https://icaf-tool.herokuapp.com/Conference/').then((response)=>{
             setConferences(response.data);
         });
     }, [conferences])

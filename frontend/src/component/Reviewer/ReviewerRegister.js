@@ -49,7 +49,7 @@ const ReviewerRegister = () => {
                 Designation: Designation
             };
             history.push('/ManageReviewers')
-            axios.post('http://localhost:8070/Reviewer/add', newReviewer).then(() => {
+            axios.post('https://icaf-tool.herokuapp.com/Reviewer/add', newReviewer).then(() => {
                 alert("Registered successfully!!!");
             }).catch((err) => {
                 alert(err);

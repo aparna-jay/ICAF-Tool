@@ -12,7 +12,7 @@ const Keynotes = () => {
 
     const loadKeynotes = async () => {
         await axios
-            .get('http://localhost:8070/KeyNoteSpeakers/')
+            .get('https://icaf-tool.herokuapp.com/KeyNoteSpeakers/')
             .then((res) => {
                 console.log(res.data);
                 setKeynotes(res.data);

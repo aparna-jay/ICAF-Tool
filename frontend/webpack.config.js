@@ -1,5 +1,6 @@
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack')
 const path = require("path");
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
     output: {
         filename: "bundle.[hash].js",
         path: path.resolve(__dirname, "dist"),
-        publicPath: '/'
+        publicPath: 'auto'
     },
     devServer: {
         historyApiFallback: true,
@@ -17,6 +18,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html",
         }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        })
     ],
     resolve: {
         modules: [__dirname, "src", "node_modules"],

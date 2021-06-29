@@ -2,17 +2,17 @@ import axios from 'axios';
 
 
 export const fetchData =  () => {
-    return axios.get('http://localhost:8070/Reviewer/');
+    return axios.get('https://icaf-tool.herokuapp.com/Reviewer/');
 };
 
 export const fetchAdminData =  () => {
-    return axios.get('http://localhost:8070/Admin/');
+    return axios.get('https://icaf-tool.herokuapp.com/Admin/');
 };
 export const fetchAttendeeData =  () => {
-    return axios.get('http://localhost:8070/Attendee/');
+    return axios.get('https://icaf-tool.herokuapp.com/Attendee/');
 };
 export const fetchEditorData =  () => {
-    return axios.get('http://localhost:8070/editor/');
+    return axios.get('https://icaf-tool.herokuapp.com/editor/');
 };
 
 fetchData('react');

@@ -39,7 +39,7 @@ const ViewConference = ({conId}) => {
     }
 
     useEffect(()=>{
-            axios.get("http://localhost:8070/Conference/get/"+conId).then((res)=>{
+            axios.get("https://icaf-tool.herokuapp.com/Conference/get/"+conId).then((res)=>{
 
                 setConference(res.data.conference);
                 // setName(res.data.name);
@@ -60,7 +60,7 @@ const ViewConference = ({conId}) => {
             Email:email,
             Status:status
         };
-        axios.put('http://localhost:8070/Conference/updateOne/'+ conId , newConference).then(() =>{
+        axios.put('https://icaf-tool.herokuapp.com/Conference/updateOne/'+ conId , newConference).then(() =>{
         }).catch((err) =>{
         });
         history.push('/ManageConference');

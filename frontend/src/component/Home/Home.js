@@ -18,7 +18,7 @@ const Home = () => {
             let query = `?Status[in]=Approved`;
             const {data} = await axios({
                 method: "GET",
-                url: `http://localhost:8070/Conference/sort${query}`,
+                url: `https://icaf-tool.herokuapp.com/Conference/sort${query}`,
             });
             setConference(data.data.conference);
             console.log(data.conference);
@@ -29,7 +29,7 @@ const Home = () => {
 
     const loadKeynotes = async () => {
         await axios
-            .get('http://localhost:8070/KeyNoteSpeakers/')
+            .get('https://icaf-tool.herokuapp.com/KeyNoteSpeakers/')
             .then((res) => {
                 console.log(res.data);
                 setKeynotes(res.data);

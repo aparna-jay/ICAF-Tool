@@ -43,7 +43,7 @@ const EditorRegister = () => {
                 Phone: Phone,
                 Password: Password
             };
-            axios.post('http://localhost:8070/editor/add', newEditor).then(() => {
+            axios.post('https://icaf-tool.herokuapp.com/editor/add', newEditor).then(() => {
                 alert("Editor Registered successfully!!!");
                 history.push('/ManageEditors');
             }).catch((err) => {

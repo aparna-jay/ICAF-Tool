@@ -14,7 +14,7 @@ const WorkshopUpdate = () => {
         console.log(loggedInUser);
 
         function getWorkshop() {
-            axios.get("http://localhost:8070/workshop/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/workshop/get/" + loggedInUser).then((res) => {
                 setWorkshop(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -53,7 +53,7 @@ const WorkshopUpdate = () => {
 
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/workshop/updateOne/' + loggedInUser, newWorkshop).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/workshop/updateOne/' + loggedInUser, newWorkshop).then(() => {
             alert("Updated successfully!!!");
             his.push('/WorkshopProfile')
 

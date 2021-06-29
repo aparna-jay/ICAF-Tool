@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import {BrowserRouter, Route} from "react-router-dom"
 import "App.css";
 import "../src/styles/Researcher/index.css"
 import "bootstrap.min.css";
@@ -56,7 +56,7 @@ const App = () => {
    const[conId, setConId] = useState('');
         return (
             <div>
-                <Router>
+                <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <div className="App" />
                     <MainNav />
                     <Route path="/home" component={Home}/>
@@ -104,7 +104,7 @@ const App = () => {
                     <Route path="/downloadPapers" component={downloadPapers}/>
                     <Route path="/WorkShopAll" component={WorkshopAll}/>
                     <Route path="/ResearcherAll" component={ResearcherAll}/>
-                </Router>
+                </BrowserRouter>
                 <Footer />
             </div>
         );

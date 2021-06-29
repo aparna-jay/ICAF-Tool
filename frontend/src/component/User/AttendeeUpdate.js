@@ -15,7 +15,7 @@ const AttendeeUpdate = () => {
         console.log(loggedInUser);
 
         function getAttendee() {
-            axios.get("http://localhost:8070/attendee/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/attendee/get/" + loggedInUser).then((res) => {
                 setAttendee(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -54,7 +54,7 @@ const AttendeeUpdate = () => {
 
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/attendee/updateOne/' + loggedInUser, newAttendee).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/attendee/updateOne/' + loggedInUser, newAttendee).then(() => {
             alert("Updated successfully!!!");
             his.push('/AttendeeProfile')
 

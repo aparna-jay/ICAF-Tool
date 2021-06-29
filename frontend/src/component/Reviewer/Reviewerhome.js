@@ -17,7 +17,7 @@ const Reviewerhome = () => {
         console.log(loggedInUser);
 
         function getReviewer() {
-            axios.get("http://localhost:8070/reviewer/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/reviewer/get/" + loggedInUser).then((res) => {
                 setReviewer(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -29,7 +29,7 @@ const Reviewerhome = () => {
     function deleteReviewer() {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.delete('http://localhost:8070/reviewer/delete/' + loggedInUser).then(() => {
+        axios.delete('https://icaf-tool.herokuapp.com/reviewer/delete/' + loggedInUser).then(() => {
             localStorage.clear();
             history.push('/login');
         }).catch((err) => {

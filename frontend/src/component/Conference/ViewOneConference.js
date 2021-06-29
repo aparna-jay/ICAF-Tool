@@ -50,7 +50,7 @@ const ViewOneConference = ({match}) => {
     const loadConference = async () => {
         const id = match.params.id;
         await axios
-            .get('http://localhost:8070/Conference/get/' + id)
+            .get('https://icaf-tool.herokuapp.com/Conference/get/' + id)
             .then((res) => {
                 console.log(res.data.conference);
                 setConference(res.data.conference);

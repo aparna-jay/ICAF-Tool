@@ -8,7 +8,7 @@ const WorkShopHome = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const res = await fetch(`http://localhost:8070/workshop/`);
+            const res = await fetch(`https://icaf-tool.herokuapp.com/workshop/`);
             const data = await res.json();
             setUsers(data);
         };
@@ -18,7 +18,7 @@ const WorkShopHome = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8070/workshop/delete/${id}`, {
+            const res = await fetch(`https://icaf-tool.herokuapp.com/workshop/delete/${id}`, {
                 method: "DELETE",
             });
             if (res.ok) {

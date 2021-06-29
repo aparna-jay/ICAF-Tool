@@ -13,7 +13,7 @@ const ReviewerUpdate = () => {
         console.log(loggedInUser);
 
         function getReviewer() {
-            axios.get("http://localhost:8070/reviewer/get/" + loggedInUser).then((res) => {
+            axios.get("https://icaf-tool.herokuapp.com/reviewer/get/" + loggedInUser).then((res) => {
                 setReviewer(res.data);
                 console.log(res.data);
             }).catch((err) => {
@@ -56,7 +56,7 @@ const ReviewerUpdate = () => {
         his.push('/reviewer');
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/Reviewer/updateOne/' + loggedInUser, newReviewer).then(() => {
+        axios.put('https://icaf-tool.herokuapp.com/Reviewer/updateOne/' + loggedInUser, newReviewer).then(() => {
 
             alert("Updated successfully!!!");
         }).catch((err) => {

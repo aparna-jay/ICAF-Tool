@@ -61,7 +61,7 @@ const WorkshopReg = () => {
                 Status: Status,
                 avatar: url
             };
-            axios.post('http://localhost:8070/workshop/add', newWorkshop).then(() => {
+            axios.post('https://icaf-tool.herokuapp.com/workshop/add', newWorkshop).then(() => {
                 alert("Registered successfully!!!");
                 his.push('/user');
             }).catch((err) => {
