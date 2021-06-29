@@ -59,15 +59,16 @@ const Conference = () => {
 
     return(
         <div>
-        <div className="ConferenceDashboard">
+        <div className="row">
+            <div className="col-lg-2">
             <div>
                 <ConferenceDashboardSideNav/>
             </div>
-            <section></section>
-            <div>
-                <section className="login-dark">
+            </div>
+            <div className="col-lg-8 col-sm-auto">
+                <section className="frm">
 
-                    <form method="post">
+                    <form className="card" id="c">
                         <h2 className="visually-hidden">Conference Details</h2>
                         <div className="illustration">
                             <i className="icon ion-ios-locked-outline"></i>
