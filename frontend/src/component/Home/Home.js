@@ -64,20 +64,23 @@ const Home = () => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12 text-center" id="home">
-                                    <h1 className="text-uppercase section-heading">International Conferences Application Frameworks - 2021</h1>
+                                    <br/><br/><br/>
+                                    <h1 className="text-uppercase section-heading">International Conference on Application Frameworks - 2021</h1>
+                                    <h2 className="text-muted section-subheading">SLIIT</h2>
+                                    <br/><br/>
                                 </div>
                             </div>
                             {
                                 Conference.map(conference=>(
                             <figure className="snip1527">
                                 <div className="image">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg"
+                                    <img src="src/photo-1522441815192-d9f04eb0615c.jpg"
                                          alt="pr-sample23"/>
                                 </div>
                                 <figcaption>
                                     <div className="date"><span className="day">{conference.Start_date.split("T")[0]}</span></div>
-                                    <h3>{conference.Title}
-                                    </h3>
+                                    <h2><strong> Event - {conference.Title}</strong>
+                                    </h2>
                                     <p>
                                         <strong> Description - {conference.Description}</strong>
                                         <br/>
@@ -97,8 +100,7 @@ const Home = () => {
                             <div className="row">
                                 <div className="col-lg-12 text-center">
                                     <h2 className="text-uppercase section-heading">Keynote Speakers</h2>
-                                    <h3 className="text-muted section-subheading">Lorem ipsum dolor sit amet
-                                        consectetur.</h3>
+                                    <h4 className="text-muted section-subheading">Here are some of our Keynote Speakers ... </h4>
                                 </div>
                             </div>
                             <section className="card-section-imagia">
@@ -111,7 +113,7 @@ const Home = () => {
                                                 <div className="card-imagia">
                                                     <div className="front-imagia">
                                                         <div className="cover-imagia"><img alt=""
-                                                                                           src={keynotes.avatar}/>
+                                                                                           src="src/pablo-12.png"/>
                                                         </div>
                                                         <div className="user-imagia"><img className="img-circle" alt=""
                                                                                           src={keynotes.avatar}/>
@@ -119,7 +121,6 @@ const Home = () => {
                                                         <div className="content-imagia">
                                                             <h3 className="name-imagia">{keynotes.Name}</h3>
                                                             <p className="subtitle-imagia">{keynotes.Designation} </p>
-                                                            <p className="text-center"><em>{keynotes.Description} </em></p>
                                                             <p className="text-center"><em>{keynotes.Organization} </em></p>
                                                         </div>
                                                         <div className="footer-imagia"><span><i className="fa fa-plus"></i> More info</span>
@@ -128,12 +129,8 @@ const Home = () => {
                                                     <div className="back-imagia">
                                                         <div className="content-imagia content-back-imagia">
                                                             <div>
-                                                                <h3 className="text-center">Lorem Ipsum</h3>
-                                                                <p className="text-center">Et hanc quidem praeter oppida multa duae
-                                                                    civitates exornant Seleucia opus Seleuci regis, et Claudiopolis
-                                                                    quam deduxit coloniam Claudius Caesar. Isaura enim antehac
-                                                                    nimium potens, olim subversa ut rebellatrix interneciva aegre
-                                                                    vestigia claritudinis pristinae monstrat admodum pauca. </p>
+                                                                <h3 className="text-center">About More...</h3>
+                                                                <p className="text-center"><em>{keynotes.Description} </em></p>
                                                             </div>
                                                         </div>
                                                         <div className="footer-imagia">
