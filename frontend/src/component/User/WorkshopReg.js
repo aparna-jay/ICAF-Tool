@@ -8,7 +8,7 @@ import '../../styles/Researcher/index.css'
 
 const WorkshopReg = () => {
 
-
+    let his = useHistory();
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -62,6 +62,7 @@ const WorkshopReg = () => {
         };
         axios.post('http://localhost:8070/workshop/add' , newWorkshop).then(() =>{
             alert("Registered successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
