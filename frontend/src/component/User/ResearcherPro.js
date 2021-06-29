@@ -75,7 +75,7 @@ const ResearcherPro = ()=>{
                             </div>
                             <div className="row">
                                 <div className="col-md-12 text-center content-right">
-                                    <a href={"/ResearcherStatus"} className="btn btn-success form-btn" type="submit">Working Panel</a>
+                                    <a href={"/ResearcherStatus"} className="btn btn-success form-btn" type="submit">Check Status</a>
                                     <a href={"/ResearcherUpdate"} className="btn btn-warning form-btn" type="reset">Update Profile</a>
                                     <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
                                     <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteResearcher()};}}>Delete Profile</button>
