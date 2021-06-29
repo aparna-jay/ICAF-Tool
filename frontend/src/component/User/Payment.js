@@ -45,7 +45,8 @@ const Payment=()=>{
     }
 
     return(
-        <div className="container"  >
+        <div className="container"  ><br/>
+            <a href={"/UserProfile"} className="btn btn-success form-btn" type="submit">Back to Profile</a>
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-5 mx-auto">
