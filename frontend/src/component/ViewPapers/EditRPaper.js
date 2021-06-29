@@ -30,7 +30,7 @@ const EditRPaper = ({ match }) => {
     }
 
 
-    const onSubmit = () => {
+    const onSubmit = (status) => {
         const newResearcher= {
             Status: status,
         };
@@ -44,6 +44,9 @@ const EditRPaper = ({ match }) => {
 
     return (
         <div style={{ maxWidth: 500, margin: "auto" }}>
+
+            <br /> <br /> <br />
+            <lable> STATUS</lable><br/>
             <div className="mb-3">
                 <input
                     className="form-control"
@@ -53,22 +56,14 @@ const EditRPaper = ({ match }) => {
                     onChange={statusSetter}
                 />
             </div>
-            <div className="mb-3">
-                <input
-                    className="form-control"
-                    type="file"
-                    accept="image/*"
-                    name="image"
-                    // onChange={handleChange("image")}
-                />
-            </div>
-            <div className="text-center">
-                <button className="btn btn-primary"
-                        onClick={onSubmit}
-                >
-                    Update
-                </button>
-            </div>
+            <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                    onClick={()=>onSubmit("Approved")}>Approve
+            </button>
+            <br />
+            <button className="btn btn-danger d-block w-100 regButton" type="submit"
+                    onClick={()=>onSubmit("Rejected")}>Reject
+            </button>
+            <br />
         </div>
     );
 };
