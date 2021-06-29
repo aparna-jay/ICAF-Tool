@@ -62,23 +62,25 @@ const ResearcherUpdate = ()=>{
 
 
 
-
     return(
-        <div className="container profile profile-view" id="profile">
-            <a href={"/UserProfile"} className="btn btn-success form-btn" type="submit">Back to Profile</a>
-            <div className="row">
-                <div className="col-md-12 alert-col relative">
-                    <div className="alert alert-info alert-dismissible absolue center" role="alert">
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <span>Profile save with success</span></div>
-                </div>
-            </div>
-            <form>
-                <div className="row text-capitalize text-left justify-content-center profile-row">
-                    <div className="col-md-8 ">
-                        <div className="text-center">
-                            <h2>Update Profile</h2>
-                        </div>
+        <div className={"row-cols-3"}>
+            <div className="container profile profile-view " id="profile">
+                <br />
+                <a href={"/UserProfile"} className="btn btn-success form-btn" type="submit">Back to Profile</a>
+                {/*<div className="row">*/}
+                {/*    <div className="col-md-12 alert-col relative">*/}
+                {/*        <div className="alert alert-info alert-dismissible absolue center" role="alert">*/}
+                {/*            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>*/}
+                {/*            <span>Profile save with success</span></div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <form className="card qwerty col-xl-9">
+                    <div className="row text-capitalize text-left justify-content-center profile-row">
+                        <div className="">
+                            <div className="text-center">
+                                <h1>Update Profile</h1>
+                            </div>
                         <hr></hr>
 
                         <div className="form-group mb-3">
@@ -107,6 +109,7 @@ const ResearcherUpdate = ()=>{
                 </div>
             </form>
         </div>
+            </div>
     );
 }
 export default ResearcherUpdate;

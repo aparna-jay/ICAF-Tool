@@ -37,6 +37,9 @@ const ConferenceDashboard = () => {
 
     return(
         <div>
+            <link
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+                rel='stylesheet' type='text/css' />
             <div>
                 <div className="container-fluid">
                     <div className="row">
@@ -76,14 +79,17 @@ const ConferenceDashboard = () => {
                                                     <td>{Conference.Email}</td>
 
                                                     <Link class="btn btn-primary" role="button" to={`/get/${Conference._id}`}>
-                                                        View
+                                                        <em className="fa fa-eye" id="icon"></em>
                                                     </Link>
                                                     <Link class="btn btn-success" role="button" to={`/update/${Conference._id}`}>
-                                                        Update
+                                                        <em className="fa fa-edit" id="icon"></em>
                                                     </Link>
-                                                    <Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">
-                                                        Delete
-                                                    </Link>
+                                                    <a className="btn btn-danger" id="icon"><em
+                                                        className="fa fa-trash"
+                                                        onClick={()=>{if(window.confirm("Are you sure you want to delete this Editor?")){deleteConference(Conference._id)};}} /></a>
+                                                    {/*<Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">*/}
+                                                    {/*    <em className="fa fa-edit"></em>*/}
+                                                    {/*</Link>*/}
                                                 </tr>
                                             );
                                         })}

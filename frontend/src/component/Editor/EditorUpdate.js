@@ -73,17 +73,17 @@ const EditorUpdate = () =>{
     }
     return(
         <div>
-            <div className="editorProfile">
-                <div>
-                    <div >
+            <div className="row">
+                <div className="col-lg-2">
+
                         <div>
                             <ConferenceDashboardSideNav/>
                         </div>
-                        <section></section>
-                        <div>
-                            <section className="login-dark">
+                </div>
+                    <div className="col-lg-8 col-sm-auto">
+                            <section className="frm">
 
-                                <form method="post">
+                                <form className="card" id="c">
                                     <h2 className="visually-hidden">Editor Profile Update</h2>
                                     <div className="illustration">
                                         <i className="icon ion-ios-locked-outline"></i>
@@ -95,7 +95,7 @@ const EditorUpdate = () =>{
                                                name="Name"
                                                placeholder={Editor.Name}
                                                onChange={NameSetter}
-                                               />
+                                        />
 
                                     </div>
                                     <div className="mb-3">
@@ -145,9 +145,8 @@ const EditorUpdate = () =>{
                                 </form>
                             </section>
                         </div>
-                    </div>
+
                 </div>
-            </div>
         </div>
     );
 }

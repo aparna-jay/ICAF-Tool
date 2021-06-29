@@ -9,7 +9,7 @@ import '../../styles/Researcher/index.css'
 
 const ResearcherReg = () => {
 
-
+    let his = useHistory();
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -63,6 +63,7 @@ const ResearcherReg = () => {
         };
         axios.post('http://localhost:8070/researcher/add' , newResearcher).then(() =>{
             alert("Registered successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
@@ -70,7 +71,9 @@ const ResearcherReg = () => {
     console.log(url);
 
     return (
-        <div style={{ maxWidth: 500, margin: "auto" }}>
+        <div>
+            <br />
+        <div style={{ maxWidth: 500, margin: "auto" }} className="card qwerty">
             <br></br>
             <h2><b>Researcher Registration</b></h2>
             <hr></hr>
@@ -138,6 +141,7 @@ const ResearcherReg = () => {
                 </button>
             </div>
 
+        </div>
         </div>
 
     );

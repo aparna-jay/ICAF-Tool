@@ -8,7 +8,7 @@ import '../../styles/Researcher/index.css'
 
 const WorkshopReg = () => {
 
-
+    let his = useHistory();
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -62,6 +62,7 @@ const WorkshopReg = () => {
         };
         axios.post('http://localhost:8070/workshop/add' , newWorkshop).then(() =>{
             alert("Registered successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
@@ -69,7 +70,10 @@ const WorkshopReg = () => {
     console.log(url);
 
     return (
-        <div style={{ maxWidth: 500, margin: "auto" }}>
+        <div>
+            <br />
+
+        <div style={{ maxWidth: 500, margin: "auto" }} className="card qwerty">
             <br></br>
             <h2><b>Workshop Presenter Registration</b></h2>
             <hr></hr>
@@ -136,6 +140,7 @@ const WorkshopReg = () => {
                 </button>
             </div>
 
+        </div>
         </div>
 
     );

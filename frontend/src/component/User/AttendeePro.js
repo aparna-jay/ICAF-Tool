@@ -40,20 +40,22 @@ const AttendeePro = ()=>{
     }
 
     return(
-        <div className="container profile profile-view" id="profile">
-            <div className="row">
-                <div className="col-md-12 alert-col relative">
-                    <div className="alert alert-info alert-dismissible absolue center" role="alert">
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <span>Profile save with success</span></div>
-                </div>
-            </div>
-            <form>
-                <div className="row text-capitalize text-left justify-content-center profile-row">
-                    <div className="col-md-8 ">
-                        <div className="text-center">
-                            <h1>Hello {Attendee.Name}</h1>
-                        </div>
+        <div className={"row-cols-2"}>
+            <div className="container profile profile-view " id="profile">
+                {/*<div className="row">*/}
+                {/*    <div className="col-md-12 alert-col relative">*/}
+                {/*        <div className="alert alert-info alert-dismissible absolue center" role="alert">*/}
+                {/*            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>*/}
+                {/*            <span>Profile save with success</span></div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <form className="card qwerty col-xl-9">
+                    <div className="row text-capitalize text-left justify-content-center profile-row">
+                        <div className="">
+                            <div className="text-center">
+                                <h1>Hello {Attendee.Name}</h1>
+                            </div>
                         <hr></hr>
 
                         <div className="form-group mb-3">
@@ -83,6 +85,7 @@ const AttendeePro = ()=>{
                     </div>
                 </div>
             </form>
+        </div>
         </div>
     );
 }
