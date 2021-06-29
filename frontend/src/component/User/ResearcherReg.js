@@ -39,6 +39,7 @@ const ResearcherReg = () => {
     const[Phone, setPhone]= useState("");
     const[Password, setPassword]= useState("");
     const[Status, setStatus]= useState("Pending");
+    const[cPassword, setcPassword]= useState("");
 
     const nameSetter = (e) => {
         setName(e.target.value);
@@ -51,6 +52,9 @@ const ResearcherReg = () => {
     }
     const passwordSetter = (e) => {
         setPassword(e.target.value);
+    }
+    const cPasswordSetter = (e) => {
+        setcPassword(e.target.value);
     }
     const onSubmit = () => {
         const newResearcher= {
@@ -87,6 +91,7 @@ const ResearcherReg = () => {
                     name="name"
                     // value={data.name}
                     onChange={nameSetter}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -97,6 +102,7 @@ const ResearcherReg = () => {
                     name="Email"
                     // value={data.Email}
                     onChange={emailSetter}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -105,8 +111,10 @@ const ResearcherReg = () => {
                     placeholder="Enter Phone"
                     type="text"
                     name="Phone"
+                    pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
                     // value={data.Phone}
                     onChange={phoneSetter}
+                    required
                 />
             </div>
             <div className="mb-3">
@@ -117,6 +125,7 @@ const ResearcherReg = () => {
                     name="Password"
                     // value={data.Password}
                     onChange={passwordSetter}
+                    required
                 />
             </div>
 
