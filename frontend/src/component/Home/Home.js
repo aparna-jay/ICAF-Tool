@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../../styles/Home/Home.css"
 import "../../photo.jpg"
+import {useParams} from "react-router";
+import axios from "axios";
 
 const Home = () => {
+
     return(
         <div>
             <div className="Home">
