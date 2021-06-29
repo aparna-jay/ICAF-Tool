@@ -23,9 +23,9 @@ const EditorProfile = () =>{
         console.log(loggedInUser);
         function getEditor(){
             axios.get("http://localhost:8070/editor/get/"+ loggedInUser).then((res)=>{
-                setEditor(res.data);
+                setEditor(res.data.editor);
                 console.log("data")
-                console.log(res.data);
+                console.log(res.data.editor);
             }).catch((err)=>{
             })
         }
@@ -46,17 +46,15 @@ const EditorProfile = () =>{
 
     return(
         <div>
-            <div className="editorProfile">
-                <div>
-                    <div >
+                <div className="row">
+                    <div className="col-lg-2">
                         <div>
                             <ConferenceDashboardSideNav/>
                         </div>
-                <section></section>
-                        <div>
-                            <section className="login-dark">
-
-                                <form method="post">
+                    </div>
+                        <div className="col-lg-8 col-sm-auto">
+                            <section className="frm">
+                                <form className="card" id="c">
                                     <h2 className="visually-hidden">Editor Profile</h2>
                                     <div className="illustration">
                                         <i className="icon ion-ios-locked-outline"></i>
@@ -103,9 +101,9 @@ const EditorProfile = () =>{
                                     <div className="mb-3">
                                         <label className="col-form-label" htmlFor="name-input-field">Password </label>
                                         <input className="form-control"
-                                               type="password"
+                                               type="text"
                                                name="Password"
-                                               placeholder="Password"
+                                               placeholder="text"
                                                value={Editor.Password}
 
                                         />
@@ -123,9 +121,8 @@ const EditorProfile = () =>{
                                 </form>
                             </section>
                         </div>
-                        </div>
+
                 </div>
-            </div>
         </div>
     );
 }

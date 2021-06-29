@@ -88,13 +88,13 @@ const ReviewerUpdate = ()=>{
     return(
         <div>
 
-            <div className="col-9">
-                <form className="bg-danger">
+            <div className="">
+                <form className="col-lg-6 card text-left">
                     <br/>
-                    <div className="col-md-auto">
-                        <h1 className="text-light bg-dark">Reviewer Update Form</h1>
+                    <div className="col-md-auto ">
+                        <h1 className="text-center">Reviewer Update Form</h1>
                         <br/>
-                        <label htmlFor="exampleInputName" className="form-label">Ful name</label>
+                        <label htmlFor="exampleInputName" className="form-label"><b>Full name</b></label>
                         <input
                             type="text"
                             className="form-control"
@@ -103,7 +103,7 @@ const ReviewerUpdate = ()=>{
                             onChange={nameSetter}/>
                     </div>
                     <div className="col-md-auto">
-                        <label htmlFor="exampleInputDesignation" className="form-label">Designation</label>
+                        <label htmlFor="exampleInputDesignation" className="form-label"><b>Designation</b></label>
                         <input
                             type="text"
                             className="form-control"
@@ -111,7 +111,7 @@ const ReviewerUpdate = ()=>{
                             onChange={DesignationSetter}/>
                     </div>
                     <div className="col-md-auto">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label"><b>Email address</b></label>
                         <input
                             type="email"
                             className="form-control"
@@ -121,7 +121,7 @@ const ReviewerUpdate = ()=>{
                             onChange={emailSetter}/>
                     </div>
                     <div className="col-md-auto">
-                        <label htmlFor="exampleInputPhone" className="form-label">Phone</label>
+                        <label htmlFor="exampleInputPhone" className="form-label"><b>Phone</b></label>
                         <input
                             type="number"
                             className="form-control"
@@ -130,7 +130,7 @@ const ReviewerUpdate = ()=>{
                             onChange={phoneSetter}/>
                     </div>
                     <div className="col-md-auto">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label"><b>Password</b></label>
                         <input type="password"
                                className="form-control"
                                id="exampleInputPassword1"
@@ -138,7 +138,7 @@ const ReviewerUpdate = ()=>{
                                onChange={passwordSetter}/>
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-primary btn-lg" onClick={onSubmit} >Update changes</button>
+                    <button type="submit" className="btn btn-warning btn-lg" onClick={onSubmit} ><b>Update changes</b></button>
                     <br/><br/>
                 </form>
             </div>

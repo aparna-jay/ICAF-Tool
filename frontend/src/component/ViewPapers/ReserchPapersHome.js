@@ -32,7 +32,7 @@ const ReserchPapersHome = ()=>{
 
     return (
 
-        <div className="">
+        <div className="homeRP">
             <link
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                 rel='stylesheet' type='text/css' />
@@ -42,27 +42,26 @@ const ReserchPapersHome = ()=>{
             <br />
             {users?.map((user) => (
                 <div className="blog-card" key={user._id}>
-                    <label className="form-control btn-success"> File uploaded by {user.Name}</label>
+                    <label className=" "><b> File uploaded by {user.Name}</b></label>
                     <embed  src={user.avatar}
                             alt="pdf" width={"100%"}
                             height={150} />
                             <br /><br />
-                    <a href={user.avatar}
-                       className={"btn btn-danger btn-sm"}>
-                        VIEW PAPER
-                    </a>
+
                     <div className="p-2">
                         <div className="d-flex justify-content-between align-items-center">
+                            <a href={user.avatar}
+                               className={"btn btn-success btn-sm"}>
+                                VIEW PAPER
+                            </a>
                             <Link to={`/editRP/${user._id}`}
-                                  className={"btn btn-dark"}
+                                  className={"btn btn-warning"}
                                   style={{ textDecoration: "none" }}>
-                                Edit
+                                Update Status
                             </Link>
-                            <button
-                                className="btn btn-danger btn-sm"
-                                onClick={() => handleDelete(user._id)}>
-                                X
-                            </button>
+
+                            <a className="btn btn-danger"><em
+                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this?")){handleDelete(user._id)};}} /></a>
                         </div>
                     </div>
                 </div>

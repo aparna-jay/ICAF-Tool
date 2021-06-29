@@ -42,6 +42,7 @@ const ResearcherStatus = ()=>{
 
     return(
         <div className="container profile profile-view" id="profile">
+            <a href={"/UserProfile"} className="btn btn-success form-btn" type="submit">Back to Profile</a>
             <div className="row">
                 <div className="col-md-12 alert-col relative">
                     <div className="alert alert-info alert-dismissible absolue center" role="alert">
@@ -69,6 +70,7 @@ const ResearcherStatus = ()=>{
                     </div>
                 </div>
             </form>
+            <br /><br /><br /><br /><br /><br /><br /><br />
 
         </div>
     );

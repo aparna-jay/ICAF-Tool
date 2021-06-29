@@ -26,7 +26,7 @@ const Reviewerhome = ({loggedUser})=>{
             })
         }
         getReviewer();
-    },[]);
+    },[Reviewers]);
 
     function deleteReviewer(){
         const loggedInUser = localStorage.getItem("user");
@@ -40,34 +40,16 @@ const Reviewerhome = ({loggedUser})=>{
     }
 
 
-    // console.log(loggedUser);
-    // const id = loggedUser;
-    // const [Reviewers , SetReviwers] = useState( []);
-    //
-    //
-    // //get all Reviewers
-    // useEffect(()=>{
-    //     function getReviwers(){
-    //         axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
-    //             SetReviwers(res.data);
-    //             // setName(res.data.name);
-    //             console.log(res.data);
-    //         }).catch((err)=>{
-    //         })
-    //     }
-    //     getReviwers();
-    // },[loggedUser]);
-
-
         return(
             <div className={"container"}>
-                <div className={"container "}>
-                    <form className={"container bg-danger"}>
+                <button onClick={Logout} className="btn btn-success form-btn btn-del" type="submit">Logout</button><br/>
+                <div className={"container   "}>
+                    <form  className={"container card "}>
                         <br />
                         <div className="row g-2">
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label  className="form-control btn-danger" >Full Name</label>
+                                  <label  className="  " >  <strong>Full Name</strong></label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -75,10 +57,11 @@ const Reviewerhome = ({loggedUser})=>{
                                         placeholder=""
                                         value= {Reviewers.Name} />
                                 </div>
+                                <br />
                             </div>
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label className="form-control btn-danger">Email address</label>
+                                    <label className=" "><strong>Email address</strong></label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -91,7 +74,7 @@ const Reviewerhome = ({loggedUser})=>{
                         <div className="row g-2">
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label className="form-control btn-danger">Phone Number</label>
+                                    <label className=" "><strong>Phone Number</strong></label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -102,7 +85,7 @@ const Reviewerhome = ({loggedUser})=>{
                             </div>
                             <div className="col-md">
                                 <div className="form-floating">
-                                    <label className="form-control btn-danger">Designation</label>
+                                    <label className=" "><strong>Designation</strong></label>
                                     <input
                                         type="email"
                                         className="form-control"
@@ -113,15 +96,16 @@ const Reviewerhome = ({loggedUser})=>{
                             </div>
                         </div>
                         <br />
-                        <a href={"/ReviewerUpdate"} type="button" className="btn btn-primary btn-lg ">Update Profile</a>
-                        <button onClick={Logout} className="btn btn-success form-btn" type="submit">Logout</button>
-                        <button className="btn btn-danger form-btn" type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteReviewer()};}}>Delete Profile</button>
+                        <a href={"/ReviewerUpdate"} type="button" className="btn btn-warning btn-lg">Update Profile</a>
+
+
                         <br /><br />
                     </form>
                     <br />
                     <div>
-                        <a type="button" className="btn btn-primary btn-lg " href={"/allResearchPapers"} > View review paper</a>
-                        <a type="button" className="btn btn-primary btn-lg " href={"/WorkShopHome"} > View Work Shop</a>
+                        <a type="button" className="btn btn-success btn-lg " href={"/allResearchPapers"} > View review paper</a>
+                        <a type="button" className="btn btn-success btn-lg " href={"/WorkShopHome"} > View Work Shop</a>
+                        <button className="btn btn-danger form-btn btn-del " type="reset" onClick={()=>{if(window.confirm("Are you sure you want to delete your Profile?")){deleteReviewer()};}}>Delete Profile</button>
                     </div>
                 </div>
             </div>
