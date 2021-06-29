@@ -56,23 +56,35 @@ const ResearcherReg = () => {
     const cPasswordSetter = (e) => {
         setcPassword(e.target.value);
     }
-    const onSubmit = () => {
-        const newResearcher= {
+    const onSubmit = (e) => {
+    if(validate() == true) {
+        e.preventDefault();
+        const newResearcher = {
             Name: Name,
             Email: Email,
             Phone: Phone,
-            Password:Password,
+            Password: Password,
             Status:Status,
             avatar:url
         };
-        axios.post('http://localhost:8070/researcher/add' , newResearcher).then(() =>{
+        axios.post('http://localhost:8070/researcher/add', newResearcher).then(() => {
             alert("Registered successfully!!!");
-            his.push('/user')
-        }).catch((err) =>{
+            his.push('/user');
+        }).catch((err) => {
             alert(err);
         })
     }
-    console.log(url);
+    else{
+        alert("Passwords do not match!");
+        e.preventDefault();
+
+    }
+    }
+    const validate = () =>{
+    if(Password == cPassword){
+        return true;
+    }
+    }
 
     return (
         <div>
@@ -125,6 +137,17 @@ const ResearcherReg = () => {
                     name="Password"
                     // value={data.Password}
                     onChange={passwordSetter}
+                    required
+                />
+            </div>
+            <div className="mb-3">
+                <input
+                    className="form-control"
+                    placeholder="Enter Password"
+                    type="text"
+                    name="Password"
+                    // value={data.Password}
+                    onChange={cPasswordSetter}
                     required
                 />
             </div>

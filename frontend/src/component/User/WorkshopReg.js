@@ -38,6 +38,7 @@ const WorkshopReg = () => {
     const[Phone, setPhone]= useState("");
     const[Password, setPassword]= useState("");
     const[Status, setStatus]= useState("Pending");
+    const[cPassword, setcPassword]= useState("");
 
     const nameSetter = (e) => {
         setName(e.target.value);
@@ -51,23 +52,38 @@ const WorkshopReg = () => {
     const passwordSetter = (e) => {
         setPassword(e.target.value);
     }
-    const onSubmit = () => {
-        const newWorkshop= {
-            Name: Name,
-            Email: Email,
-            Phone: Phone,
-            Password:Password,
-            Status:Status,
-            avatar:url
-        };
-        axios.post('http://localhost:8070/workshop/add' , newWorkshop).then(() =>{
-            alert("Registered successfully!!!");
-            his.push('/user')
-        }).catch((err) =>{
-            alert(err);
-        })
+    const cPasswordSetter = (e) => {
+        setcPassword(e.target.value);
     }
-    console.log(url);
+    const onSubmit = (e) => {
+        if(validate() == true) {
+            e.preventDefault();
+            const newWorkshop = {
+                Name: Name,
+                Email: Email,
+                Phone: Phone,
+                Password: Password,
+                Status:Status,
+                avatar:url
+            };
+            axios.post('http://localhost:8070/workshop/add', newWorkshop).then(() => {
+                alert("Registered successfully!!!");
+                his.push('/user');
+            }).catch((err) => {
+                alert(err);
+            })
+        }
+        else{
+            alert("Passwords do not match!");
+            e.preventDefault();
+
+        }
+    }
+    const validate = () =>{
+        if(Password == cPassword){
+            return true;
+        }
+    }
 
     return (
         <div>
@@ -119,6 +135,16 @@ const WorkshopReg = () => {
                 />
             </div>
 
+            <div className="mb-3">
+                <input
+                    className="form-control"
+                    placeholder="Enter Password"
+                    type="text"
+                    name="Password"
+                    // value={data.Password}
+                    onChange={cPasswordSetter}
+                />
+            </div>
             <h5>Attach your Document</h5>
 
             <label className={"mylabel"}>
