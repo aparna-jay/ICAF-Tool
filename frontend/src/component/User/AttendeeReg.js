@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios";
 import '../../styles/Attendee/Contact-Form-Clean.css'
+import {useHistory} from "react-router-dom";
 
 const AttendeeReg=()=>{
+
+    let his = useHistory();
 
     //attendee
     const[Name , setName] = useState("");
@@ -62,6 +65,7 @@ const AttendeeReg=()=>{
         };
         axios.post('http://localhost:8070/attendee/add' , newAttendee).then(() =>{
             alert("Registered successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
@@ -78,7 +82,8 @@ const AttendeeReg=()=>{
             CVV:CVV
         };
         axios.post('http://localhost:8070/payment/add' , newPayment).then(() =>{
-            alert("Registered successfully!!!");
+            alert("Paid successfully!!!");
+            his.push('/user')
         }).catch((err) =>{
             alert(err);
         })
