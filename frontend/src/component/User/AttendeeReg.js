@@ -87,7 +87,7 @@ const AttendeeReg=()=>{
 
     return(
         <div>
-            <div className="contact-clean">
+            <div className="contact-clean bg-white">
                 <form>
                     <h2 className="text-center">Attendee Registration</h2>
                     <div className="col"><label>Enter Name</label><input className="form-control" type="text" onChange={NameSetter}/></div>
