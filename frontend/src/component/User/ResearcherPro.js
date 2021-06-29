@@ -41,7 +41,8 @@ const ResearcherPro = ()=>{
     }
 
     return(
-            <div className="container profile profile-view" id="profile">
+        <div className={"row-cols-2"}>
+            <div className="container profile profile-view " id="profile">
                  {/*<div className="row">*/}
                  {/*    <div className="col-md-12 alert-col relative">*/}
                  {/*        <div className="alert alert-info alert-dismissible absolue center" role="alert">*/}
@@ -49,7 +50,8 @@ const ResearcherPro = ()=>{
                  {/*            <span>Profile save with success</span></div>*/}
                  {/*    </div>*/}
                  {/*</div>*/}
-                <form className="card qwerty col-xl-6">
+
+                <form className="card qwerty col-xl-9">
                     <div className="row text-capitalize text-left justify-content-center profile-row">
                         <div className="">
                             <div className="text-center">
@@ -85,7 +87,10 @@ const ResearcherPro = ()=>{
                         </div>
                     </div>
                 </form>
+
+
                 </div>
+        </div>
 );
 }
 export default ResearcherPro;

@@ -50,7 +50,7 @@ const ManageReviewers = ()=>{
                                             </div>
                                             <div className="col col-xs-6 text-right">
                                                 <a type="button"
-                                                        className="btn btn-sm btn-primary btn-create" href="/ReviewerRegister">Add
+                                                        className="btn btn-sm btn-success btn-create" href="/ReviewerRegister">Add
                                                 </a>
                                             </div>
                                         </div>

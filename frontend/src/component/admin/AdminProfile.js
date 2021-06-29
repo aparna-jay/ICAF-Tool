@@ -164,7 +164,7 @@ const AdminProfile = ({adminId, userType}) => {
                                                 <div className="row">
                                                     <div className="col-md-12">
                                                         <div className="col-md-12">
-                                                            <button className="btn btn-primary d-block w-100 regButton" type="submit"
+                                                            <button className="btn btn-warning d-block w-100 regButton" type="submit"
                                                                     onClick={()=>UpdateProfile(admin._id)}>Update Profile
                                                             </button>
                                                         </div></div>

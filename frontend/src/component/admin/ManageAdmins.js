@@ -52,7 +52,7 @@ const ManageAdmins = ()=>{
                                     </div>
                                     <div className="col col-xs-6 text-right">
                                         <a type="button"
-                                                className="btn btn-sm btn-primary btn-create" href="/AdminRegister">Add
+                                                className="btn btn-sm btn-success btn-create" href="/AdminRegister">Add
                                         </a>
                                     </div>
                                 </div>
