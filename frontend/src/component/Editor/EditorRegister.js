@@ -55,11 +55,13 @@ const EditorRegister = () => {
 
         }
     }
+
     const validate = () => {
         if (Password == CPassword) {
             return true;
         }
     }
+
     return (
         <div>
             <section className="register-photo">

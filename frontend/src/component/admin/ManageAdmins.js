@@ -6,9 +6,7 @@ import AdminSideNav from "../navbar/AdminSideNav";
 const ManageAdmins = () => {
 
     const [adminId, setAdminId] = useState('');
-
     const [Admins, setAdmins] = useState([]);
-
 
     useEffect(() => {
         axios.get('http://localhost:8070/admin/').then((response) => {
@@ -38,7 +36,6 @@ const ManageAdmins = () => {
                     <link
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                         rel='stylesheet' type='text/css'/>
-
                     <div className="container adminAdmin">
                         <br/>
                         <div className="row">

@@ -2,54 +2,33 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
-
-const ReviewerUpdate = ()=>{
+const ReviewerUpdate = () => {
 
     let his = useHistory();
-
-    const [Reviewers , setReviewer] = useState( []);
+    const [Reviewers, setReviewer] = useState([]);
 
     //get logged Reviewer
-    useEffect(()=>{
+    useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        function getReviewer(){
-            axios.get("http://localhost:8070/reviewer/get/"+ loggedInUser).then((res)=>{
+
+        function getReviewer() {
+            axios.get("http://localhost:8070/reviewer/get/" + loggedInUser).then((res) => {
                 setReviewer(res.data);
                 console.log(res.data);
-            }).catch((err)=>{
+            }).catch((err) => {
             })
         }
+
         getReviewer();
-    },[Reviewers]);
+    }, [Reviewers]);
 
-    // let his = useHistory();
-    //
-    // //get spesific users data
-    // const id = "60b1cd482605f1120c24915b"
-    // const [Reviewers , SetReviwers] = useState( []);
-    //
-    // //get all Reviewers
-    // useEffect(()=>{
-    //     function getReviwers(){
-    //         axios.get("http://localhost:8070/reviewer/get/"+id).then((res)=>{
-    //
-    //             SetReviwers(res.data);
-    //             // setName(res.data.name);
-    //             console.log(res.data);
-    //         }).catch((err)=>{
-    //             alert(err.message);
-    //         })
-    //     }
-    //     getReviwers();
-    // },[]);
+    const [Name, setName] = useState('');
+    const [Email, setEmail] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Designation, setDesignation] = useState("");
+    const [Password, setPassword] = useState("");
 
-
-    const[Name , setName] = useState('');
-    const[Email, setEmail]= useState("");
-    const[Phone, setPhone]= useState("");
-    const[Designation, setDesignation]= useState("");
-    const[Password, setPassword]= useState("");
     const nameSetter = (e) => {
         setName(e.target.value);
     }
@@ -67,27 +46,26 @@ const ReviewerUpdate = ()=>{
     }
 
     const onSubmit = () => {
-        const newReviewer= {
+        const newReviewer = {
             Name: Name,
             Email: Email,
             Phone: Phone,
-            Password:Password,
-            Designation:Designation
+            Password: Password,
+            Designation: Designation
         };
         his.push('/reviewer');
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/Reviewer/updateOne/'+ loggedInUser , newReviewer).then(() =>{
+        axios.put('http://localhost:8070/Reviewer/updateOne/' + loggedInUser, newReviewer).then(() => {
 
             alert("Updated successfully!!!");
-        }).catch((err) =>{
+        }).catch((err) => {
             alert(err);
         })
     }
 
-    return(
+    return (
         <div>
-
             <div className="">
                 <form className="col-lg-6 card text-left">
                     <br/>
@@ -116,7 +94,7 @@ const ReviewerUpdate = ()=>{
                             type="email"
                             className="form-control"
                             id="exampleInputEmail1"
-                               aria-describedby="emailHelp"
+                            aria-describedby="emailHelp"
                             placeholder={Reviewers.Email}
                             onChange={emailSetter}/>
                     </div>
@@ -138,11 +116,11 @@ const ReviewerUpdate = ()=>{
                                onChange={passwordSetter}/>
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-warning btn-lg" onClick={onSubmit} ><b>Update changes</b></button>
+                    <button type="submit" className="btn btn-warning btn-lg" onClick={onSubmit}><b>Update changes</b>
+                    </button>
                     <br/><br/>
                 </form>
             </div>
-
         </div>
     );
 }

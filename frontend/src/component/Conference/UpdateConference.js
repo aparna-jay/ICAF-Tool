@@ -5,6 +5,7 @@ import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
 const UpdateConference = ({match}) => {
+
     console.log(match.params.id);
     let his = useHistory();
     const {ConferenceId} = useParams();
@@ -102,7 +103,6 @@ const UpdateConference = ({match}) => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
-                                {/*<li className="list-group-item" onChange={TitleSetter}>{Conference.Title}</li>*/}
                                 <input className="form-control"
                                        type="text"
                                        name="Title"
@@ -172,13 +172,10 @@ const UpdateConference = ({match}) => {
                                        onChange={EmailSetter}
                                 />
                             </div>
-
                             <div className="mb-3">
-
                                 <button className="btn btn-primary" role="button" type="submit" onClick={onSubmit}>
                                     Update
                                 </button>
-
                             </div>
                         </form>
                     </section>
@@ -187,5 +184,4 @@ const UpdateConference = ({match}) => {
         </div>
     );
 }
-
 export default UpdateConference;

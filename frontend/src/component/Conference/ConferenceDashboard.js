@@ -65,8 +65,8 @@ const ConferenceDashboard = () => {
                                             return (
                                                 <tr>
                                                     <td>{Conference.Title}</td>
-                                                    <td>{Conference.Start_date}</td>
-                                                    <td>{Conference.End_Date}</td>
+                                                    <td>{Conference.Start_date.split('T')[0]}</td>
+                                                    <td>{Conference.End_Date.split('T')[0]}</td>
                                                     <td>{Conference.Organization}</td>
                                                     <td>{Conference.Description}</td>
                                                     <td>{Conference.Phone}</td>

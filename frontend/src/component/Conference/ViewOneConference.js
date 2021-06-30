@@ -47,7 +47,6 @@ const ViewOneConference = ({match}) => {
         setEmail(e.target.value);
     }
 
-
     const loadConference = async () => {
         const id = match.params.id;
         await axios
@@ -71,7 +70,6 @@ const ViewOneConference = ({match}) => {
                 </div>
                 <div className="col-lg-8 col-sm-auto">
                     <section className="frm">
-
                         <form className="card" id="c">
                             <h2 className="visually-hidden">Conference Details</h2>
                             <div className="illustration">
@@ -152,5 +150,4 @@ const ViewOneConference = ({match}) => {
         </div>
     );
 }
-
 export default ViewOneConference;

@@ -46,10 +46,10 @@ import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
 import ViewConference from "./component/admin/ViewConference";
-import downloadPapers from "./component/User/downoadPapers";
-import Footer from "./component/Footer";
+import downloadPapers from "./component/downoadPapers";
+import Footer from "./component/Footer/Footer";
 import WorkshopAll from "./component/WorkshopAll";
-import ResearcherAll from "./component/User/ResearcherAll";
+import ResearcherAll from "./component/ResearcherAll";
 
 
 const App = () => {
@@ -104,7 +104,6 @@ const App = () => {
                     <Route path="/downloadPapers" component={downloadPapers}/>
                     <Route path="/WorkShopAll" component={WorkshopAll}/>
                     <Route path="/ResearcherAll" component={ResearcherAll}/>
-
                 </Router>
                 <Footer />
             </div>

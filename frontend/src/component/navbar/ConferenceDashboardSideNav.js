@@ -1,12 +1,11 @@
 import React from 'react'
 import "../../styles/Navbar/ConferenceDashboardSideNav.css"
 
-const ConferenceDashboardSideNav =() =>{
+const ConferenceDashboardSideNav = () => {
+
     return (
         <div>
-
             <div id="sidebarEd" className="activeEd active">
-
                 <ul>
                     <h4>Editor Profile</h4>
                     <li><a className="here" href="#"></a></li>
@@ -24,8 +23,6 @@ const ConferenceDashboardSideNav =() =>{
                         <i className="fa fa-linkedin"></i></p>
                 </ul>
             </div>
-
-
         </div>
     );
 }

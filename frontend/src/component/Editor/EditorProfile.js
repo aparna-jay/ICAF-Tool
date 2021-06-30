@@ -4,7 +4,6 @@ import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
-
 const EditorProfile = () => {
 
     const [Editor, setEditor] = useState([]);

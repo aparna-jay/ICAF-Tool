@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 const AdminSideNav = () => {
 
     const history = useHistory();
+
     const Logout = () => {
         localStorage.clear();
         history.push('/login');

@@ -62,8 +62,8 @@ const ManageConferences = ({setConId})=>{
                                                     <tbody key={conference._id}>
                                                     <tr>
                                                         <td key={"conference.Title"} className="hidden-xs">{conference.Title}</td>
-                                                        <td key={conference.Start_date}>{conference.Start_date}</td>
-                                                        <td key={conference.End_Date}>{conference.End_Date}</td>
+                                                        <td key={conference.Start_date}>{conference.Start_date.split('T')[0]}</td>
+                                                        <td key={conference.End_Date}>{conference.End_Date.split('T')[0]}</td>
                                                         <td key={conference.Organization}>{conference.Organization}</td>
                                                         <td key={conference.Description}>{conference.Description}</td>
                                                         <td key={conference.Status}>{conference.Status}</td>
