@@ -4,6 +4,7 @@ import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 const ManageConferences = ({setConId})=>{
+
     const history = useHistory();
     const[conferences, setConferences] = useState([]);
 
@@ -29,7 +30,6 @@ const ManageConferences = ({setConId})=>{
                     <link
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
                         rel='stylesheet' type='text/css' />
-
                     <div className="container adminConference">
                         <br />
                         <div className="row">
@@ -41,7 +41,6 @@ const ManageConferences = ({setConId})=>{
                                             <div className="col col-xs-6">
                                                 <h3 className="panel-title">Conferences</h3>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div className="panel-body">
@@ -82,9 +81,8 @@ const ManageConferences = ({setConId})=>{
                     </div>
                     <br /><br />
                 </div>
-
             </div>
         </div>
-    )
+    );
 }
 export default ManageConferences;

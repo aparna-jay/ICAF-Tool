@@ -3,6 +3,7 @@ import img from "../../img/user.png"
 import axios from "axios";
 
 const AdminProfile = ({adminId, userType}) => {
+
     console.log(adminId);
     const [admin, setAdmin] = useState([]);
     const[phone, setPhone]= useState("");
@@ -125,13 +126,12 @@ const AdminProfile = ({adminId, userType}) => {
         }
 
     }
+
         return (
             <div >
-
                 <main className="page">
                     <section className="clean-block about-us">
                         <div className="row justify-content-center">
-
                                 <div className=" adminProfileCard card clean-card text-center">
                                     <img className="card-img-top d-block" src={img}/>
                                     <div className="card-body info">
@@ -174,12 +174,9 @@ const AdminProfile = ({adminId, userType}) => {
                                     </div>
                                 </div>
                             </div>
-
                     </section>
                 </main>
-
             </div>
         );
-
 }
 export default AdminProfile;

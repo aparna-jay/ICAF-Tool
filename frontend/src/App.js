@@ -52,19 +52,14 @@ import WorkshopAll from "./component/WorkshopAll";
 import ResearcherAll from "./component/User/ResearcherAll";
 
 
-
 const App = () => {
-
-   const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
-   const [selectedImg, setSelectedImg] = useState(null);
    const[conId, setConId] = useState('');
         return (
-
             <div>
                 <Router>
                 <div className="App" />
-                <MainNav />
-                    <Route path="/Home" component={Home}/>
+                    <MainNav />
+                    <Route path="/home" component={Home}/>
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/ManageConference" render={props => <ManageConferences  setConId={setConId} />} />
                     <Route path="/viewConf" render={props =><ViewConference conId={conId} />}/>
@@ -111,7 +106,6 @@ const App = () => {
                     <Route path="/ResearcherAll" component={ResearcherAll}/>
 
                 </Router>
-
                 <Footer />
             </div>
         );

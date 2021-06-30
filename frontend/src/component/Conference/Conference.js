@@ -1,6 +1,5 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import '../../styles/ConferenceDashboard/Conference.css';
-// import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
@@ -143,7 +142,6 @@ const Conference = () => {
                             <button className="btn btn-primary" role="button" type = "submit" onClick={onSubmit}>
                                 Submit
                             </button>
-
                         </div>
                     </form>
                 </section>

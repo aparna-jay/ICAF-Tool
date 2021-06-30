@@ -1,78 +1,73 @@
 import React from "react"
-import Home from "../Home/Home";
 
 const MainNav = () =>{
-
         return (
+           <div >
+                <nav className=" navbar-expand-lg navbar-light bg-light">
+                    <div className="container-fluid">
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="list">
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/home">Home</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>
+                                </li>
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/Conference">Conference</a>*/}
+                                {/*</li>*/}
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/login">Login</a>
+                                </li>
+                                <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
+                                </li>
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/reviewer">reviewer</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/Editor">Editor</a>*/}
+                                {/*</li>*/}
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/user">Register</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/downloadPapers">Download Papers</a>
+                                </li>
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/UserProfile">UserProfile</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/WorkshopProfile">WorkshopProfile</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/AttendeeProfile">AttendeeProfile</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/Keynotes-profile">Keynotes Profile</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/ConferenceDashboard">Conference Dashboard</a>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                {/*    <a className="nav-link active" aria-current="page" href="/KeynoteDashboard">Keynote Dashboard</a>*/}
+                                {/*</li>*/}
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/WorkShopAll">WorkShopAll</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="/ResearcherAll">ResearcherAll</a>
+                                </li>
 
-   <div >
-
-        <nav className=" navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="list">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="Home">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="Keynotes">Keynote</a>
-                        </li>
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/Conference">Conference</a>*/}
-                        {/*</li>*/}
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/login">Login</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/admin">Admin</a>
-                        </li>
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/reviewer">reviewer</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/Editor">Editor</a>*/}
-                        {/*</li>*/}
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/user">Register</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/downloadPapers">Download Papers</a>
-                        </li>
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/UserProfile">UserProfile</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/WorkshopProfile">WorkshopProfile</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/AttendeeProfile">AttendeeProfile</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/Keynotes-profile">Keynotes Profile</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/ConferenceDashboard">Conference Dashboard</a>*/}
-                        {/*</li>*/}
-                        {/*<li className="nav-item">*/}
-                        {/*    <a className="nav-link active" aria-current="page" href="/KeynoteDashboard">Keynote Dashboard</a>*/}
-                        {/*</li>*/}
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/WorkShopAll">WorkShopAll</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/ResearcherAll">ResearcherAll</a>
-                        </li>
-
-                    </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />
-                            <button className="btn btn-outline-success" type="submit" id="btn">Search</button>
-                    </form>
-                </div>
+                            </ul>
+                            <form className="d-flex">
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" />
+                                    <button className="btn btn-outline-success" type="submit" id="btn">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
-</div>
         );
-
 }
 export default  MainNav;

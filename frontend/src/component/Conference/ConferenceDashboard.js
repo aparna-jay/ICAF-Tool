@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router";
+import { useParams} from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 
 const ConferenceDashboard = () => {
-    const {ConferenceId} = useParams();
 
+    const {ConferenceId} = useParams();
     const [Conference, setConference] = useState([]);
 
     function getConference() {
@@ -30,7 +30,6 @@ const ConferenceDashboard = () => {
         })
     };
 
-
     useEffect(() => {
         getConference();
     }, [Conference]);
@@ -43,16 +42,11 @@ const ConferenceDashboard = () => {
             <div>
                 <div className="container-fluid">
                     <div className="row">
-
-
                     </div>
                     <div className="card" id="TableSorterCard">
-
                         <div className="row">
                             <div className="col-12">
-
                                 <div className="table-responsive">
-
                                     <table className="table table-striped table tablesorter" id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
@@ -87,9 +81,6 @@ const ConferenceDashboard = () => {
                                                     <a className="btn btn-danger" id="icon"><em
                                                         className="fa fa-trash"
                                                         onClick={()=>{if(window.confirm("Are you sure you want to delete this Editor?")){deleteConference(Conference._id)};}} /></a>
-                                                    {/*<Link class="btn btn-danger" onClick={() => deleteConference(Conference._id)} role="button">*/}
-                                                    {/*    <em className="fa fa-edit"></em>*/}
-                                                    {/*</Link>*/}
                                                 </tr>
                                             );
                                         })}

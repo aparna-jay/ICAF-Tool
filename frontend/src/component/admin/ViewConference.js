@@ -69,16 +69,13 @@ const ViewConference = ({conId}) => {
 
     return(
         <div>
-
             <section className="register-photo">
                 <div className="row">
                     <div className="col-md-6 col-xl-3" >
                         <AdminSideNav />
                     </div>
                     <div className="col-md-6 col-xl-6">
-
                         <div className="form-container">
-
                             <form>
                                 <h2 className="text-center"><strong>Conference Details</strong></h2>
                                 <div className="form-group mb-3">
