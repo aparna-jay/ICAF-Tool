@@ -182,7 +182,7 @@ const Keyprofile = () => {
                 </div>
                 <div className="col-md-10">
                 <button className="btn btn-primary">
-                    <Link to="/Conference/add">+ Back to Conference</Link>
+                    <Link to="/Editor">+ Back to Dashboard</Link>
                 </button>
                 </div>
             </div>
