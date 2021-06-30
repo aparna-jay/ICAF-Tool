@@ -46,25 +46,20 @@ import WorkshopStatus from "./component/User/WorkshopStatus";
 import ManageConferences from "./component/admin/ManageConferences";
 import ManageUsers from "./component/admin/ManageUsers";
 import ViewConference from "./component/admin/ViewConference";
-import downloadPapers from "./component/User/downoadPapers";
-import Footer from "./component/Footer";
+import downloadPapers from "./component/downoadPapers";
+import Footer from "./component/Footer/Footer";
 import WorkshopAll from "./component/WorkshopAll";
-import ResearcherAll from "./component/User/ResearcherAll";
-
+import ResearcherAll from "./component/ResearcherAll";
 
 
 const App = () => {
-
-   const[reviewerId, setReviewerId] = useState('60b1cd482605f1120c24915b');
-   const [selectedImg, setSelectedImg] = useState(null);
    const[conId, setConId] = useState('');
         return (
-
             <div>
                 <Router>
                 <div className="App" />
-                <MainNav />
-                    <Route path="/Home" component={Home}/>
+                    <MainNav />
+                    <Route path="/home" component={Home}/>
                     <Route path="/admin" render={props => <AdminHome/>} />
                     <Route path="/ManageConference" render={props => <ManageConferences  setConId={setConId} />} />
                     <Route path="/viewConf" render={props =><ViewConference conId={conId} />}/>
@@ -109,9 +104,7 @@ const App = () => {
                     <Route path="/downloadPapers" component={downloadPapers}/>
                     <Route path="/WorkShopAll" component={WorkshopAll}/>
                     <Route path="/ResearcherAll" component={ResearcherAll}/>
-
                 </Router>
-
                 <Footer />
             </div>
         );

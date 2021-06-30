@@ -1,31 +1,29 @@
-import React, {useState,useEffect} from 'react';
-import { useParams } from "react-router";
+import React, {useState, useEffect} from 'react';
+import {useParams} from "react-router";
 import '../../styles/ConferenceDashboard/Conference.css';
 import '../../styles/ConferenceDashboard/ViewOneConference.css';
-// import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
 const ViewOneConference = ({match}) => {
-    console.log( match.params.id);
 
+    console.log(match.params.id);
     const {conferenceId} = useParams();
-
     const [Conference, setConference] = useState([]);
 
     useEffect(() => {
         loadConference();
     }, []);
 
-    const[Title , setTitle] = useState("");
-    const[Start_date, setStart_date]= useState("");
-    const[End_Date, setEnd_Date]= useState("");
-    const[Organization, setOrganization]= useState("");
-    const[Description, setDescription]= useState("");
-    const[Phone, setPhone]= useState("");
-    const[Email, setEmail]= useState("");
-    const[Status, setStatus]= useState("Pending");
+    const [Title, setTitle] = useState("");
+    const [Start_date, setStart_date] = useState("");
+    const [End_Date, setEnd_Date] = useState("");
+    const [Organization, setOrganization] = useState("");
+    const [Description, setDescription] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Status, setStatus] = useState("Pending");
 
     const TitleSetter = (e) => {
         setTitle(e.target.value);
@@ -49,11 +47,10 @@ const ViewOneConference = ({match}) => {
         setEmail(e.target.value);
     }
 
-
     const loadConference = async () => {
         const id = match.params.id;
         await axios
-            .get('http://localhost:8070/Conference/get/' +id)
+            .get('http://localhost:8070/Conference/get/' + id)
             .then((res) => {
                 console.log(res.data.conference);
                 setConference(res.data.conference);
@@ -63,17 +60,16 @@ const ViewOneConference = ({match}) => {
             });
     };
 
-    return(
+    return (
         <div>
             <div className="row">
                 <div className="col-lg-2">
-                <div>
-                    <ConferenceDashboardSideNav/>
-                </div>
+                    <div>
+                        <ConferenceDashboardSideNav/>
+                    </div>
                 </div>
                 <div className="col-lg-8 col-sm-auto">
                     <section className="frm">
-
                         <form className="card" id="c">
                             <h2 className="visually-hidden">Conference Details</h2>
                             <div className="illustration">
@@ -154,5 +150,4 @@ const ViewOneConference = ({match}) => {
         </div>
     );
 }
-
 export default ViewOneConference;

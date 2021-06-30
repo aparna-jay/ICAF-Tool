@@ -3,43 +3,40 @@ import axios from "axios";
 import AdminProfile from "./AdminProfile";
 import AdminSideNav from "../navbar/AdminSideNav";
 
-const ManageEditors = ()=>{
+const ManageEditors = () => {
 
-    const[adminId, setEditorId] = useState('');
-
+    const [adminId, setEditorId] = useState('');
     const [Editors, setEditors] = useState([]);
 
-
-    useEffect(()=>{
-        axios.get('http://localhost:8070/editor/').then((response)=>{
+    useEffect(() => {
+        axios.get('http://localhost:8070/editor/').then((response) => {
             setEditors(response.data);
         });
     }, [Editors])
 
-     const onEditClick = (id) =>{
-         setEditorId(id);
-     }
+    const onEditClick = (id) => {
+        setEditorId(id);
+    }
 
-    const deleteEditor = (id) =>{
-        axios.delete('http://localhost:8070/editor/delete/' + id).then(()=>{
-        }).catch((err)=>{
+    const deleteEditor = (id) => {
+        axios.delete('http://localhost:8070/editor/delete/' + id).then(() => {
+        }).catch((err) => {
             alert(err);
         })
     };
 
-    return(
+    return (
         <div>
             <div className="row">
-                <div className="col-md-6 col-xl-2" >
-                    <AdminSideNav />
+                <div className="col-md-6 col-xl-2">
+                    <AdminSideNav/>
                 </div>
-                <div className="col-md-6 col-xl-6" >
+                <div className="col-md-6 col-xl-6">
                     <link
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-                        rel='stylesheet' type='text/css' />
-
+                        rel='stylesheet' type='text/css'/>
                     <div className="container adminEditor">
-                        <br />
+                        <br/>
                         <div className="row">
                             <p></p>
                             <div className="col-md-10 col-md-offset-1">
@@ -51,7 +48,7 @@ const ManageEditors = ()=>{
                                             </div>
                                             <div className="col col-xs-6 text-right">
                                                 <a type="button"
-                                                        className="btn btn-sm btn-success btn-create" href="/EditorRegister">Add
+                                                   className="btn btn-sm btn-success btn-create" href="/EditorRegister">Add
                                                 </a>
                                             </div>
                                         </div>
@@ -69,14 +66,20 @@ const ManageEditors = ()=>{
                                             </tr>
                                             </thead>
                                             {
-                                                Editors.map(editor=>(
+                                                Editors.map(editor => (
                                                     <tbody key={editor._id}>
                                                     <tr>
                                                         <td key={"adminSettings"} align="center">
                                                             <a className="btn btn-default"><em
-                                                                className="fa fa-pencil"  onClick={()=>onEditClick(editor._id)}></em></a>
+                                                                className="fa fa-pencil"
+                                                                onClick={() => onEditClick(editor._id)}></em></a>
                                                             <a className="btn btn-danger"><em
-                                                                className="fa fa-trash" onClick={()=>{if(window.confirm("Are you sure you want to delete this editor?")){deleteEditor(editor._id)};}}></em></a>
+                                                                className="fa fa-trash" onClick={() => {
+                                                                if (window.confirm("Are you sure you want to delete this editor?")) {
+                                                                    deleteEditor(editor._id)
+                                                                }
+                                                                ;
+                                                            }}></em></a>
                                                         </td>
                                                         <td key={"editor.Name"} className="hidden-xs">{editor.Name}</td>
                                                         <td key={editor.Designation}>{editor.Designation}</td>
@@ -86,19 +89,19 @@ const ManageEditors = ()=>{
                                                     </tbody>
                                                 ))}
                                         </table>
-                                        <br />
+                                        <br/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br /><br />
+                    <br/><br/>
                 </div>
-                <div className="col-md-6 col-xl-3" >
+                <div className="col-md-6 col-xl-3">
                     <AdminProfile adminId={adminId} userType={"Editor"}></AdminProfile>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 export default ManageEditors;

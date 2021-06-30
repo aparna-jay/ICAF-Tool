@@ -1,37 +1,38 @@
-import React, { useState, useEffect }  from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../styles/Editor/EditorProfile.css'
-import img from '../../armaan.jpg'
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 
-const EditorUpdate = () =>{
-    let his = useHistory();
+const EditorUpdate = () => {
 
-    const [Editor , setEditor] = useState( []);
+    let his = useHistory();
+    const [Editor, setEditor] = useState([]);
 
     //get logged Editor
-    useEffect(()=>{
+    useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        function getEditor(){
-            axios.get("http://localhost:8070/editor/get/"+ loggedInUser).then((res)=>{
+
+        function getEditor() {
+            axios.get("http://localhost:8070/editor/get/" + loggedInUser).then((res) => {
                 setEditor(res.data.editor);
                 console.log(res.data.editor);
-            }).catch((err)=>{
+            }).catch((err) => {
             })
         }
+
         getEditor();
-    },[]);
+    }, []);
 
     //updateOne
-    const[Name , setName] = useState("");
-    const[Designation, setDesignation]= useState("");
-    const[Email, setEmail]= useState("");
-    const[Phone, setPhone]= useState("");
-    const[Password, setPassword]= useState("");
-    const[CPassword, setCPassword]= useState("");
+    const [Name, setName] = useState("");
+    const [Designation, setDesignation] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Password, setPassword] = useState("");
+    const [CPassword, setCPassword] = useState("");
 
     const NameSetter = (e) => {
         setName(e.target.value);
@@ -55,98 +56,91 @@ const EditorUpdate = () =>{
     const onSubmit = () => {
         const newEditor = {
             Name: Name,
-            Designation:Designation,
+            Designation: Designation,
             Email: Email,
             Phone: Phone,
-            Password:Password
+            Password: Password
         };
 
         const loggedInUser = localStorage.getItem("user");
         console.log(loggedInUser);
-        axios.put('http://localhost:8070/editor/updateOne/'+ loggedInUser , newEditor).then(() =>{
+        axios.put('http://localhost:8070/editor/updateOne/' + loggedInUser, newEditor).then(() => {
             alert("Updated successfully!!!");
             his.push('/Editor')
 
-        }).catch((err) =>{
+        }).catch((err) => {
             alert(err);
         })
     }
-    return(
+    return (
         <div>
             <div className="row">
                 <div className="col-lg-2">
-
-                        <div>
-                            <ConferenceDashboardSideNav/>
-                        </div>
+                    <div>
+                        <ConferenceDashboardSideNav/>
+                    </div>
                 </div>
-                    <div className="col-lg-8 col-sm-auto">
-                            <section className="frm">
-
-                                <form className="card" id="c">
-                                    <h2 className="visually-hidden">Editor Profile Update</h2>
-                                    <div className="illustration">
-                                        <i className="icon ion-ios-locked-outline"></i>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="col-form-label" htmlFor="name-input-field">Name </label>
-                                        <input className="form-control"
-                                               type="text"
-                                               name="Name"
-                                               placeholder={Editor.Name}
-                                               onChange={NameSetter}
-                                        />
-
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="col-form-label" htmlFor="name-input-field">Designation </label>
-                                        <input className="form-control"
-                                               type="text"
-                                               name="Designation"
-                                               placeholder={Editor.Designation}
-                                               onChange={DesignationSetter}
-
-                                        />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="col-form-label" htmlFor="name-input-field">Email </label>
-                                        <input className="form-control"
-                                               type="email"
-                                               name="Email"
-                                               placeholder={Editor.Email}
-                                               onChange={EmailSetter}
-
-                                        />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="col-form-label" htmlFor="name-input-field">Phone </label>
-                                        <input className="form-control"
-                                               type="text"
-                                               name="Phone"
-                                               placeholder={Editor.Phone}
-                                               onChange={PhoneSetter}
-
-                                        />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="col-form-label" htmlFor="name-input-field">Password </label>
-                                        <input className="form-control"
-                                               type="password"
-                                               name="Password"
-                                               placeholder={Editor.Password}
-                                               onChange={PasswordSetter}
-                                        />
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <button className="btn btn-warning form-btn" type="reset" onClick={onSubmit}>Update Profile</button>
-
-                                    </div>
-                                </form>
-                            </section>
-                        </div>
-
+                <div className="col-lg-8 col-sm-auto">
+                    <section className="frm">
+                        <form className="card" id="c">
+                            <h2 className="visually-hidden">Editor Profile Update</h2>
+                            <div className="illustration">
+                                <i className="icon ion-ios-locked-outline"></i>
+                            </div>
+                            <div className="mb-3">
+                                <label className="col-form-label" htmlFor="name-input-field">Name </label>
+                                <input className="form-control"
+                                       type="text"
+                                       name="Name"
+                                       placeholder={Editor.Name}
+                                       onChange={NameSetter}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label className="col-form-label" htmlFor="name-input-field">Designation </label>
+                                <input className="form-control"
+                                       type="text"
+                                       name="Designation"
+                                       placeholder={Editor.Designation}
+                                       onChange={DesignationSetter}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label className="col-form-label" htmlFor="name-input-field">Email </label>
+                                <input className="form-control"
+                                       type="email"
+                                       name="Email"
+                                       placeholder={Editor.Email}
+                                       onChange={EmailSetter}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label className="col-form-label" htmlFor="name-input-field">Phone </label>
+                                <input className="form-control"
+                                       type="text"
+                                       name="Phone"
+                                       placeholder={Editor.Phone}
+                                       onChange={PhoneSetter}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label className="col-form-label" htmlFor="name-input-field">Password </label>
+                                <input className="form-control"
+                                       type="password"
+                                       name="Password"
+                                       placeholder={Editor.Password}
+                                       onChange={PasswordSetter}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <button className="btn btn-warning form-btn" type="reset" onClick={onSubmit}>Update
+                                    Profile
+                                </button>
+                            </div>
+                        </form>
+                    </section>
                 </div>
+            </div>
         </div>
     );
 }

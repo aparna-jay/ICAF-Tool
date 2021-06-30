@@ -73,7 +73,6 @@ const Keyprofile = () => {
                             <div className="row justify-content-center">
                                 <div className="col-sm-6 col-lg-4">
                                     <div className="card clean-card text-center">
-                                        {/*<img className="card-img-top w-100 d-block" src={img}/>*/}
                                         <div className="card-body info">
                                             <div className="row">
                                                 <div className="col-md-12">
@@ -87,7 +86,6 @@ const Keyprofile = () => {
                                                                 placeholder="Name"
                                                                 type="text"
                                                                 name="name"
-                                                                // value={data.name}
                                                                 onChange={nameSetter}
                                                             />
                                                         </div>
@@ -102,7 +100,6 @@ const Keyprofile = () => {
                                                                 placeholder="Organization"
                                                                 type="text"
                                                                 name="Organization"
-                                                                // value={data.name}
                                                                 onChange={organizationSetter}
                                                             />
                                                         </div>
@@ -117,7 +114,6 @@ const Keyprofile = () => {
                                                                 placeholder="Designation"
                                                                 type="text"
                                                                 name="Designation"
-                                                                // value={data.name}
                                                                 onChange={designationSetter}
                                                             />
                                                         </div>
@@ -132,7 +128,6 @@ const Keyprofile = () => {
                                                                 placeholder="Description"
                                                                 type="text"
                                                                 name="Description"
-                                                                // value={data.name}
                                                                 onChange={descriptionSetter}
                                                             />
                                                         </div>
@@ -147,7 +142,6 @@ const Keyprofile = () => {
                                                                 placeholder="Conference"
                                                                 type="text"
                                                                 name="Description"
-                                                                // value={data.name}
                                                                 onChange={conferenceSetter}
                                                             />
                                                         </div>

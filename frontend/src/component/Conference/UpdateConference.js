@@ -1,26 +1,23 @@
-import React, {useState,useEffect} from 'react';
-import { useParams, useHistory } from "react-router";
+import React, {useState, useEffect} from 'react';
+import {useParams, useHistory} from "react-router";
 import '../../styles/ConferenceDashboard/Conference.css';
-// import C from "./ConferenceDashboard";
 import ConferenceDashboardSideNav from "../navbar/ConferenceDashboardSideNav";
 import axios from "axios";
 
 const UpdateConference = ({match}) => {
-    console.log( match.params.id);
-    let his = useHistory();
 
-    // console.log( match.params.id);
+    console.log(match.params.id);
+    let his = useHistory();
     const {ConferenceId} = useParams();
     const [Conference, setConference] = useState([]);
-
-    const[Title , setTitle] = useState("");
-    const[Start_date, setStart_date]= useState("");
-    const[End_Date, setEnd_Date]= useState("");
-    const[Organization, setOrganization]= useState("");
-    const[Description, setDescription]= useState("");
-    const[Phone, setPhone]= useState("");
-    const[Email, setEmail]= useState("");
-    const[Status, setStatus]= useState("Pending");
+    const [Title, setTitle] = useState("");
+    const [Start_date, setStart_date] = useState("");
+    const [End_Date, setEnd_Date] = useState("");
+    const [Organization, setOrganization] = useState("");
+    const [Description, setDescription] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Status, setStatus] = useState("Pending");
 
     const TitleSetter = (e) => {
         setTitle(e.target.value);
@@ -45,56 +42,56 @@ const UpdateConference = ({match}) => {
     }
 
     const onSubmit = async (e) => {
-        if(validate() == true) {
-        const id = match.params.id;
-        e.preventDefault();
-        const newConference= {
-            Title: Title,
-            Start_date: Start_date,
-            End_Date: End_Date,
-            Organization:Organization,
-            Description:Description,
-            Phone:Phone,
-            Email:Email,
-            Status: Status
-
-        };
-        axios.put('http://localhost:8070/Conference/updateOne/' +id, newConference).then(() =>{
-            alert("Conference updated successfully!!!");
-            his.push('/ConferenceDashboard');
-        }).catch((err) =>{
-            alert(err);
-        })
-    }}
-    useEffect(()=>{
-    const loadConference = async () => {
-        const id = match.params.id;
-        await axios
-            .get(`http://localhost:8070/Conference/get/` +id)
-            .then((res) => {
-                console.log(res.data.conference);
-                setTitle(res.data.conference.Title);
-                setStart_date(res.data.conference.Start_date);
-                setEnd_Date(res.data.conference.End_Date);
-                setOrganization(res.data.conference.Organization);
-                setDescription(res.data.conference.Description);
-                setPhone(res.data.conference.Phone);
-                setEmail(res.data.conference.Email);
-
+        if (validate() == true) {
+            const id = match.params.id;
+            e.preventDefault();
+            const newConference = {
+                Title: Title,
+                Start_date: Start_date,
+                End_Date: End_Date,
+                Organization: Organization,
+                Description: Description,
+                Phone: Phone,
+                Email: Email,
+                Status: Status
+            };
+            axios.put('http://localhost:8070/Conference/updateOne/' + id, newConference).then(() => {
+                alert("Conference updated successfully!!!");
+                his.push('/ConferenceDashboard');
+            }).catch((err) => {
+                alert(err);
             })
-            .catch((err) => {
-                alert(err.message);
-            });
-    };
-        loadConference();
-    },[]);
+        }
+    }
 
-    return(
+    useEffect(() => {
+        const loadConference = async () => {
+            const id = match.params.id;
+            await axios
+                .get(`http://localhost:8070/Conference/get/` + id)
+                .then((res) => {
+                    console.log(res.data.conference);
+                    setTitle(res.data.conference.Title);
+                    setStart_date(res.data.conference.Start_date);
+                    setEnd_Date(res.data.conference.End_Date);
+                    setOrganization(res.data.conference.Organization);
+                    setDescription(res.data.conference.Description);
+                    setPhone(res.data.conference.Phone);
+                    setEmail(res.data.conference.Email);
+                })
+                .catch((err) => {
+                    alert(err.message);
+                });
+        };
+        loadConference();
+    }, []);
+
+    return (
         <div>
             <div className="row">
                 <div className="col-lg-2">
                     <div>
-                    <ConferenceDashboardSideNav/>
+                        <ConferenceDashboardSideNav/>
                     </div>
                 </div>
                 <div className="col-lg-8 col-sm-auto">
@@ -106,7 +103,6 @@ const UpdateConference = ({match}) => {
                             </div>
                             <div className="mb-3">
                                 <label className="col-form-label" htmlFor="name-input-field">Title </label>
-                                {/*<li className="list-group-item" onChange={TitleSetter}>{Conference.Title}</li>*/}
                                 <input className="form-control"
                                        type="text"
                                        name="Title"
@@ -176,13 +172,10 @@ const UpdateConference = ({match}) => {
                                        onChange={EmailSetter}
                                 />
                             </div>
-
                             <div className="mb-3">
-
-                                <button className="btn btn-primary" role="button" type = "submit"  onClick={onSubmit}>
+                                <button className="btn btn-primary" role="button" type="submit" onClick={onSubmit}>
                                     Update
                                 </button>
-
                             </div>
                         </form>
                     </section>
@@ -191,5 +184,4 @@ const UpdateConference = ({match}) => {
         </div>
     );
 }
-
 export default UpdateConference;
