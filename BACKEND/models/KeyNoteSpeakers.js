@@ -19,6 +19,10 @@ const KeyNoteSpeakersSchema = new Schema({
         type : String,
         required : true
     },
+    Description : {
+        type : String,
+        required : true
+    },
     Conference : {
         type : String,
         required : true

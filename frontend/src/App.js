@@ -7,12 +7,11 @@ import Home from "./component/Home/Home";
 import MainNav from "./component/navbar/MainNav";
 import AdminHome from "./component/admin/AdminHome";
 import AdminProfile from "./component/admin/AdminProfile";
-import Reviewerhome from "./component/Reviewerhome";
+import Reviewerhome from "./component/Reviewer/Reviewerhome";
 import Keynotes from "./component/Keynotes/Keynotes";
 import AdminRegister from "./component/admin/AdminRegister";
-import ReviewerRegister from "./component/ReviewerRegister";
-import ReviewerUpdate from "./component/ReviewerUpdate";
-
+import ReviewerRegister from "./component/Reviewer/ReviewerRegister";
+import ReviewerUpdate from "./component/Reviewer/ReviewerUpdate";
 import EditorProfile from "./component/Editor/EditorProfile";
 import EditorRegister from "./component/Editor/EditorRegister";
 import EditorUpdate from "./component/Editor/EditorUpdate";
@@ -28,7 +27,6 @@ import AdminLogin from "./component/Login/AdminLogin";
 import Payment from "./component/user/Payment"
 import ReserchPapersHome from "./component/ViewPapers/ReserchPapersHome";
 import EditRPaper from "./component/ViewPapers/EditRPaper";
-
 import Conference from "./component/Conference/Conference";
 import Keyprofile from "./component/Keynotes/Keynotes-profile";
 import ConferenceDashboard from "./component/Conference/ConferenceDashboard";
@@ -98,7 +96,6 @@ const App = () => {
                     <Route path="/allResearchPapers" component={ReserchPapersHome}/>
                     <Route path="/WorkShopHome" component={WorkShopHome}/>
                     <Route path="/editRP/:id" component={EditRPaper}/>
-
                     <Route path="/EditWorkShopStatus/:id" component={EditWorkShopStatus}/>
                     <Route path="/Attendee" component={AttendeeReg}/>
                     <Route path="/UserProfile" render={props => <ResearcherPro />} />
