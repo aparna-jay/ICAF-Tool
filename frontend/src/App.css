@@ -97,10 +97,11 @@
     padding-left: 40px;
     padding-right: 40px;
 }
-.adminProfileCard{
+.adminProfileCard card{
     height:400px;
     padding-bottom: 40px;
 }
+
 .Ep{
     padding: 40px;
     margin-top: 40px;
