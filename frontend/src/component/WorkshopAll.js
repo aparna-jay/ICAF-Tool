@@ -20,15 +20,13 @@ const WorkshopAll = ()=>{
                                  alt="pr-sample23"/>
                         </div>
                         <figcaption>
-                            <div className="date"><span className="day">28</span><span className="month">Oct</span></div>
+                            <div className="date"><span className="day">01</span></div>
                             <h3>Data science and data driven approaches. </h3>
                             <ul>
                                 <li>Data Mining </li>
                                 <li>  Data driven approaches and technologies. </li>
                                 <li>  Data analytics and visualizations </li>
                                 <li>  Data science applications </li>
-                                <li>  Big data </li>
-                                <li>  Business intelligence  </li>
                             </ul>
                             <h5><b>By Mr.Chameera</b></h5>
                         </figcaption>
@@ -38,7 +36,7 @@ const WorkshopAll = ()=>{
                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24"/>
                         </div>
                         <figcaption>
-                            <div className="date"><span className="day">17</span><span className="month">Nov</span></div>
+                            <div className="date"><span className="day">02</span></div>
                             <h3>Distributed Systems and Applications </h3>
                             <ul>
                                 <li>Algorithms and applications</li>
@@ -58,7 +56,7 @@ const WorkshopAll = ()=>{
                                  alt="pr-sample25"/>
                         </div>
                         <figcaption>
-                            <div className="date"><span className="day">01</span><span className="month">Dec</span></div>
+                            <div className="date"><span className="day">03</span></div>
 
 
                             <h3>Communication </h3>

@@ -12,7 +12,12 @@
     text-align: left;
     width: 100%;
 }
-
+.card-imagia .user-imagia img {
+    background: #FFFFFF;
+    border: 5px solid #FFFFFF;
+    width: 100%;
+    height: 125px;
+}
 .snip1527 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -121,12 +126,9 @@ img {
 }
 
 #portfolio{
-    margin-top: 554px;
+    margin-top: 980px;
 }
 
-#home{
-    margin-top: 100px;
-}
 .navbar-brand{
     margin-left: -539px;
 }
@@ -176,6 +178,7 @@ img {
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: relative;
+
 }
 
 .front-imagia, .back-imagia {

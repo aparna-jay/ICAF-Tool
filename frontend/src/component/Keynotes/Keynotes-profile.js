@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../../styles/Keynotes/Keynotes-profile.css'
 import axios from 'axios';
 import ProgressBar from '../../component/comps/ProgressBar';
+import {Link} from "react-router-dom";
 
 const Keyprofile = () => {
 
@@ -24,6 +25,7 @@ const Keyprofile = () => {
     const[Name , setName] = useState("");
     const[Organization, setOrganization]= useState("");
     const[Designation, setDesignation]= useState("");
+    const[Description, setDescription]= useState("");
     const[Conference, setConference]= useState("");
     const[Status, setStatus]= useState("Pending");
 
@@ -36,6 +38,9 @@ const Keyprofile = () => {
     const designationSetter = (e) => {
         setDesignation(e.target.value);
     }
+    const descriptionSetter = (e) => {
+        setDescription(e.target.value);
+    }
     const conferenceSetter = (e) => {
         setConference(e.target.value);
     }
@@ -44,6 +49,7 @@ const Keyprofile = () => {
             Name: Name,
             Organization: Organization,
             Designation: Designation,
+            Description:Description,
             Conference: Conference,
             avatar:url,
             Status:Status,
@@ -58,10 +64,10 @@ const Keyprofile = () => {
 
     return(
         <div>
-            <div>
-                <div >
-
-                    <section></section>
+            <div className="row">
+                <div className="col-lg-2">
+                </div>
+                <div className="col-lg-12 " id="key">
                     <main className="page">
                         <section className="clean-block about-us">
                             <div className="row justify-content-center">
@@ -78,7 +84,7 @@ const Keyprofile = () => {
                                                         <div className="col">
                                                             <input
                                                                 className="form-control"
-                                                                placeholder="Enter Name"
+                                                                placeholder="Name"
                                                                 type="text"
                                                                 name="name"
                                                                 // value={data.name}
@@ -93,7 +99,7 @@ const Keyprofile = () => {
                                                         <div className="col">
                                                             <input
                                                                 className="form-control"
-                                                                placeholder="Enter Organization"
+                                                                placeholder="Organization"
                                                                 type="text"
                                                                 name="Organization"
                                                                 // value={data.name}
@@ -108,11 +114,26 @@ const Keyprofile = () => {
                                                         <div className="col">
                                                             <input
                                                                 className="form-control"
-                                                                placeholder="Enter Designation"
+                                                                placeholder="Designation"
                                                                 type="text"
                                                                 name="Designation"
                                                                 // value={data.name}
                                                                 onChange={designationSetter}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col">
+                                                            <p className="labels"><strong>Description</strong></p>
+                                                        </div>
+                                                        <div className="col">
+                                                            <input
+                                                                className="form-control"
+                                                                placeholder="Description"
+                                                                type="text"
+                                                                name="Description"
+                                                                // value={data.name}
+                                                                onChange={descriptionSetter}
                                                             />
                                                         </div>
                                                     </div>
@@ -123,7 +144,7 @@ const Keyprofile = () => {
                                                         <div className="col">
                                                             <input
                                                                 className="form-control"
-                                                                placeholder="Enter Description"
+                                                                placeholder="Conference"
                                                                 type="text"
                                                                 name="Description"
                                                                 // value={data.name}
@@ -149,11 +170,10 @@ const Keyprofile = () => {
                                                         </div>
                                                     </div>
 
-
                                                     <div className="row">
                                                         <div className="col-md-12">
                                                             <button className="btn btn-primary" role="button" type = "submit" onClick={onSubmit}>
-                                                                Submit
+                                                                <b>Submit</b>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -165,6 +185,11 @@ const Keyprofile = () => {
                             </div>
                         </section>
                     </main>
+                </div>
+                <div className="col-md-10">
+                <button className="btn btn-primary">
+                    <Link to="/Conference/add">+ Back to Conference</Link>
+                </button>
                 </div>
             </div>
         </div>
