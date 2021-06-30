@@ -12,6 +12,7 @@ const ReviewerRegister = ()=>{
     const[Phone, setPhone]= useState("");
     const[Designation, setDesignation]= useState("");
     const[Password, setPassword]= useState("");
+    const[cPassword, setcPassword]= useState("");
     const nameSetter = (e) => {
         setName(e.target.value);
     }
@@ -24,10 +25,20 @@ const ReviewerRegister = ()=>{
     const passwordSetter = (e) => {
         setPassword(e.target.value);
     }
+    const cpasswordSetter = (e) => {
+        setcPassword(e.target.value);
+    }
     const DesignationSetter = (e) => {
         setDesignation(e.target.value);
     }
+    const validate = () =>{
+        if(Password == cPassword){
+            return true;
+        }
+    }
+
     const onSubmit = () => {
+        if(validate() == true) {
         const newReviewer= {
             Name: Name,
             Email: Email,
@@ -41,6 +52,11 @@ const ReviewerRegister = ()=>{
         }).catch((err) =>{
             alert(err);
         })
+        }
+        else{
+            alert("Passwords do not match!");
+            e.preventDefault();
+        }
     }
 
     return(
@@ -117,7 +133,9 @@ const ReviewerRegister = ()=>{
                                 <div className="form-group mb-3">
                                     <input className="form-control" type="text" placeholder="Phone" onChange={phoneSetter} /></div>
                                 <div className="form-group mb-3">
-                                    <input className="form-control" type="password" placeholder="Password" onChange={passwordSetter}/></div>
+                                <input className="form-control" type="password" placeholder="Password" onChange={passwordSetter}/></div>
+                                <div className="form-group mb-3">
+                                    <input className="form-control" type="password" placeholder="Password" onChange={cpasswordSetter}/></div>
                                 <div className="form-group mb-3">
                                     <button type="submit" className="btn btn-primary btn-lg" onClick={onSubmit}>Submit</button>
                                 </div>
