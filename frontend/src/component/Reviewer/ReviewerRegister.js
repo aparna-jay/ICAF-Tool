@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import '../../../frontend/src/styles/Admin/adminRegister.css'
-import AdminSideNav from "../../../frontend/src/component/navbar/AdminSideNav";
+import '../../styles/Admin/adminRegister.css'
+import AdminSideNav from "../navbar/AdminSideNav";
 
 const ReviewerRegister = ()=>{
     const history = useHistory();
@@ -54,63 +54,12 @@ const ReviewerRegister = ()=>{
         })
         }
         else{
-            alert("Passwords do not match!");
+            alert("Passwords do not match !");
             e.preventDefault();
         }
     }
 
     return(
-        // <div className="col-9">
-        //
-        //     <form className ="bg-danger">
-        //         <br />
-        //         <div className="col-md-auto">
-        //             <h1 className="text-light bg-dark">Reviewer Registry Form</h1>
-        //             <br />
-        //             <label htmlFor="exampleInputName" className="form-label">Ful name</label>
-        //             <input
-        //                 type="text"
-        //                 className="form-control"
-        //                 id="exampleInputFullname"
-        //                 onChange={nameSetter} />
-        //         </div>
-        //         <div className="col-md-auto">
-        //             <label htmlFor="exampleInputDesignation" className="form-label">Designation</label>
-        //             <input
-        //                 type="text"
-        //                 className="form-control"
-        //                 onChange={DesignationSetter} />
-        //         </div>
-        //         <div className="col-md-auto">
-        //             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-        //             <input
-        //                 type="email"
-        //                 className="form-control"
-        //                 id="exampleInputEmail1"
-        //                 aria-describedby="emailHelp"
-        //                 onChange={emailSetter}/>
-        //         </div>
-        //         <div className="col-md-auto">
-        //             <label htmlFor="exampleInputPhone" className="form-label">Phone</label>
-        //             <input
-        //                 type="number"
-        //                 className="form-control"
-        //                 id="exampleInputPhone"
-        //                 onChange={phoneSetter} />
-        //         </div>
-        //         <div className="col-md-auto">
-        //             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-        //             <input
-        //                 type="password"
-        //                 className="form-control"
-        //                 id="exampleInputPassword1"
-        //                 onChange={passwordSetter}/>
-        //         </div>
-        //         <br />
-        //         <button type="submit" className="btn btn-primary btn-lg" onClick={onSubmit}>Submit</button>
-        //         <br /><br />
-        //     </form>
-        // </div>
         <div>
 
             <section className="register-photo">
@@ -145,7 +94,6 @@ const ReviewerRegister = ()=>{
                 </div>
             </section>
         </div>
-    )
-
+    );
 }
 export default ReviewerRegister;
