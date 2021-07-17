@@ -2,7 +2,7 @@
 Visit us here => http://icaf-tool.s3-website-us-east-1.amazonaws.com/home
 :100:
 ***
-![GitHub Logo](/images/logo.png)
+![GitHub Logo](https://github.com/aparna-jay/ICAF-Tool/blob/main/imgonline-com-ua-twotoone-IkizSFCi3iEh2Bx.jpg)
 Group Members: - 
 
 * IT19123882	:girl: Jayawardena W.A.M.    
